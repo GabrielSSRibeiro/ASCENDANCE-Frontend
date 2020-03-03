@@ -5,7 +5,7 @@ import "./styles.css";
 
 function SignInForm({ Functions, Route }) {
   const [nickName, setNickName] = useState("");
-  const [email, setEmail] = useState("");
+  //const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function HandleSubmit(e) {
