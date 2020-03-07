@@ -18,8 +18,8 @@ function SignUpForm({ Functions, Route }) {
     });
 
     if (!(response.data === "")) {
-      const { _id } = response.data;
-      localStorage.setItem("user", _id);
+      const { nickName } = response.data;
+      localStorage.setItem("user", nickName);
       Route.push("/dashboard");
     } else {
       alert("Nome de usuário já existe.");
@@ -28,7 +28,7 @@ function SignUpForm({ Functions, Route }) {
 
   return (
     <form onSubmit={HandleSubmit}>
-      <div className="row row justify-content-md-center">
+      <div className="row justify-content-md-center">
         <div className="col-sm-auto">
           <img className="btn-back" src="" alt="Back" onClick={Functions} />
           <label htmlFor="nickName">Nickname</label>

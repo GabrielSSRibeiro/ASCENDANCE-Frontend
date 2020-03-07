@@ -14,6 +14,8 @@ function SignInForm({ Functions, Route }) {
     const response = await api.get("users", { params: { nickName } });
     if (response.data) {
       if (password === response.data.password) {
+        const { nickName } = response.data;
+        localStorage.setItem("user", nickName);
         Route.push("/dashboard");
       } else {
         alert("Senha incorreta.");

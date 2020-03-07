@@ -1,0 +1,23 @@
+.navi-bar {
+  background-color: #563065;
+  margin: 0;
+  height: 35px;
+  margin-bottom: -35px;
+}
+
+.user {
+  margin: 0%;
+  margin-right: 2%;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}
+
+.title {
+  margin: 0%;
+  margin-left: 2%;
+  color: #ffffff;
+  letter-spacing: 0.7rem;
+  background-color: transparent;
+  border: none;
+}

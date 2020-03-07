@@ -1,6 +1,6 @@
 import React from "react";
 
-function LogTextBox() {
+function TextBox() {
   return (
     <div className="lp-text">
       <p>
@@ -16,4 +16,4 @@ function LogTextBox() {
     </div>
   );
 }
-export default LogTextBox;
+export default TextBox;
