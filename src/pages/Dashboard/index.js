@@ -3,7 +3,8 @@ import api from "../../services/api";
 import InitialScreen from "../../components/Dashboard/InitialScreen";
 import NaviBar from "../../components/NaviBar";
 import ReturnMenu from "../../components/ReturnMenu";
-import LoadGames from "../../components/Dashboard/LoadGames";
+import PlayerGames from "../../components/Dashboard/PlayerGames";
+import GMGames from "../../components/Dashboard/GMGames";
 
 import "./styles.css";
 
@@ -13,15 +14,13 @@ function Dashboard({ history }) {
 
   const [playerGameList, setPlayerGameList] = useState(false);
   const [GMGameList, setGMGameList] = useState(false);
+
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     async function getUser() {
       const nickName = localStorage.getItem("user");
-
-      //const response = await api.get("user", { params: { nickName } });
-
-      setUserName(nickName); //response.data.nickName
+      setUserName(nickName);
     }
 
     getUser();
@@ -51,15 +50,16 @@ function Dashboard({ history }) {
 
   return (
     <>
-      <NaviBar States={userName} Route={history} />
+      <NaviBar userName={userName} history={history} />
       <InitialScreen
-        Functions={{ PlayerButtonClick, GMButtonClick }}
-        States={{ initialScreen, setInitialScreen }}
+        PlayerButtonClick={PlayerButtonClick}
+        GMButtonClick={GMButtonClick}
+        initialScreen={initialScreen}
       />
       {playerGameList ? (
         <>
-          <ReturnMenu Functions={PlayerButtonClick} Title="Selecione o Jogo" />
-          <LoadGames Functions={PlayerGamesList} States={games} Route={history} />
+          <ReturnMenu propFunction={PlayerButtonClick} title="Seleção de Jogo" />
+          <PlayerGames PlayerGamesList={PlayerGamesList} games={games} history={history} />
         </>
       ) : (
         ""
@@ -67,10 +67,8 @@ function Dashboard({ history }) {
 
       {GMGameList ? (
         <>
-          <ReturnMenu Functions={GMButtonClick} Title="Selecione o Jogo" />
-          <LoadGames Functions={GMGamesList} States={games} Route={history} />
-
-          {/* newGame component */}
+          <ReturnMenu propFunction={GMButtonClick} title="Selecione o Jogo" />
+          <GMGames GMGamesList={GMGamesList} games={games} history={history} />;
         </>
       ) : (
         ""

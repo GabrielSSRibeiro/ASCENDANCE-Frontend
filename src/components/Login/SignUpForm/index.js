@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import api from "../../../services/api";
 
 import "./styles.css";
+import returnLogin from "../../../assets/arrows/returnLogin.png";
 
-function SignUpForm({ Functions, Route }) {
+function SignUpForm({ SignUpButtonClick, history }) {
   const [nickName, setNickName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +21,7 @@ function SignUpForm({ Functions, Route }) {
     if (!(response.data === "")) {
       const { nickName } = response.data;
       localStorage.setItem("user", nickName);
-      Route.push("/dashboard");
+      history.push("/dashboard");
     } else {
       alert("Nome de usuário já existe.");
     }
@@ -30,8 +31,7 @@ function SignUpForm({ Functions, Route }) {
     <form onSubmit={HandleSubmit}>
       <div className="row justify-content-md-center">
         <div className="col-sm-auto">
-          <img className="btn-back" src="" alt="Back" onClick={Functions} />
-          <label htmlFor="nickName">Nickname</label>
+          <label htmlFor="nickName">Usuário</label>
           <div className="w-100"></div>
           <input onChange={e => setNickName(e.target.value)}></input>
         </div>
@@ -39,6 +39,7 @@ function SignUpForm({ Functions, Route }) {
         <div className="w-100"></div>
 
         <div className="col-sm-auto">
+          <img className="btn-back" src={returnLogin} alt="Return" onClick={SignUpButtonClick} />
           <label htmlFor="email">E-mail</label>
           <div className="w-100"></div>
           <input onChange={e => setEmail(e.target.value)}></input>

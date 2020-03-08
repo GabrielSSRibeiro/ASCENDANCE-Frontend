@@ -26,12 +26,13 @@ function Login({ history }) {
       <h1>ESSENCIA</h1>
       <TextBox />
       <InitialButtons
-        Functions={{ SignInButtonClick, SignUpButtonClick }}
-        States={{ initialButtons, setInitialButtons }}
+        SignInButtonClick={SignInButtonClick}
+        SignUpButtonClick={SignUpButtonClick}
+        initialButtons={initialButtons}
       />
       {/* forms */}
-      {signInForm ? <SignInForm Functions={SignInButtonClick} Route={history} /> : ""}
-      {signUpForm ? <SignUpForm Functions={SignUpButtonClick} Route={history} /> : ""}
+      {signInForm ? <SignInForm SignInButtonClick={SignInButtonClick} history={history} /> : ""}
+      {signUpForm ? <SignUpForm SignUpButtonClick={SignUpButtonClick} history={history} /> : ""}
     </>
   );
 }

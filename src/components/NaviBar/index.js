@@ -2,15 +2,24 @@ import React from "react";
 
 import "./styles.css";
 
-function NaviBar({ Route, States }) {
-  function RedirectLogin(e) {
-    e.preventDefault();
-    Route.push("/");
+function NaviBar({ userName, history }) {
+  function QueryLogin() {
+    const nickName = localStorage.getItem("user");
+    if (nickName === "" || !nickName) {
+      history.push("/");
+    }
   }
-  function RedirectDashboard(e) {
-    e.preventDefault();
-    Route.push("/dashboard");
+
+  function RedirectLogin() {
+    localStorage.setItem("user", "");
+    localStorage.setItem("game", "");
+    history.push("/");
   }
+  function RedirectDashboard() {
+    history.push("/dashboard");
+  }
+
+  QueryLogin();
 
   return (
     <div className="navi-bar row">
@@ -18,7 +27,7 @@ function NaviBar({ Route, States }) {
         ESSENCIA
       </button>
       <button className="col-sl-auto user" onClick={RedirectLogin}>
-        {States}
+        {userName}
       </button>
     </div>
   );
