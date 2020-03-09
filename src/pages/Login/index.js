@@ -23,7 +23,7 @@ function Login({ history }) {
 
   return (
     <>
-      <h1>ESSENCIA</h1>
+      <h1 className="game-title">ESSENCIA</h1>
       <TextBox />
       <InitialButtons
         SignInButtonClick={SignInButtonClick}

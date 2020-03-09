@@ -9,6 +9,13 @@
   top: 50%;
   left: -3%;
   transform: translate(-100%, -50%);
+  cursor: pointer;
+}
+.check-img:hover {
+  transform: translate(-100%, -50%) scale(1.1);
+}
+.check-img:active {
+  transform: translate(-100%, -50%) scale(0.9);
 }
 
 .delete-img {
@@ -16,6 +23,13 @@
   top: 50%;
   left: 103%;
   transform: translate(0%, -50%);
+  cursor: pointer;
+}
+.delete-img:hover {
+  transform: translate(0%, -50%) scale(1.1);
+}
+.delete-img:active {
+  transform: translate(0%, -50%) scale(0.9);
 }
 
 .item-container {

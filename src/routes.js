@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -14,6 +14,9 @@ export default function Routes() {
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/gm-panel" exact component={GMPanel} />
         <Route path="/player-panel" exact component={PlayerPanel} />
+        <Route>
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

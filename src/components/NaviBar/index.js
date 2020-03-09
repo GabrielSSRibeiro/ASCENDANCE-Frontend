@@ -16,6 +16,7 @@ function NaviBar({ userName, history }) {
     history.push("/");
   }
   function RedirectDashboard() {
+    localStorage.setItem("game", "");
     history.push("/dashboard");
   }
 

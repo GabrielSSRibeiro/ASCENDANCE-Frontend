@@ -6,7 +6,7 @@ function InitialScreen({ PlayerButtonClick, GMButtonClick, initialScreen }) {
     <>
       {initialScreen ? (
         <>
-          <h1>ESSENCIA</h1>
+          <h1 className="game-title">ESSENCIA</h1>
           <TextBox />
           <div className="row">
             <div className="col-sm">

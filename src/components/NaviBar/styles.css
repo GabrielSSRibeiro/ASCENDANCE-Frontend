@@ -12,6 +12,12 @@
   background-color: transparent;
   border: none;
 }
+.user:hover {
+  color: #e5e5e5;
+}
+.user:active {
+  transform: scale(0.9);
+}
 
 .title {
   margin: 0%;
@@ -20,4 +26,10 @@
   letter-spacing: 0.7rem;
   background-color: transparent;
   border: none;
+}
+.title:hover {
+  color: #e5e5e5;
+}
+.title:active {
+  transform: scale(0.9);
 }

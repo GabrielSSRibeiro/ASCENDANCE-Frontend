@@ -13,8 +13,6 @@
   text-align: left;
 }
 
-h1 {
-  margin: 10% auto 5%;
-  color: #ffffff;
-  letter-spacing: 0.7rem;
+.col-sm-auto {
+  text-align: left;
 }

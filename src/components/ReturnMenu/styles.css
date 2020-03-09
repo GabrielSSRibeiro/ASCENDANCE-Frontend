@@ -20,9 +20,11 @@
   height: 100%;
   padding: 0;
 }
-
 .box-return:hover {
   background-color: #e5e5e5;
+}
+.box-return:active {
+  transform: scale(0.9);
 }
 
 .return-button {

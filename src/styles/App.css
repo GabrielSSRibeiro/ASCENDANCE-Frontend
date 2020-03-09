@@ -31,13 +31,16 @@ label {
   text-align: left;
 }
 
-.col-sm-auto {
-  text-align: left;
-}
-
 input {
   margin-bottom: 5px;
   border-radius: 6px;
+  padding: 0 5px;
+}
+
+.game-title {
+  letter-spacing: 0.7rem;
+  margin: 10% auto 5%;
+  color: #ffffff;
 }
 
 button:focus {
@@ -54,6 +57,12 @@ button:focus {
   box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
   color: #ffffff;
 }
+.std-button:hover {
+  transform: scale(1.1);
+}
+.std-button:active {
+  transform: scale(0.9);
+}
 
 .std-button-filled {
   width: 150px;
@@ -63,4 +72,18 @@ button:focus {
   border-radius: 12px;
   background-color: #563065;
   color: #ffffff;
+}
+.std-button-filled:hover {
+  transform: scale(1.1);
+}
+.std-button-filled:active {
+  transform: scale(0.9);
+}
+
+.std-button-selected {
+  background-color: #f27036;
+  transition: all 0.2s;
+  border: none;
+  box-shadow: none;
+  font-weight: 600;
 }
