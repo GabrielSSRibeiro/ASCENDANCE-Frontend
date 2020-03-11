@@ -4,10 +4,10 @@ function TextBox() {
   return (
     <div className="lp-text">
       <p>
-        Como Mestre, cria suas próprias aventuras e convide jogadores.
-        <br></br>
-        <br></br>
         Como Jogador, entre em um jogo que você foi convidado.
+        <br></br>
+        <br></br>
+        Como Mestre, cria suas próprias aventuras e convide jogadores.
       </p>
     </div>
   );

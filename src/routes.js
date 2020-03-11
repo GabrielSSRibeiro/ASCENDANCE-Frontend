@@ -15,7 +15,7 @@ export default function Routes() {
         <Route path="/gm-panel" exact component={GMPanel} />
         <Route path="/player-panel" exact component={PlayerPanel} />
         <Route>
-          <Redirect to="/" />
+          <Redirect to="/dashboard" />
         </Route>
       </Switch>
     </BrowserRouter>

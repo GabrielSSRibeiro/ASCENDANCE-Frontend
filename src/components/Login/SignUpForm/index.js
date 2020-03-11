@@ -4,10 +4,15 @@ import api from "../../../services/api";
 import "./styles.css";
 import returnLogin from "../../../assets/arrows/returnLogin.png";
 
-function SignUpForm({ SignUpButtonClick, history }) {
+function SignUpForm(props) {
   const [nickName, setNickName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function ReturnInitialButtons() {
+    props.setInitialButtonsDisplay(!props.initialButtonsDisplay);
+    props.setSignUpFormDisplay(!props.signUpFormDisplay);
+  }
 
   async function HandleSubmit(e) {
     e.preventDefault();
@@ -21,7 +26,7 @@ function SignUpForm({ SignUpButtonClick, history }) {
     if (!(response.data === "")) {
       const { nickName } = response.data;
       localStorage.setItem("user", nickName);
-      history.push("/dashboard");
+      props.history.push("/dashboard");
     } else {
       alert("Nome de usuário já existe.");
     }
@@ -39,7 +44,7 @@ function SignUpForm({ SignUpButtonClick, history }) {
         <div className="w-100"></div>
 
         <div className="col-sm-auto">
-          <img className="btn-back" src={returnLogin} alt="Return" onClick={SignUpButtonClick} />
+          <img className="btn-back" src={returnLogin} alt="Return" onClick={ReturnInitialButtons} />
           <label htmlFor="email">E-mail</label>
           <div className="w-100"></div>
           <input onChange={e => setEmail(e.target.value)}></input>

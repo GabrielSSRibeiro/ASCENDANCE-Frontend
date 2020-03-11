@@ -3,10 +3,10 @@ import React from "react";
 import "./styles.css";
 import returnArrow from "../../assets/arrows/returnArrow.png";
 
-function ReturnMenu({ propFunction, title }) {
+function ReturnMenu({ returnFunction, title }) {
   return (
     <div className="row return-bar align-items-center justify-content-center">
-      <div className="col-1 box-return" onClick={propFunction}>
+      <div className="col-1 box-return" onClick={returnFunction}>
         <img className="return-img" src={returnArrow} alt="Return" />
         <button className="return-button ">
           <strong>Voltar</strong>

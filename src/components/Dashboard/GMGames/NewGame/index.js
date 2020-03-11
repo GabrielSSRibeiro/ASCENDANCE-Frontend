@@ -3,7 +3,7 @@ import api from "../../../../services/api";
 
 import "./styles.css";
 
-function NewGame({ history }) {
+function NewGame(props) {
   const [name, setName] = useState();
 
   async function HandleSubmit(e) {
@@ -17,7 +17,7 @@ function NewGame({ history }) {
 
     if (!(response.data === "")) {
       localStorage.setItem("game", name);
-      history.push("/gm-panel");
+      props.history.push("/gm-panel");
     } else {
       alert("Já existe um jogo com esse nome.");
     }

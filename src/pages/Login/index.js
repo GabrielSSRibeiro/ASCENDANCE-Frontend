@@ -7,32 +7,27 @@ import TextBox from "../../components/Login/TextBox";
 import "./styles.css";
 
 function Login({ history }) {
-  const [initialButtons, setInitialButtons] = useState(true);
-  const [signInForm, setSignInForm] = useState(false);
-  const [signUpForm, setSignUpForm] = useState(false);
-
-  function SignInButtonClick() {
-    setInitialButtons(!initialButtons);
-    setSignInForm(!signInForm);
-  }
-
-  function SignUpButtonClick() {
-    setInitialButtons(!initialButtons);
-    setSignUpForm(!signUpForm);
-  }
+  const [initialButtonsDisplay, setInitialButtonsDisplay] = useState(true);
+  const [signInFormDisplay, setSignInFormDisplay] = useState(false);
+  const [signUpFormDisplay, setSignUpFormDisplay] = useState(false);
+  const states = {
+    initialButtonsDisplay,
+    setInitialButtonsDisplay,
+    signInFormDisplay,
+    setSignInFormDisplay,
+    signUpFormDisplay,
+    setSignUpFormDisplay,
+    history
+  };
 
   return (
     <>
       <h1 className="game-title">ESSENCIA</h1>
       <TextBox />
-      <InitialButtons
-        SignInButtonClick={SignInButtonClick}
-        SignUpButtonClick={SignUpButtonClick}
-        initialButtons={initialButtons}
-      />
+      <InitialButtons {...states} />
       {/* forms */}
-      {signInForm ? <SignInForm SignInButtonClick={SignInButtonClick} history={history} /> : ""}
-      {signUpForm ? <SignUpForm SignUpButtonClick={SignUpButtonClick} history={history} /> : ""}
+      {signInFormDisplay ? <SignInForm {...states} /> : ""}
+      {signUpFormDisplay ? <SignUpForm {...states} /> : ""}
     </>
   );
 }

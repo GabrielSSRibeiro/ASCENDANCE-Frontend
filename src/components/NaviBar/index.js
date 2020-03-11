@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./styles.css";
 
-function NaviBar({ userName, history }) {
+function NaviBar({ history }) {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    async function getUser() {
+      const nickName = localStorage.getItem("user");
+      setUserName(nickName);
+    }
+
+    getUser();
+  }, []);
+
   function QueryLogin() {
     const nickName = localStorage.getItem("user");
     if (nickName === "" || !nickName) {

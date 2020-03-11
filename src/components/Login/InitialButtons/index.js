@@ -1,9 +1,19 @@
 import React from "react";
 
-function InitialButtons({ SignInButtonClick, SignUpButtonClick, initialButtons }) {
+function InitialButtons(props) {
+  function SignInButtonClick() {
+    props.setInitialButtonsDisplay(!props.initialButtonsDisplay);
+    props.setSignInFormDisplay(!props.signInFormDisplay);
+  }
+
+  function SignUpButtonClick() {
+    props.setInitialButtonsDisplay(!props.initialButtonsDisplay);
+    props.setSignUpFormDisplay(!props.signUpFormDisplay);
+  }
+
   return (
     <>
-      {initialButtons ? (
+      {props.initialButtonsDisplay ? (
         <>
           <div className="row">
             <div className="col-sm">

@@ -1,74 +1,48 @@
-import React, { useState, useEffect } from "react";
-import api from "../../services/api";
+import React, { useState } from "react";
 import InitialScreen from "../../components/Dashboard/InitialScreen";
 import NaviBar from "../../components/NaviBar";
-import ReturnMenu from "../../components/ReturnMenu";
 import PlayerGames from "../../components/Dashboard/PlayerGames";
 import GMGames from "../../components/Dashboard/GMGames";
 
 import "./styles.css";
 
 function Dashboard({ history }) {
-  const [userName, setUserName] = useState();
-  const [initialScreen, setInitialScreen] = useState(true);
+  const [initialScreenDisplay, setInitialScreenDisplay] = useState(true);
+  const [playerGamesDisplay, setPlayerGamesDisplay] = useState(false);
+  const [playerGamesList, setPlayerGamesList] = useState([]);
+  const [GMGamesDisplay, setGMGamesDisplay] = useState(false);
+  const [GMGamesList, setGMGamesList] = useState([]);
 
-  const [playerGameList, setPlayerGameList] = useState(false);
-  const [GMGameList, setGMGameList] = useState(false);
-
-  const [games, setGames] = useState([]);
-
-  useEffect(() => {
-    async function getUser() {
-      const nickName = localStorage.getItem("user");
-      setUserName(nickName);
-    }
-
-    getUser();
-  }, []);
-
-  function PlayerButtonClick() {
-    setInitialScreen(!initialScreen);
-    setPlayerGameList(!playerGameList);
-  }
-
-  function GMButtonClick() {
-    setInitialScreen(!initialScreen);
-    setGMGameList(!GMGameList);
-  }
-
-  async function GMGamesList() {
-    const user = localStorage.getItem("user");
-    const response = await api.get("gm-games", { params: { user } });
-    setGames(response.data);
-  }
-
-  async function PlayerGamesList() {
-    const party = localStorage.getItem("user");
-    const response = await api.get("player-games", { params: { party } });
-    setGames(response.data);
-  }
+  const states = {
+    initialScreenDisplay,
+    setInitialScreenDisplay,
+    playerGamesDisplay,
+    setPlayerGamesDisplay,
+    playerGamesList,
+    setPlayerGamesList,
+    GMGamesDisplay,
+    setGMGamesDisplay,
+    GMGamesList,
+    setGMGamesList,
+    history
+  };
 
   return (
     <>
-      <NaviBar userName={userName} history={history} />
-      <InitialScreen
-        PlayerButtonClick={PlayerButtonClick}
-        GMButtonClick={GMButtonClick}
-        initialScreen={initialScreen}
-      />
-      {playerGameList ? (
+      <NaviBar history={history} />
+      <InitialScreen {...states} />
+      {/* list of player's games */}
+      {playerGamesDisplay ? (
         <>
-          <ReturnMenu propFunction={PlayerButtonClick} title="Seleção de Jogo" />
-          <PlayerGames PlayerGamesList={PlayerGamesList} games={games} history={history} />
+          <PlayerGames {...states} />
         </>
       ) : (
         ""
       )}
-
-      {GMGameList ? (
+      {/* list of GM's games */}
+      {GMGamesDisplay ? (
         <>
-          <ReturnMenu propFunction={GMButtonClick} title="Selecione o Jogo" />
-          <GMGames GMGamesList={GMGamesList} games={games} history={history} />;
+          <GMGames {...states} />;
         </>
       ) : (
         ""

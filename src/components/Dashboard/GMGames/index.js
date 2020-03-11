@@ -1,17 +1,29 @@
 import React, { useState } from "react";
 import api from "../../../services/api";
+import ReturnMenu from "../../ReturnMenu";
 import NewGame from "./NewGame/";
 
 import "./styles.css";
 import deleteIcon from "../../../assets/edition/delete.png";
 import checkIcon from "../../../assets/edition/check.png";
 
-function PlayerGames({ GMGamesList, games, history }) {
+function PlayerGames(props) {
   const [newGame, setNewGame] = useState(false);
+
+  function ReturnInitialScreen() {
+    props.setGMGamesDisplay(!props.GMGamesDisplay);
+    props.setInitialScreenDisplay(!props.initialScreenDisplay);
+  }
+
+  async function GMGamesList() {
+    const user = localStorage.getItem("user");
+    const response = await api.get("gm-games", { params: { user } });
+    props.setGMGamesList(response.data);
+  }
 
   function StartGame(name) {
     localStorage.setItem("game", name);
-    history.push("/gm-panel");
+    props.history.push("/gm-panel");
   }
 
   async function DeleteGame(name) {
@@ -24,43 +36,48 @@ function PlayerGames({ GMGamesList, games, history }) {
   }
 
   GMGamesList();
-
   return (
     <>
+      <ReturnMenu returnFunction={ReturnInitialScreen} title="Selecione o Jogo" />
       {!newGame ? (
         <>
-          {" "}
-          <>
-            <div className="row align-items-center justify-content-center list-item">
-              {games.map(game => (
-                <>
-                  <div key={game._id} className="col-auto item-container">
-                    <img
-                      className="check-img"
-                      onClick={() => StartGame(game.name)}
-                      src={checkIcon}
-                      alt="Icon made by Pixel perfect from www.flaticon.com"
-                    />
-                    <span className="item">{game.name}</span>
-                    <img
-                      className="delete-img"
-                      src={deleteIcon}
-                      onClick={() => DeleteGame(game.name)}
-                      alt="Icon made by kiranshastry from www.flaticon.com"
-                    />
-                  </div>
-                  <div className="w-100"></div>
-                </>
-              ))}
-            </div>
-            <button className="std-button" onClick={NewGameClick}>
-              Novo
-            </button>
-          </>
+          {props.GMGamesList.length > 0 ? (
+            <>
+              <div className="row align-items-center justify-content-center list-item">
+                {props.GMGamesList.map(game => (
+                  <>
+                    <div key={game._id} className="col-auto item-container">
+                      <img
+                        className="check-img"
+                        onClick={() => StartGame(game.name)}
+                        src={checkIcon}
+                        alt="Icon made by Pixel perfect from www.flaticon.com"
+                      />
+                      <span className="item">{game.name}</span>
+                      <img
+                        className="delete-img"
+                        src={deleteIcon}
+                        onClick={() => DeleteGame(game.name)}
+                        alt="Icon made by kiranshastry from www.flaticon.com"
+                      />
+                    </div>
+                    <div className="w-100"></div>
+                  </>
+                ))}
+              </div>
+              <button className="std-button" onClick={NewGameClick}>
+                Novo
+              </button>
+            </>
+          ) : (
+            <>
+              <h1>Você ainda não criou nenhuma jogo.</h1> />
+            </>
+          )}
         </>
       ) : (
         <>
-          <NewGame games={games} history={history} />
+          <NewGame {...props} />
         </>
       )}
     </>

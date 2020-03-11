@@ -1,10 +1,20 @@
 import React from "react";
 import TextBox from "../TextBox";
 
-function InitialScreen({ PlayerButtonClick, GMButtonClick, initialScreen }) {
+function InitialScreen(props) {
+  function PlayerButtonClick() {
+    props.setPlayerGamesDisplay(!props.playerGamesDisplay);
+    props.setInitialScreenDisplay(!props.initialScreenDisplay);
+  }
+
+  function GMButtonClick() {
+    props.setGMGamesDisplay(!props.GMGamesDisplay);
+    props.setInitialScreenDisplay(!props.initialScreenDisplay);
+  }
+
   return (
     <>
-      {initialScreen ? (
+      {props.initialScreenDisplay ? (
         <>
           <h1 className="game-title">ESSENCIA</h1>
           <TextBox />

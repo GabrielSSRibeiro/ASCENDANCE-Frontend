@@ -4,9 +4,14 @@ import api from "../../../services/api";
 import "./styles.css";
 import returnLogin from "../../../assets/arrows/returnLogin.png";
 
-function SignInForm({ SignInButtonClick, history }) {
+function SignInForm(props) {
   const [nickName, setNickName] = useState("");
   const [password, setPassword] = useState("");
+
+  function ReturnInitialButtons() {
+    props.setInitialButtonsDisplay(!props.initialButtonsDisplay);
+    props.setSignInFormDisplay(!props.signInFormDisplay);
+  }
 
   async function HandleSubmit(e) {
     e.preventDefault();
@@ -16,7 +21,7 @@ function SignInForm({ SignInButtonClick, history }) {
       if (password === response.data.password) {
         const { nickName } = response.data;
         localStorage.setItem("user", nickName);
-        history.push("/dashboard");
+        props.history.push("/dashboard");
       } else {
         alert("Senha incorreta.");
       }
@@ -37,7 +42,7 @@ function SignInForm({ SignInButtonClick, history }) {
         <div className="w-100"></div>
 
         <div className="col-sm-auto">
-          <img className="btn-back" src={returnLogin} alt="Return" onClick={SignInButtonClick} />
+          <img className="btn-back" src={returnLogin} alt="Return" onClick={ReturnInitialButtons} />
           <label htmlFor="paswword">Senha</label>
           <div className="w-100"></div>
           <input onChange={e => setPassword(e.target.value)}></input>

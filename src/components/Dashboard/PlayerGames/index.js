@@ -1,27 +1,40 @@
 import React from "react";
 import api from "../../../services/api";
+import ReturnMenu from "../../ReturnMenu";
 
 import "./styles.css";
 import deleteIcon from "../../../assets/edition/delete.png";
 import checkIcon from "../../../assets/edition/check.png";
 
-function PlayerGames({ PlayerGamesList, games, history }) {
+function PlayerGames(props) {
+  function ReturnInitialScreen() {
+    props.setPlayerGamesDisplay(!props.playerGamesDisplay);
+    props.setInitialScreenDisplay(!props.initialScreenDisplay);
+  }
+
+  async function PlayerGamesList() {
+    const party = localStorage.getItem("user");
+    const response = await api.get("player-games", { params: { party } });
+    props.setPlayerGamesList(response.data);
+  }
+
   function StartGame(name) {
     localStorage.setItem("game", name);
-    history.push("/player-panel");
+    props.history.push("/player-panel");
   }
 
   async function DeleteGame(name) {
     const party = localStorage.getItem("user");
     await api.delete("player-games", { params: { name, party } });
   }
-  PlayerGamesList();
 
+  PlayerGamesList();
   return (
     <>
-      {games.length > 0 ? (
+      <ReturnMenu returnFunction={ReturnInitialScreen} title="Seleção de Jogo" />
+      {props.playerGamesList.length > 0 ? (
         <div className="row align-items-center justify-content-center list-item">
-          {games.map(game => (
+          {props.playerGamesList.map(game => (
             <>
               <div key={game._id} className="col-auto item-container">
                 <img
