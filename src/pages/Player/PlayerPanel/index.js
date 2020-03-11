@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import api from "../../services/api";
+import api from "../../../services/api";
 
 import "./styles.css";
 
-function GMPanel({ history }) {
+function PlayerPanel({ history }) {
   const gameName = localStorage.getItem("game");
   return <h1>{gameName}</h1>;
 }
 
-export default GMPanel;
+export default PlayerPanel;
