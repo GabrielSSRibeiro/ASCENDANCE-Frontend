@@ -32,26 +32,39 @@ function SignInForm(props) {
 
   return (
     <form onSubmit={HandleSubmit}>
-      <div className="row justify-content-md-center">
-        <div className="col-sm-auto">
-          <label htmlFor="login">Usuário</label>
+      <div className="row justify-content-md-center ">
+        <div className="col-sm-auto signInForm">
+          <label htmlFor="login" className="login-label">
+            Usuário
+          </label>
           <div className="w-100"></div>
-          <input onChange={e => setNickName(e.target.value)}></input>
+          <input className="login-input" onChange={e => setNickName(e.target.value)}></input>
         </div>
 
         <div className="w-100"></div>
 
-        <div className="col-sm-auto">
-          <img className="btn-back" src={returnLogin} alt="Return" onClick={ReturnInitialButtons} />
-          <label htmlFor="paswword">Senha</label>
+        <div className="col-sm-auto signInForm">
+          <img
+            className="signInForm-btn-back"
+            src={returnLogin}
+            alt="Return"
+            onClick={ReturnInitialButtons}
+          />
+          <label htmlFor="password" className="login-label">
+            Senha
+          </label>
           <div className="w-100"></div>
-          <input onChange={e => setPassword(e.target.value)}></input>
+          <input
+            className="login-input"
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+          ></input>
         </div>
 
         <div className="w-100"></div>
 
         <div className="col-sm">
-          <button className="std-button">Entrar</button>
+          <button className="signInForm-btn std-button">Entrar</button>
         </div>
       </div>
     </form>

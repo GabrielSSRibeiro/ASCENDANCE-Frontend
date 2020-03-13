@@ -1,0 +1,68 @@
+.manageParty-area {
+  margin: auto;
+  margin-top: -1.5%;
+  height: 250px;
+  width: 90%;
+}
+
+.manageParty-member {
+  border-right: thin solid #e5e5e5;
+  border-left: thin solid #e5e5e5;
+  height: 100%;
+  width: 20%;
+  margin: 0;
+}
+
+.manageParty-delete-img {
+  position: absolute;
+  top: 0%;
+  right: 3%;
+}
+.manageParty-delete-img:hover {
+  transform: scale(1.1);
+}
+.manageParty-delete-img:active {
+  transform: scale(0.9);
+}
+
+.manageParty-avatar {
+  width: 90%;
+  padding-top: 90%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 100%;
+}
+
+.manageParty-avatar-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-weight: 600;
+  color: #563065;
+}
+
+.manageParty-btn {
+  position: absolute;
+  bottom: 0%;
+  left: 25%;
+}
+
+.manageParty-general-notes {
+  margin: 0;
+  padding: 0 5px;
+  position: fixed;
+  top: 75%;
+  left: 10%;
+  width: 80%;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.manageParty-notes-label {
+  margin: 0;
+  margin-top: 4%;
+  font-weight: 600;
+  color: #ffffff;
+}

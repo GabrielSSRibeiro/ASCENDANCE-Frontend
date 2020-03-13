@@ -1,4 +1,4 @@
-.return-bar {
+.returnMenu-bar {
   margin: 0;
   margin-top: 35px;
   height: 60px;
@@ -7,28 +7,28 @@
   opacity: 92%;
 }
 
-.return-img {
+.returnMenu-img {
   position: absolute;
   top: 50%;
   left: 20%;
   transform: translate(-50%, -50%);
 }
 
-.box-return {
+.returnMenu-box {
   position: absolute;
   left: 0;
   height: 100%;
   padding: 0;
   cursor: pointer;
 }
-.box-return:hover {
+.returnMenu-box:hover {
   background-color: #e5e5e5;
 }
-.box-return:active {
+.returnMenu-box:active {
   transform: scale(0.9);
 }
 
-.return-button {
+.returnMenu-button {
   position: absolute;
   top: 50%;
   left: 60%;
@@ -40,7 +40,7 @@
   background-color: transparent;
 }
 
-.return-title {
+.returnMenu-title {
   color: #7b2574;
   margin: 0;
 }

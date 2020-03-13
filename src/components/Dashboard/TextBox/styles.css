@@ -1,0 +1,14 @@
+.dashboard-textBox {
+  background: linear-gradient(270deg, rgba(117, 112, 112, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  width: 500px;
+  height: 300px;
+  margin-left: 100px;
+  float: left;
+  border-radius: 5px;
+}
+
+.dashboard-textBox p {
+  color: #ffffff;
+  padding: 5% 20% 1%;
+  text-align: left;
+}

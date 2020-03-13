@@ -5,15 +5,15 @@ import returnArrow from "../../assets/arrows/returnArrow.png";
 
 function ReturnMenu({ returnFunction, title }) {
   return (
-    <div className="row return-bar align-items-center justify-content-center">
-      <div className="col-1 box-return" onClick={returnFunction}>
-        <img className="return-img" src={returnArrow} alt="Return" />
-        <button className="return-button ">
+    <div className="row returnMenu-bar align-items-center justify-content-center">
+      <div className="col-1 returnMenu-box" onClick={returnFunction}>
+        <img className="returnMenu-img" src={returnArrow} alt="Return" />
+        <button className="returnMenu-button ">
           <strong>Voltar</strong>
         </button>
       </div>
       <div className="col-sl-auto">
-        <p className="return-title">{title}</p>
+        <p className="returnMenu-title">{title}</p>
       </div>
     </div>
   );

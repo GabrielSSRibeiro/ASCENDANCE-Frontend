@@ -35,33 +35,48 @@ function SignUpForm(props) {
   return (
     <form onSubmit={HandleSubmit}>
       <div className="row justify-content-md-center">
-        <div className="col-sm-auto">
-          <label htmlFor="nickName">Usuário</label>
+        <div className="col-sm-auto signUpForm">
+          <label htmlFor="nickName" className="login-label">
+            Usuário
+          </label>
           <div className="w-100"></div>
-          <input onChange={e => setNickName(e.target.value)}></input>
+          <input className="login-input" onChange={e => setNickName(e.target.value)}></input>
         </div>
 
         <div className="w-100"></div>
 
-        <div className="col-sm-auto">
-          <img className="btn-back" src={returnLogin} alt="Return" onClick={ReturnInitialButtons} />
-          <label htmlFor="email">E-mail</label>
+        <div className="col-sm-auto signUpForm">
+          <img
+            className="signUpForm-btn-back"
+            src={returnLogin}
+            alt="Return"
+            onClick={ReturnInitialButtons}
+          />
+          <label htmlFor="email" className="login-label">
+            E-mail
+          </label>
           <div className="w-100"></div>
-          <input onChange={e => setEmail(e.target.value)}></input>
+          <input className="login-input" onChange={e => setEmail(e.target.value)}></input>
         </div>
 
         <div className="w-100"></div>
 
-        <div className="col-sm-auto">
-          <label htmlFor="password">Senha</label>
+        <div className="col-sm-auto signUpForm">
+          <label htmlFor="password" className="login-label">
+            Senha
+          </label>
           <div className="w-100"></div>
-          <input onChange={e => setPassword(e.target.value)}></input>
+          <input
+            className="login-input"
+            type="password"
+            onChange={e => setPassword(e.target.value)}
+          ></input>
         </div>
 
         <div className="w-100"></div>
 
         <div className="col-sm">
-          <button className="std-button">Cadastrar</button>
+          <button className="signUpForm-btn std-button">Cadastrar</button>
         </div>
       </div>
     </form>

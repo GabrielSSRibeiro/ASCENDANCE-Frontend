@@ -7,17 +7,17 @@
   opacity: 92%;
 }
 
-.box-menu {
+.menu-box {
   height: 100%;
   padding-top: 0.5%;
   padding-bottom: -0.5%;
   cursor: pointer;
 }
 
-.box-menu:hover {
+.menu-box:hover {
   background-color: #e5e5e5;
 }
-.box-menu:active {
+.menu-box:active {
   transform: scale(0.9);
 }
 

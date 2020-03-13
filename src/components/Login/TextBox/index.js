@@ -1,8 +1,10 @@
 import React from "react";
 
+import "./styles.css";
+
 function TextBox() {
   return (
-    <div className="lp-text">
+    <div className="login-textBox">
       <p>
         Bem Vindo à ESSENCIA!
         <br></br>

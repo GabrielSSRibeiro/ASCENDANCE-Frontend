@@ -1,18 +1,9 @@
-.lp-text {
-  background: linear-gradient(270deg, rgba(117, 112, 112, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  width: 500px;
-  height: 300px;
-  margin-left: 100px;
-  float: left;
-  border-radius: 5px;
-}
-
-.lp-text p {
+.login-label {
   color: #ffffff;
-  padding: 5% 20% 1%;
-  text-align: left;
 }
 
-.col-sm-auto {
-  text-align: left;
+.login-input {
+  margin-bottom: 5px;
+  border-radius: 6px;
+  padding: 0 5px;
 }

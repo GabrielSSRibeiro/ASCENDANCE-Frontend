@@ -1,25 +1,25 @@
-.navi-bar {
+.naviBar {
   background-color: #563065;
   margin: 0;
   height: 35px;
   margin-bottom: -35px;
 }
 
-.user {
-  margin: 0%;
+.naviBar-user {
+  margin: 0;
   margin-right: 2%;
   color: #ffffff;
   background-color: transparent;
   border: none;
 }
-.user:hover {
+.naviBar-user:hover {
   color: #e5e5e5;
 }
-.user:active {
+.naviBar-user:active {
   transform: scale(0.9);
 }
 
-.title {
+.naviBar-title {
   margin: 0%;
   margin-left: 2%;
   color: #ffffff;
@@ -27,9 +27,9 @@
   background-color: transparent;
   border: none;
 }
-.title:hover {
+.naviBar-title:hover {
   color: #e5e5e5;
 }
-.title:active {
+.naviBar-title:active {
   transform: scale(0.9);
 }

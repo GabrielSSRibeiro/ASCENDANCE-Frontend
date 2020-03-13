@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import api from "../../../services/api";
+import React from "react";
+import NaviBar from "../../../components/NaviBar";
 import Menu from "../../../components/GMPanel/Menu";
 
 import "./styles.css";
 
 function GMPanel({ history }) {
-  const gameName = localStorage.getItem("game");
-
   return (
     <>
+      <NaviBar history={history} />
       <Menu history={history} />;
     </>
   );

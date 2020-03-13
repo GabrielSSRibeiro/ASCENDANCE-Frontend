@@ -1,12 +1,20 @@
-.btn-back {
+.signUpForm {
+  text-align: left;
+}
+
+.signUpForm-btn-back {
   position: absolute;
   top: 25%;
   left: -20%;
   cursor: pointer;
 }
-.btn-back:hover {
+.signUpForm-btn-back:hover {
   transform: scale(1.1);
 }
-.btn-back:active {
+.signUpForm-btn-back:active {
   transform: scale(0.9);
+}
+
+.signUpForm-btn {
+  margin: 25px;
 }

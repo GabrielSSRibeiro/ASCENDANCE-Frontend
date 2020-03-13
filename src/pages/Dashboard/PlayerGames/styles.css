@@ -1,43 +1,38 @@
-h1 {
-  margin: 10% auto 5%;
-  color: #ffffff;
-}
-
-.list-item {
+.playerGames-list {
   margin: auto;
   width: 25%;
   padding: 0;
 }
 
-.check-img {
+.playerGames-check-img {
   position: absolute;
   top: 50%;
   left: -3%;
   transform: translate(-100%, -50%);
   cursor: pointer;
 }
-.check-img:hover {
+.playerGames-check-img:hover {
   transform: translate(-100%, -50%) scale(1.1);
 }
-.check-img:active {
+.playerGames-check-img:active {
   transform: translate(-100%, -50%) scale(0.9);
 }
 
-.delete-img {
+.playerGames-delete-img {
   position: absolute;
   top: 50%;
   left: 103%;
   transform: translate(0%, -50%);
   cursor: pointer;
 }
-.delete-img:hover {
+.playerGames-delete-img:hover {
   transform: translate(0%, -50%) scale(1.1);
 }
-.delete-img:active {
+.playerGames-delete-img:active {
   transform: translate(0%, -50%) scale(0.9);
 }
 
-.item-container {
+.playerGames-item-container {
   padding: 0;
   margin: 0;
   margin-bottom: 10%;
@@ -48,7 +43,7 @@ h1 {
   opacity: 92%;
 }
 
-.item {
+.playerGames-item {
   position: absolute;
   top: 50%;
   left: 50%;

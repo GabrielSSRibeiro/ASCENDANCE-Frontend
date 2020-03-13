@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./styles.css";
+
 function InitialButtons(props) {
   function SignInButtonClick() {
     props.setInitialButtonsDisplay(!props.initialButtonsDisplay);
@@ -17,7 +19,10 @@ function InitialButtons(props) {
         <>
           <div className="row">
             <div className="col-sm">
-              <button className="std-button-filled" onClick={SignInButtonClick}>
+              <button
+                className="initialButtons-button std-button-filled"
+                onClick={SignInButtonClick}
+              >
                 Sign In
               </button>
             </div>
@@ -25,7 +30,7 @@ function InitialButtons(props) {
             <div className="w-100"></div>
 
             <div className="col-sm">
-              <button className="std-button" onClick={SignUpButtonClick}>
+              <button className="initialButtons-button std-button" onClick={SignUpButtonClick}>
                 Sign Up
               </button>
             </div>

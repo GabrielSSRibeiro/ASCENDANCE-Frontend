@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from "react";
+import NaviBar from "../../../components/NaviBar";
+import ReturnMenu from "../../../components/ReturnMenu";
+import ManageParty from "../../../components/GMPanel/Management/ManageParty";
 
 import "./styles.css";
 
 function Management({ history }) {
-  return <h1>Hello World</h1>;
+  function ReturnGMPanel() {
+    history.push("/gm-panel");
+  }
+
+  return (
+    <>
+      <NaviBar history={history} />
+      <ReturnMenu returnFunction={ReturnGMPanel} title="Gerenciamento" />
+      <ManageParty history={history} />}
+    </>
+  );
 }
 
 export default Management;

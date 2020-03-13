@@ -1,8 +1,10 @@
 import React from "react";
 
+import "./styles.css";
+
 function TextBox() {
   return (
-    <div className="lp-text">
+    <div className="dashboard-textBox">
       <p>
         Como Jogador, entre em um jogo que você foi convidado.
         <br></br>

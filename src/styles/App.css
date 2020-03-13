@@ -26,17 +26,6 @@ body {
   text-align: center;
 }
 
-label {
-  color: #ffffff;
-  text-align: left;
-}
-
-input {
-  margin-bottom: 5px;
-  border-radius: 6px;
-  padding: 0 5px;
-}
-
 .game-title {
   letter-spacing: 0.7rem;
   margin: 10% auto 5%;
@@ -50,34 +39,20 @@ button:focus {
 .std-button {
   width: 150px;
   height: 40px;
-  margin: 25px;
   border: 2px solid #ffffff;
   border-radius: 12px;
   background-color: Transparent;
   box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
   color: #ffffff;
 }
-.std-button:hover {
-  transform: scale(1.1);
-}
-.std-button:active {
-  transform: scale(0.9);
-}
 
 .std-button-filled {
   width: 150px;
   height: 40px;
-  margin: 25px;
   border: none;
   border-radius: 12px;
   background-color: #563065;
   color: #ffffff;
-}
-.std-button-filled:hover {
-  transform: scale(1.1);
-}
-.std-button-filled:active {
-  transform: scale(0.9);
 }
 
 .std-button-selected {
@@ -86,4 +61,25 @@ button:focus {
   border: none;
   box-shadow: none;
   font-weight: 600;
+}
+
+.sl-button {
+  width: 125px;
+  height: 30px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  background-color: Transparent;
+  box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
+  color: #ffffff;
+}
+
+.sl-button:hover,
+.std-button:hover,
+.std-button-filled:hover {
+  transform: scale(1.1);
+}
+.sl-button:active,
+.std-button:active,
+.std-button-filled:active {
+  transform: scale(0.9);
 }

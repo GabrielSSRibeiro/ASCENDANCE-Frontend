@@ -34,11 +34,11 @@ function NaviBar({ history }) {
   QueryLogin();
 
   return (
-    <div className="navi-bar row">
-      <button className="col-sl-auto mr-auto title" onClick={RedirectDashboard}>
+    <div className="naviBar row">
+      <button className="col-sl-auto mr-auto naviBar-title" onClick={RedirectDashboard}>
         ESSENCIA
       </button>
-      <button className="col-sl-auto user" onClick={RedirectLogin}>
+      <button className="col-sl-auto naviBar-user" onClick={RedirectLogin}>
         {userName}
       </button>
     </div>

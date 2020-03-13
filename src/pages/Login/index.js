@@ -25,9 +25,10 @@ function Login({ history }) {
       <h1 className="game-title">ESSENCIA</h1>
       <TextBox />
       <InitialButtons {...states} />
-      {/* forms */}
-      {signInFormDisplay ? <SignInForm {...states} /> : ""}
-      {signUpFormDisplay ? <SignUpForm {...states} /> : ""}
+      {/* sign in form */}
+      {signInFormDisplay && <SignInForm {...states} />}
+      {/* sign up form */}
+      {signUpFormDisplay && <SignUpForm {...states} />}
     </>
   );
 }

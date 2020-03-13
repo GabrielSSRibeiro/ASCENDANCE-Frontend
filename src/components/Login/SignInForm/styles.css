@@ -1,12 +1,20 @@
-.btn-back {
+.signInForm {
+  text-align: left;
+}
+
+.signInForm-btn-back {
   position: absolute;
   top: 25%;
   left: -20%;
   cursor: pointer;
 }
-.btn-back:hover {
+.signInForm-btn-back:hover {
   transform: scale(1.1);
 }
-.btn-back:active {
+.signInForm-btn-back:active {
   transform: scale(0.9);
+}
+
+.signInForm-btn {
+  margin: 25px;
 }
