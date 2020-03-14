@@ -1,6 +1,6 @@
 import React from "react";
-import NaviBar from "../../../components/NaviBar";
-import Menu from "../../../components/GMPanel/Menu";
+import NaviBar from "../../components/NaviBar";
+import Menu from "./components/Menu";
 
 import "./styles.css";
 

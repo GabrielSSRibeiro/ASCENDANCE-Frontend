@@ -2,11 +2,11 @@ import React from "react";
 
 import "./styles.css";
 
-import management from "../../../assets/GMMenu/management.png";
-import encounter from "../../../assets/GMMenu/encounter.png";
-import rules from "../../../assets/GMMenu/rules.png";
-import tests from "../../../assets/GMMenu/tests.png";
-import tools from "../../../assets/GMMenu/tools.png";
+import management from "../../../../assets/GMMenu/management.png";
+import encounter from "../../../../assets/GMMenu/encounter.png";
+import rules from "../../../../assets/GMMenu/rules.png";
+import tests from "../../../../assets/GMMenu/tests.png";
+import tools from "../../../../assets/GMMenu/tools.png";
 
 function Menu({ history }) {
   function ManagementCLick() {

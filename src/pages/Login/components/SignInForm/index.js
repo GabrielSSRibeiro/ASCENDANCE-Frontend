@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import api from "../../../../services/api";
 
 import "./styles.css";
-import returnLogin from "../../../assets/arrows/returnLogin.png";
+import returnLogin from "../../../../assets/arrows/returnLogin.png";
 
 function SignInForm(props) {
   const [nickName, setNickName] = useState("");
   const [password, setPassword] = useState("");
 
-  function ReturnInitialButtons() {
-    props.setInitialButtonsDisplay(!props.initialButtonsDisplay);
-    props.setSignInFormDisplay(!props.signInFormDisplay);
+  function ReturnAccAuth() {
+    props.setAccAuthDisplay(true);
+    props.setSignInFormDisplay(false);
   }
 
   async function HandleSubmit(e) {
@@ -48,7 +48,7 @@ function SignInForm(props) {
             className="signInForm-btn-back"
             src={returnLogin}
             alt="Return"
-            onClick={ReturnInitialButtons}
+            onClick={ReturnAccAuth}
           />
           <label htmlFor="password" className="login-label">
             Senha

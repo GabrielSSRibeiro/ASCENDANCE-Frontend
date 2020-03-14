@@ -8,11 +8,11 @@ import PlayerGames from "./pages/Dashboard/PlayerGames";
 import GMGames from "./pages/Dashboard/GMGames";
 import NewGame from "./pages/Dashboard/GMGames/NewGame";
 
-import GMPanel from "./pages/GM/GMPanel";
-import Management from "./pages/GM/Management";
-import AddPlayer from "./pages/GM/Management/AddPlayer";
+import GMPanel from "./pages/GMPanel";
+import Management from "./pages/GMPanel/Management";
+import AddPlayer from "./pages/GMPanel/Management/AddPlayer";
 
-import PlayerPanel from "./pages/Player/PlayerPanel";
+import PlayerPanel from "./pages/PlayerPanel";
 
 export default function Routes() {
   return (

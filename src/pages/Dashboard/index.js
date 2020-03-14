@@ -1,7 +1,7 @@
 import React from "react";
-import GameChoice from "../../components/Dashboard/GameChoice";
+import GameChoice from "./components/GameChoice";
 import NaviBar from "../../components/NaviBar";
-import TextBox from "../../components/Dashboard/TextBox";
+import TextBox from "./components/TextBox";
 
 import "./styles.css";
 

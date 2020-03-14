@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
-import ManageParty from "../../../components/GMPanel/Management/ManageParty";
+import ManageParty from "./components/ManageParty";
 
 import "./styles.css";
 

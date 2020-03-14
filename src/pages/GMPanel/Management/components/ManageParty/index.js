@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import api from "../../../../services/api";
+import api from "../../../../../services/api";
 
 import "./styles.css";
-import deleteIcon from "../../../../assets/edition/delete.png";
+import deleteIcon from "../../../../../assets/edition/delete.png";
 
 function ManageParty(props) {
   const [partyMembers, setPartyMembers] = useState([]);

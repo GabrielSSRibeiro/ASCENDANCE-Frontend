@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import api from "../../../../services/api";
 
 import "./styles.css";
-import returnLogin from "../../../assets/arrows/returnLogin.png";
+import returnLogin from "../../../../assets/arrows/returnLogin.png";
 
 function SignUpForm(props) {
   const [nickName, setNickName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function ReturnInitialButtons() {
-    props.setInitialButtonsDisplay(!props.initialButtonsDisplay);
-    props.setSignUpFormDisplay(!props.signUpFormDisplay);
+  function ReturnAccAuth() {
+    props.setAccAuthDisplay(true);
+    props.setSignUpFormDisplay(false);
   }
 
   async function HandleSubmit(e) {
@@ -50,7 +50,7 @@ function SignUpForm(props) {
             className="signUpForm-btn-back"
             src={returnLogin}
             alt="Return"
-            onClick={ReturnInitialButtons}
+            onClick={ReturnAccAuth}
           />
           <label htmlFor="email" className="login-label">
             E-mail
