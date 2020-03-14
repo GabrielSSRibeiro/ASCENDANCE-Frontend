@@ -10,7 +10,7 @@ import NewGame from "./pages/Dashboard/GMGames/NewGame";
 
 import GMPanel from "./pages/GMPanel";
 import Management from "./pages/GMPanel/Management";
-import AddPlayer from "./pages/GMPanel/Management/AddPlayer";
+import NewPlayer from "./pages/GMPanel/Management/NewPlayer";
 
 import PlayerPanel from "./pages/PlayerPanel";
 
@@ -28,7 +28,7 @@ export default function Routes() {
         {/* GM */}
         <Route path="/gm-panel" exact component={GMPanel} />
         <Route path="/gm-management" exact component={Management} />
-        <Route path="/gm-add-player" exact component={AddPlayer} />
+        <Route path="/gm-new-player" exact component={NewPlayer} />
 
         {/* Player */}
         <Route path="/player-panel" exact component={PlayerPanel} />

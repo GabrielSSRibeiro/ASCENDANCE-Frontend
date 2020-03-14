@@ -15,8 +15,8 @@ function ManageParty(props) {
     setPartyMembers(response.data.party);
   }
 
-  async function AddPlayerClick() {
-    props.history.push("/gm-add-player");
+  async function NewPlayerClick() {
+    props.history.push("/gm-new-player");
   }
 
   async function LoadPartyMembers() {
@@ -50,7 +50,7 @@ function ManageParty(props) {
           </>
         ))}
         <div className="col-auto" style={{ display: partyMembers.length < 5 ? "" : "none" }}>
-          <button className="sl-button" onClick={AddPlayerClick}>
+          <button className="sl-button" onClick={NewPlayerClick}>
             Adicionar
           </button>
         </div>

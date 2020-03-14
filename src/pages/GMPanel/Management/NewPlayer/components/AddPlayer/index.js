@@ -1,16 +1,8 @@
 import React, { useState } from "react";
-import api from "../../../../services/api";
-import NaviBar from "../../../../components/NaviBar";
-import ReturnMenu from "../../../../components/ReturnMenu";
-
-import "./styles.css";
+import api from "../../../../../../services/api";
 
 function AddPlayer({ history }) {
   const [playerUser, setPlayerUser] = useState();
-
-  function ReturnManagement() {
-    history.push("/gm-management");
-  }
 
   async function HandleSubmit(e) {
     e.preventDefault();
@@ -30,11 +22,8 @@ function AddPlayer({ history }) {
       alert("Usuário não encontrado.");
     }
   }
-
   return (
     <>
-      <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnManagement} title="Adicionar Jogador" />
       <form onSubmit={HandleSubmit}>
         <div className="row justify-content-md-center addPlayer-box">
           <div className="col-sm-auto">
@@ -60,4 +49,5 @@ function AddPlayer({ history }) {
     </>
   );
 }
+
 export default AddPlayer;
