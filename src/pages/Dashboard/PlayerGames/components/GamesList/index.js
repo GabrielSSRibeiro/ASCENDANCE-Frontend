@@ -9,8 +9,8 @@ function GamesList({ history }) {
   const [playerGamesList, setPlayerGamesList] = useState([]);
 
   function StartGame(name) {
-    localStorage.setItem("game", name);
-    history.push("/player-panel");
+    // localStorage.setItem("game", name);
+    // history.push("/player-panel");
   }
 
   async function DeleteGame(name) {
