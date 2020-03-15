@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../../../../../services/api";
 
 import "./styles.css";
@@ -6,7 +6,7 @@ import deleteIcon from "../../../../../assets/edition/delete.png";
 import checkIcon from "../../../../../assets/edition/check.png";
 
 function GamesList({ history }) {
-  const [playerGamesList, setPlayerGamesList] = useState([]);
+  const [playerGamesList, setPlayerGamesList] = useState();
 
   function StartGame(name) {
     // localStorage.setItem("game", name);
@@ -15,47 +15,55 @@ function GamesList({ history }) {
 
   async function DeleteGame(name) {
     const playerUser = localStorage.getItem("user");
-    await api.delete("player-games", { params: { name, playerUser } });
+    const response = await api.delete("player-games", { params: { name, playerUser } });
+    setPlayerGamesList(response.data.party);
   }
 
-  async function PlayerGamesList() {
-    const user = localStorage.getItem("user");
-    const response = await api.get("player-games", { params: { user } });
-    setPlayerGamesList(response.data);
-  }
-  PlayerGamesList();
+  useEffect(() => {
+    async function PlayerGamesList() {
+      const user = localStorage.getItem("user");
+      const response = await api.get("player-games", { params: { user } });
+      setPlayerGamesList(response.data);
+    }
+
+    PlayerGamesList();
+  }, []);
 
   return (
     <>
-      <div
-        className="row align-items-center justify-content-center playerGames-list"
-        style={{ display: playerGamesList.length > 0 ? "" : "none" }}
-      >
-        {playerGamesList.map(game => (
-          <>
-            <div key={game._id} className="col-auto playerGames-item-container">
-              <img
-                className="playerGames-check-img"
-                onClick={() => StartGame(game.name)}
-                src={checkIcon}
-                alt="Icon made by Pixel perfect from www.flaticon.com"
-              />
-              <span className="playerGames-item">{game.name}</span>
-              <img
-                className="playerGames-delete-img"
-                src={deleteIcon}
-                onClick={() => DeleteGame(game.name)}
-                alt="Icon made by kiranshastry from www.flaticon.com"
-              />
+      {playerGamesList && (
+        <>
+          {playerGamesList.length > 0 && (
+            <div className="row align-items-center justify-content-center playerGames-list">
+              {playerGamesList.map(game => (
+                <>
+                  <div key={game._id} className="col-auto playerGames-item-container">
+                    <img
+                      className="playerGames-check-img"
+                      onClick={() => StartGame(game.name)}
+                      src={checkIcon}
+                      alt="Icon made by Pixel perfect from www.flaticon.com"
+                    />
+                    <span className="playerGames-item">{game.name}</span>
+                    <img
+                      className="playerGames-delete-img"
+                      src={deleteIcon}
+                      onClick={() => DeleteGame(game.name)}
+                      alt="Icon made by kiranshastry from www.flaticon.com"
+                    />
+                  </div>
+                  <div className="w-100"></div>
+                </>
+              ))}
             </div>
-            <div className="w-100"></div>
-          </>
-        ))}
-      </div>
-      {/* no games found */}
-      <h1 className="noGames-h1" style={{ display: playerGamesList.length > 0 ? "none" : "" }}>
-        Você ainda não participa de nenhuma jogo.
-      </h1>
+          )}
+
+          {/* no games found */}
+          {playerGamesList.length === 0 && (
+            <h1 className="noGames-h1">Você ainda não participa de nenhuma jogo.</h1>
+          )}
+        </>
+      )}
     </>
   );
 }

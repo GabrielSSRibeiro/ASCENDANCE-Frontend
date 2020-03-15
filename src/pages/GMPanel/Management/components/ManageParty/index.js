@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../../../../../services/api";
 
 import "./styles.css";
@@ -19,14 +19,17 @@ function ManageParty(props) {
     props.history.push("/gm-new-player");
   }
 
-  async function LoadPartyMembers() {
-    const user = localStorage.getItem("user");
-    const name = localStorage.getItem("game");
-    const response = await api.get("gm-panel", { params: { user, name } });
+  useEffect(() => {
+    async function LoadPartyMembers() {
+      const user = localStorage.getItem("user");
+      const name = localStorage.getItem("game");
+      const response = await api.get("gm-panel", { params: { user, name } });
 
-    setPartyMembers(response.data.party);
-  }
-  LoadPartyMembers();
+      setPartyMembers(response.data.party);
+    }
+
+    LoadPartyMembers();
+  }, []);
 
   return (
     <>

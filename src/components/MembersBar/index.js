@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 
 import "./styles.css";
@@ -8,14 +8,17 @@ import GMd20 from "../../assets/dice/GMd20.png";
 function MembersBar({ history }) {
   const [partyMembers, setPartyMembers] = useState([]);
 
-  async function LoadPartyMembers() {
-    const user = localStorage.getItem("user");
-    const name = localStorage.getItem("game");
-    const response = await api.get("gm-panel", { params: { user, name } });
+  useEffect(() => {
+    async function LoadPartyMembers() {
+      const user = localStorage.getItem("user");
+      const name = localStorage.getItem("game");
+      const response = await api.get("gm-panel", { params: { user, name } });
 
-    setPartyMembers(response.data.party);
-  }
-  LoadPartyMembers();
+      setPartyMembers(response.data.party);
+    }
+
+    LoadPartyMembers();
+  }, []);
 
   return (
     <>

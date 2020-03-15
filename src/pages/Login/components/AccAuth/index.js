@@ -21,22 +21,23 @@ function AccAuth({ history }) {
 
   return (
     <>
-      <div className="row" style={{ display: accAuthDisplay ? "" : "none" }}>
-        <div className="col-sm">
-          <button className="accAuth-button std-button-filled" onClick={SignInButtonClick}>
-            Sign In
-          </button>
+      {accAuthDisplay && (
+        <div className="row">
+          <div className="col-sm">
+            <button className="accAuth-button std-button-filled" onClick={SignInButtonClick}>
+              Sign In
+            </button>
+          </div>
+
+          <div className="w-100"></div>
+
+          <div className="col-sm">
+            <button className="accAuth-button std-button" onClick={SignUpButtonClick}>
+              Sign Up
+            </button>
+          </div>
         </div>
-
-        <div className="w-100"></div>
-
-        <div className="col-sm">
-          <button className="accAuth-button std-button" onClick={SignUpButtonClick}>
-            Sign Up
-          </button>
-        </div>
-      </div>
-
+      )}
       {/* sign in form */}
       {signInFormDisplay && (
         <SignInForm
