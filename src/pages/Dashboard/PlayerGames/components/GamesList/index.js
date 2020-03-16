@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../../../services/api";
+import { connect, disconnect } from "../../../../../services/socket";
 
 import "./styles.css";
 import deleteIcon from "../../../../../assets/edition/delete.png";
@@ -28,6 +29,11 @@ function GamesList({ history }) {
 
     PlayerGamesList();
   }, []);
+
+  // function SetupWebsocket() {
+  //   connect();
+  // }
+  // SetupWebsocket();
 
   return (
     <>
