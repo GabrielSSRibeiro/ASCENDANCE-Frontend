@@ -16,14 +16,13 @@ function NaviBar({ history }) {
 
   function QueryLogin() {
     const nickName = localStorage.getItem("user");
-    if (nickName === "" || !nickName) {
+    if (!nickName) {
       history.push("/");
     }
   }
 
   function RedirectLogin() {
-    localStorage.setItem("user", "");
-    localStorage.setItem("game", "");
+    localStorage.clear();
     history.push("/");
   }
   function RedirectDashboard() {

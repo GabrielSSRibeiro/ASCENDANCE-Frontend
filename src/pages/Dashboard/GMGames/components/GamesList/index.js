@@ -39,8 +39,8 @@ function GamesList({ history }) {
         <>
           <div className="row align-items-center justify-content-center GMGames-list">
             {gamesList.map(game => (
-              <>
-                <div key={game._id} className="col-auto GMGames-item-container">
+              <React.Fragment key={game._id}>
+                <div className="col-auto GMGames-item-container">
                   <img
                     className="GMGames-check-img"
                     onClick={() => StartGame(game.name)}
@@ -56,7 +56,7 @@ function GamesList({ history }) {
                   />
                 </div>
                 <div className="w-100"></div>
-              </>
+              </React.Fragment>
             ))}
           </div>
 

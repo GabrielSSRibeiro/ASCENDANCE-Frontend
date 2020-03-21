@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../../../services/api";
-import { connect, disconnect } from "../../../../../services/socket";
+import { subscribeToUsers, unSubscribeToUsers } from "../../../../../services/socket";
 
 import "./styles.css";
 import deleteIcon from "../../../../../assets/edition/delete.png";
@@ -16,8 +16,10 @@ function GamesList({ history }) {
 
   async function DeleteGame(name) {
     const playerUser = localStorage.getItem("user");
-    const response = await api.delete("player-games", { params: { name, playerUser } });
-    setPlayerGamesList(response.data.party);
+    await api.delete("player-games", { params: { name, playerUser } });
+
+    const response = await api.get("player-games", { params: { user: playerUser } });
+    setPlayerGamesList(response.data);
   }
 
   useEffect(() => {
@@ -28,12 +30,9 @@ function GamesList({ history }) {
     }
 
     PlayerGamesList();
+    subscribeToUsers(PlayerGamesList);
+    return () => unSubscribeToUsers();
   }, []);
-
-  // function SetupWebsocket() {
-  //   connect();
-  // }
-  // SetupWebsocket();
 
   return (
     <>
@@ -42,8 +41,8 @@ function GamesList({ history }) {
           {playerGamesList.length > 0 && (
             <div className="row align-items-center justify-content-center playerGames-list">
               {playerGamesList.map(game => (
-                <>
-                  <div key={game._id} className="col-auto playerGames-item-container">
+                <React.Fragment key={game._id}>
+                  <div className="col-auto playerGames-item-container">
                     <img
                       className="playerGames-check-img"
                       onClick={() => StartGame(game.name)}
@@ -59,7 +58,7 @@ function GamesList({ history }) {
                     />
                   </div>
                   <div className="w-100"></div>
-                </>
+                </React.Fragment>
               ))}
             </div>
           )}

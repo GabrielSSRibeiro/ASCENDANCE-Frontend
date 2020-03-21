@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../../../../services/api";
+import { socket } from "../../../../services/socket";
 
 import "./styles.css";
 import returnLogin from "../../../../assets/arrows/returnLogin.png";
@@ -21,6 +22,10 @@ function SignInForm(props) {
       if (password === response.data.password) {
         const { nickName } = response.data;
         localStorage.setItem("user", nickName);
+
+        //mudar para login e fazer pro sign up
+        socket.emit("signIn", nickName);
+
         props.history.push("/dashboard");
       } else {
         alert("Senha incorreta.");

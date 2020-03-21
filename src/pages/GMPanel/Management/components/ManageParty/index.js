@@ -35,8 +35,8 @@ function ManageParty(props) {
     <>
       <div className="row manageParty-area align-items-center justify-content-center">
         {partyMembers.map(member => (
-          <>
-            <div key={member._id} className="col-auto manageParty-member">
+          <React.Fragment key={member._id}>
+            <div className="col-auto manageParty-member">
               <img
                 className="manageParty-delete-img"
                 src={deleteIcon}
@@ -50,7 +50,7 @@ function ManageParty(props) {
               </div>
               <button className="sl-button manageParty-btn">Gerenciar</button>
             </div>
-          </>
+          </React.Fragment>
         ))}
         <div className="col-auto" style={{ display: partyMembers.length < 5 ? "" : "none" }}>
           <button className="sl-button" onClick={NewPlayerClick}>
