@@ -17,18 +17,19 @@ function SignInForm(props) {
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const response = await api.get("users", { params: { nickName } });
-    if (response.data) {
-      if (password === response.data.password) {
-        const { nickName } = response.data;
-        localStorage.setItem("user", nickName);
+    const response = await api.get("users", { params: { nickName, password } });
 
-        //mudar para login e fazer pro sign up
-        socket.emit("signIn", nickName);
+    if (response.data) {
+      if (response.data === "") {
+        alert("Senha incorreta.");
+      } else {
+        localStorage.setItem("user", nickName);
+        localStorage.setItem("password", password);
+
+        //update socket connection
+        socket.emit("login", nickName);
 
         props.history.push("/dashboard");
-      } else {
-        alert("Senha incorreta.");
       }
     } else {
       alert("Usuário não encontrado.");

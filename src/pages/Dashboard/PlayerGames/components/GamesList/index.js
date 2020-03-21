@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../../../services/api";
-import { subscribeToUsers, unSubscribeToUsers } from "../../../../../services/socket";
+import { subscribeToUser, unSubscribeToUser } from "../../../../../services/socket";
 
 import "./styles.css";
 import deleteIcon from "../../../../../assets/edition/delete.png";
@@ -30,8 +30,10 @@ function GamesList({ history }) {
     }
 
     PlayerGamesList();
-    subscribeToUsers(PlayerGamesList);
-    return () => unSubscribeToUsers();
+    // socket on
+    subscribeToUser(PlayerGamesList);
+    // socket off
+    return () => unSubscribeToUser();
   }, []);
 
   return (

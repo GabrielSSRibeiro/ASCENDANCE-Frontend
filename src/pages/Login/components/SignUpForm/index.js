@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../../../../services/api";
+import { socket } from "../../../../services/socket";
 
 import "./styles.css";
 import returnLogin from "../../../../assets/arrows/returnLogin.png";
@@ -26,6 +27,11 @@ function SignUpForm(props) {
     if (!(response.data === "")) {
       const { nickName } = response.data;
       localStorage.setItem("user", nickName);
+      localStorage.setItem("password", password);
+
+      //update socket connection
+      socket.emit("login", nickName);
+
       props.history.push("/dashboard");
     } else {
       alert("Nome de usuário já existe.");

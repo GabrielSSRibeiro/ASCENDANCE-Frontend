@@ -2,13 +2,12 @@ import socketio from "socket.io-client";
 
 const socket = socketio(process.env.REACT_APP_API_URL, { autoConnect: false });
 
-function subscribeToUsers(newGame) {
+function subscribeToUser(PlayerGamesList) {
   socket.on("newMember", data => {
-    console.log(data);
-    newGame();
+    PlayerGamesList();
   });
 }
-function unSubscribeToUsers() {
+function unSubscribeToUser() {
   socket.off("newMember");
 }
 
@@ -23,4 +22,4 @@ function disconnect() {
   }
 }
 
-export { socket, connect, disconnect, subscribeToUsers, unSubscribeToUsers };
+export { socket, connect, disconnect, subscribeToUser, unSubscribeToUser };

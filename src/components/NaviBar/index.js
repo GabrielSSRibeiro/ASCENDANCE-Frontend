@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import api from "../../services/api";
 
 import "./styles.css";
 
@@ -6,31 +7,33 @@ function NaviBar({ history }) {
   const [userName, setUserName] = useState();
 
   useEffect(() => {
-    async function getUser() {
+    async function userCheck() {
       const nickName = localStorage.getItem("user");
-      setUserName(nickName);
+      const password = localStorage.getItem("password");
+
+      if (nickName && password) {
+        const response = await api.get("users", { params: { nickName, password } });
+        if (response.data === nickName) {
+          setUserName(nickName);
+        } else {
+          history.push("/");
+        }
+      } else {
+        history.push("/");
+      }
     }
 
-    getUser();
-  }, []);
-
-  function QueryLogin() {
-    const nickName = localStorage.getItem("user");
-    if (!nickName) {
-      history.push("/");
-    }
-  }
+    userCheck();
+  }, [history]);
 
   function RedirectLogin() {
     localStorage.clear();
     history.push("/");
   }
   function RedirectDashboard() {
-    localStorage.setItem("game", "");
+    localStorage.removeItem("game");
     history.push("/dashboard");
   }
-
-  QueryLogin();
 
   return (
     <div className="naviBar row">
