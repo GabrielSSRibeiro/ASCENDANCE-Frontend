@@ -9,8 +9,8 @@ function ManageParty(props) {
 
   async function RemovePlayer(user) {
     const playerUser = user;
-    const name = localStorage.getItem("game");
-    const response = await api.delete("player-games", { params: { name, playerUser } });
+    const title = localStorage.getItem("game");
+    const response = await api.delete("player-games", { params: { title, playerUser } });
 
     setPartyMembers(response.data.party);
   }
@@ -21,9 +21,9 @@ function ManageParty(props) {
 
   useEffect(() => {
     async function LoadPartyMembers() {
-      const user = localStorage.getItem("user");
-      const name = localStorage.getItem("game");
-      const response = await api.get("gm-panel", { params: { user, name } });
+      const GM = localStorage.getItem("GM");
+      const title = localStorage.getItem("game");
+      const response = await api.get("gm-panel", { params: { GM, title } });
 
       setPartyMembers(response.data.party);
     }

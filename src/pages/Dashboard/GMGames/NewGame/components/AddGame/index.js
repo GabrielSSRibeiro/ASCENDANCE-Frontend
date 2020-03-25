@@ -3,20 +3,21 @@ import api from "../../../../../../services/api";
 
 import "./styles.css";
 
-function MyFunction({ history }) {
-  const [name, setName] = useState();
+function AddGame({ history }) {
+  const [title, setTitle] = useState();
 
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const user = localStorage.getItem("user");
+    const GM = localStorage.getItem("user");
     const response = await api.post("gm-games", {
-      user,
-      name
+      GM,
+      title
     });
 
     if (!(response.data === "")) {
-      localStorage.setItem("game", name);
+      localStorage.setItem("game", title);
+      localStorage.setItem("GM", GM);
       history.push("/gm-panel");
     } else {
       alert("Já existe um jogo com esse nome.");
@@ -33,7 +34,7 @@ function MyFunction({ history }) {
 
             <div className="w-100"></div>
 
-            <input className="newGame-input" onChange={e => setName(e.target.value)}></input>
+            <input className="newGame-input" onChange={e => setTitle(e.target.value)}></input>
 
             <div className="w-100"></div>
 
@@ -47,4 +48,4 @@ function MyFunction({ history }) {
   );
 }
 
-export default MyFunction;
+export default AddGame;

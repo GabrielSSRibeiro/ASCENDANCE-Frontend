@@ -9,14 +9,15 @@ import checkIcon from "../../../../../assets/edition/check.png";
 function GamesList({ history }) {
   const [playerGamesList, setPlayerGamesList] = useState();
 
-  function StartGame(name) {
-    // localStorage.setItem("game", name);
-    // history.push("/player-panel");
+  function StartGame(title, GM) {
+    localStorage.setItem("game", title);
+    localStorage.setItem("GM", GM);
+    history.push("/char-race");
   }
 
-  async function DeleteGame(name) {
+  async function DeleteGame(title) {
     const playerUser = localStorage.getItem("user");
-    await api.delete("player-games", { params: { name, playerUser } });
+    await api.delete("player-games", { params: { title, playerUser } });
 
     const response = await api.get("player-games", { params: { user: playerUser } });
     setPlayerGamesList(response.data);
@@ -47,15 +48,15 @@ function GamesList({ history }) {
                   <div className="col-auto playerGames-item-container">
                     <img
                       className="playerGames-check-img"
-                      onClick={() => StartGame(game.name)}
+                      onClick={() => StartGame(game.title, game.GM)}
                       src={checkIcon}
                       alt="Icon made by Pixel perfect from www.flaticon.com"
                     />
-                    <span className="playerGames-item">{game.name}</span>
+                    <span className="playerGames-item">{game.title}</span>
                     <img
                       className="playerGames-delete-img"
                       src={deleteIcon}
-                      onClick={() => DeleteGame(game.name)}
+                      onClick={() => DeleteGame(game.title)}
                       alt="Icon made by kiranshastry from www.flaticon.com"
                     />
                   </div>
@@ -67,7 +68,7 @@ function GamesList({ history }) {
 
           {/* no games found */}
           {playerGamesList.length === 0 && (
-            <h1 className="noGames-h1">Você ainda não participa de nenhuma jogo.</h1>
+            <h1 className="noGames-h1">Você ainda não participa de nenhum jogo.</h1>
           )}
         </>
       )}

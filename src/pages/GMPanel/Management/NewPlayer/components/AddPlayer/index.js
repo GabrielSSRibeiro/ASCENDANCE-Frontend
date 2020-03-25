@@ -7,16 +7,16 @@ function AddPlayer({ history }) {
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const user = localStorage.getItem("user");
-    const name = localStorage.getItem("game");
+    const GM = localStorage.getItem("GM");
+    const title = localStorage.getItem("game");
     const response = await api.put("gm-management", {
-      user,
-      name,
+      GM,
+      title,
       playerUser
     });
 
     if (!(response.data === "")) {
-      localStorage.setItem("game", name);
+      localStorage.setItem("game", title);
       history.push("/gm-management");
     } else {
       alert("Usuário não encontrado.");

@@ -32,6 +32,7 @@ function NaviBar({ history }) {
   }
   function RedirectDashboard() {
     localStorage.removeItem("game");
+    localStorage.removeItem("GM");
     history.push("/dashboard");
   }
 

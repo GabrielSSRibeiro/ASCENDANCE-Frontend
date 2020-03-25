@@ -8,6 +8,8 @@ import PlayerGames from "./pages/Dashboard/PlayerGames";
 import GMGames from "./pages/Dashboard/GMGames";
 import NewGame from "./pages/Dashboard/GMGames/NewGame";
 
+import RaceSelection from "./pages/CharCreation/RaceSelection";
+
 import GMPanel from "./pages/GMPanel";
 import Management from "./pages/GMPanel/Management";
 import NewPlayer from "./pages/GMPanel/Management/NewPlayer";
@@ -24,6 +26,9 @@ export default function Routes() {
         <Route path="/dashboard-player-list" exact component={PlayerGames} />
         <Route path="/dashboard-gm-list" exact component={GMGames} />
         <Route path="/dashboard-gm-list-new-game" exact component={NewGame} />
+
+        {/* CharCreation */}
+        <Route path="/char-race" exact component={RaceSelection} />
 
         {/* GM */}
         <Route path="/gm-panel" exact component={GMPanel} />

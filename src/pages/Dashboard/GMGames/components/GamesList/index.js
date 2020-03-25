@@ -8,14 +8,16 @@ import checkIcon from "../../../../../assets/edition/check.png";
 function GamesList({ history }) {
   const [gamesList, setGamesList] = useState();
 
-  function StartGame(name) {
-    localStorage.setItem("game", name);
+  function StartGame(title, GM) {
+    localStorage.setItem("game", title);
+    localStorage.setItem("GM", GM);
     history.push("/gm-panel");
   }
 
-  async function DeleteGame(name) {
-    const user = localStorage.getItem("user");
-    const response = await api.delete("gm-games", { params: { user, name } });
+  async function DeleteGame(title) {
+    const GM = localStorage.getItem("user");
+    const response = await api.delete("gm-games", { params: { GM, title } });
+
     setGamesList(response.data);
   }
 
@@ -25,8 +27,8 @@ function GamesList({ history }) {
 
   useEffect(() => {
     async function GMGamesList() {
-      const user = localStorage.getItem("user");
-      const response = await api.get("gm-games", { params: { user } });
+      const GM = localStorage.getItem("user");
+      const response = await api.get("gm-games", { params: { GM } });
       setGamesList(response.data);
     }
 
@@ -37,29 +39,30 @@ function GamesList({ history }) {
     <>
       {gamesList && (
         <>
-          <div className="row align-items-center justify-content-center GMGames-list">
-            {gamesList.map(game => (
-              <React.Fragment key={game._id}>
-                <div className="col-auto GMGames-item-container">
-                  <img
-                    className="GMGames-check-img"
-                    onClick={() => StartGame(game.name)}
-                    src={checkIcon}
-                    alt="Icon made by Pixel perfect from www.flaticon.com"
-                  />
-                  <span className="GMGames-item">{game.name}</span>
-                  <img
-                    className="GMGames-delete-img"
-                    src={deleteIcon}
-                    onClick={() => DeleteGame(game.name)}
-                    alt="Icon made by kiranshastry from www.flaticon.com"
-                  />
-                </div>
-                <div className="w-100"></div>
-              </React.Fragment>
-            ))}
-          </div>
-
+          {gamesList.length > 0 && (
+            <div className="row align-items-center justify-content-center GMGames-list">
+              {gamesList.map(game => (
+                <React.Fragment key={game._id}>
+                  <div className="col-auto GMGames-item-container">
+                    <img
+                      className="GMGames-check-img"
+                      onClick={() => StartGame(game.title, game.GM)}
+                      src={checkIcon}
+                      alt="Icon made by Pixel perfect from www.flaticon.com"
+                    />
+                    <span className="GMGames-item">{game.title}</span>
+                    <img
+                      className="GMGames-delete-img"
+                      src={deleteIcon}
+                      onClick={() => DeleteGame(game.title)}
+                      alt="Icon made by kiranshastry from www.flaticon.com"
+                    />
+                  </div>
+                  <div className="w-100"></div>
+                </React.Fragment>
+              ))}
+            </div>
+          )}
           {/* no games found */}
           {gamesList.length === 0 && (
             <h1 className="noGames-h1">Você ainda não criou nenhuma jogo.</h1>

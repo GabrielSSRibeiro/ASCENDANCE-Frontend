@@ -10,9 +10,9 @@ function MembersBar({ history }) {
 
   useEffect(() => {
     async function LoadPartyMembers() {
-      const user = localStorage.getItem("user");
-      const name = localStorage.getItem("game");
-      const response = await api.get("gm-panel", { params: { user, name } });
+      const GM = localStorage.getItem("user");
+      const title = localStorage.getItem("game");
+      const response = await api.get("gm-panel", { params: { GM, title } });
 
       setPartyMembers(response.data.party);
     }
