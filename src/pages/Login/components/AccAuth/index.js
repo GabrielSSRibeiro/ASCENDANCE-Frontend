@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import content from "../../../../utils/content";
 import SignInForm from "../SignInForm";
 import SignUpForm from "../SignUpForm";
 
@@ -25,7 +26,7 @@ function AccAuth({ history }) {
         <div className="row">
           <div className="col-sm">
             <button className="accAuth-button std-button-filled" onClick={SignInButtonClick}>
-              Sign In
+              {content.login.button.signIn}
             </button>
           </div>
 
@@ -33,7 +34,7 @@ function AccAuth({ history }) {
 
           <div className="col-sm">
             <button className="accAuth-button std-button" onClick={SignUpButtonClick}>
-              Sign Up
+              {content.login.button.signUp}
             </button>
           </div>
         </div>

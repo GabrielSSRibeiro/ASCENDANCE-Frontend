@@ -1,4 +1,5 @@
 import React from "react";
+import content from "../../../../utils/content";
 
 import "./styles.css";
 
@@ -6,14 +7,13 @@ function TextBox() {
   return (
     <div className="login-textBox">
       <p>
-        Bem Vindo à ESSENCIA!
+        {content.login.textBox[1]}
         <br></br>
         <br></br>
-        Um sistema de RPG moderno, simples e tático
+        {content.login.textBox[2]}
         <br></br>
         <br></br>
-        "Domine o combate, use as habilidades e crie suas próprias magias. O limite é a sua
-        criatividade nesse jogo de interpretação"
+        {content.login.textBox[3]}
       </p>
     </div>
   );
