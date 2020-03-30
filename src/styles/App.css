@@ -32,33 +32,36 @@ body {
   color: #ffffff;
 }
 
-button:focus {
+button:focus,
+input:focus {
   outline: 0;
 }
 
+.selected {
+  background-color: #f27036 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+}
+
 .std-button {
-  width: 150px;
+  width: 160px;
   height: 40px;
   border: 2px solid #ffffff;
-  border-radius: 12px;
+  border-radius: 15px;
   background-color: Transparent;
   box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
   color: #ffffff;
+  transition: all 0.2s;
 }
 .std-button-filled {
-  width: 150px;
+  width: 160px;
   height: 40px;
   border: none;
-  border-radius: 12px;
+  border-radius: 15px;
   background-color: #563065;
   color: #ffffff;
-}
-.std-button-selected {
-  background-color: #f27036;
   transition: all 0.2s;
-  border: none;
-  box-shadow: none;
-  font-weight: 600;
 }
 
 .sl-button {
@@ -69,6 +72,7 @@ button:focus {
   background-color: Transparent;
   box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
   color: #ffffff;
+  transition: all 0.2s;
 }
 
 .big-round-button {
@@ -80,13 +84,7 @@ button:focus {
   background-color: Transparent;
   box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
   color: #ffffff;
-}
-.big-round-button-selected {
-  background-color: #f27036;
   transition: all 0.2s;
-  border: none;
-  box-shadow: none;
-  font-weight: 600;
 }
 
 .sl-round-button {
@@ -97,6 +95,7 @@ button:focus {
   background-color: Transparent;
   box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
   color: #ffffff;
+  transition: all 0.2s;
 }
 
 .sl-button:hover,
@@ -112,4 +111,26 @@ button:focus {
 .big-round-button:active,
 .sl-round-button:active {
   transform: scale(0.9);
+}
+
+.info-label {
+  border-bottom: thin solid #f27036;
+  line-height: 2rem;
+  width: 50%;
+  color: #ffffff;
+}
+
+.info-content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5%;
+}
+
+.info-content p {
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+
+.hide {
+  display: none;
 }

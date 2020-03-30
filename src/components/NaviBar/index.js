@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
+import content from "../../utils/content";
 
 import "./styles.css";
 
@@ -39,7 +40,7 @@ function NaviBar({ history }) {
   return (
     <div className="naviBar row">
       <button className="col-sl-auto mr-auto naviBar-title" onClick={RedirectDashboard}>
-        ESSENCIA
+        {content.naviBar}
       </button>
       <button className="col-sl-auto naviBar-user" onClick={RedirectLogin}>
         {userName}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import content from "../../../../../../utils/content";
 import api from "../../../../../../services/api";
 
 function AddPlayer({ history }) {
@@ -28,7 +29,7 @@ function AddPlayer({ history }) {
         <div className="row justify-content-md-center addPlayer-box">
           <div className="col-sm-auto">
             <label className="addPlayer-label" htmlFor="name">
-              Nome
+              {content.newPlayer.label}
             </label>
 
             <div className="w-100"></div>
@@ -41,7 +42,7 @@ function AddPlayer({ history }) {
             <div className="w-100"></div>
 
             <div className="col-sm">
-              <button className="dashboard-button std-button">Criar</button>
+              <button className="dashboard-button std-button">{content.newPlayer.button}</button>
             </div>
           </div>
         </div>

@@ -8,12 +8,27 @@ import PlayerGames from "./pages/Dashboard/PlayerGames";
 import GMGames from "./pages/Dashboard/GMGames";
 import NewGame from "./pages/Dashboard/GMGames/NewGame";
 
+//  CharCreation
 import RaceSelection from "./pages/CharCreation/RaceSelection";
+import OriginSelection from "./pages/CharCreation/OriginSelection";
+import ClassSelection from "./pages/CharCreation/ClassSelection";
+import Multiclass from "./pages/CharCreation/Multiclass";
+import DisciplineSelection from "./pages/CharCreation/DisciplineSelection";
+import DefensiveSpecialty from "./pages/CharCreation/DefensiveSpecialty";
+import OfensiveSpecialty from "./pages/CharCreation/OfensiveSpecialty";
+import PastDefinition from "./pages/CharCreation/PastDefinition";
+import CharacteristicsDefinition from "./pages/CharCreation/CharacteristicsDefinition";
+import AlignmentSelection from "./pages/CharCreation/AlignmentSelection";
+import AtributesAllocation from "./pages/CharCreation/AtributesAllocation";
+import EquipmentDefinition from "./pages/CharCreation/EquipmentDefinition";
+import ProfileDefinition from "./pages/CharCreation/ProfileDefinition";
 
+// GM
 import GMPanel from "./pages/GMPanel";
 import Management from "./pages/GMPanel/Management";
 import NewPlayer from "./pages/GMPanel/Management/NewPlayer";
 
+// Player
 import PlayerPanel from "./pages/PlayerPanel";
 
 export default function Routes() {
@@ -28,7 +43,19 @@ export default function Routes() {
         <Route path="/dashboard-gm-list-new-game" exact component={NewGame} />
 
         {/* CharCreation */}
-        <Route path="/char-race" exact component={RaceSelection} />
+        <Route path="/char-creation-race" exact component={RaceSelection} />
+        <Route path="/char-creation-origin" exact component={OriginSelection} />
+        <Route path="/char-creation-class" exact component={ClassSelection} />
+        <Route path="/char-creation-multiclass" exact component={Multiclass} />
+        <Route path="/char-creation-discipline" exact component={DisciplineSelection} />
+        <Route path="/char-creation-defensive-specialty" exact component={DefensiveSpecialty} />
+        <Route path="/char-creation-ofensive-specialty" exact component={OfensiveSpecialty} />
+        <Route path="/char-creation-past" exact component={PastDefinition} />
+        <Route path="/char-creation-characteristics" exact component={CharacteristicsDefinition} />
+        <Route path="/char-creation-alignment" exact component={AlignmentSelection} />
+        <Route path="/char-creation-atributes" exact component={AtributesAllocation} />
+        <Route path="/char-creation-equipment" exact component={EquipmentDefinition} />
+        <Route path="/char-creation-profile" exact component={ProfileDefinition} />
 
         {/* GM */}
         <Route path="/gm-panel" exact component={GMPanel} />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import content from "../../../../utils/content";
 import api from "../../../../services/api";
 import { socket } from "../../../../services/socket";
 
@@ -43,7 +44,7 @@ function SignUpForm(props) {
       <div className="row justify-content-md-center">
         <div className="col-sm-auto signUpForm">
           <label htmlFor="nickName" className="login-label">
-            Usuário
+            {content.login.label.user}
           </label>
           <div className="w-100"></div>
           <input className="login-input" onChange={e => setNickName(e.target.value)}></input>
@@ -59,7 +60,7 @@ function SignUpForm(props) {
             onClick={ReturnAccAuth}
           />
           <label htmlFor="email" className="login-label">
-            E-mail
+            {content.login.label.email}
           </label>
           <div className="w-100"></div>
           <input className="login-input" onChange={e => setEmail(e.target.value)}></input>
@@ -69,7 +70,7 @@ function SignUpForm(props) {
 
         <div className="col-sm-auto signUpForm">
           <label htmlFor="password" className="login-label">
-            Senha
+            {content.login.label.password}
           </label>
           <div className="w-100"></div>
           <input

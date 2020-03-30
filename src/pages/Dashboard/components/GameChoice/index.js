@@ -1,4 +1,5 @@
 import React from "react";
+import content from "../../../../utils/content";
 
 import "./styles.css";
 
@@ -16,7 +17,7 @@ function GameChoice(props) {
       <div className="row">
         <div className="col-sm">
           <button className="dashboard-button std-button-filled" onClick={PlayerButtonClick}>
-            Jogador
+            {content.dashboard.button.player}
           </button>
         </div>
 
@@ -24,7 +25,7 @@ function GameChoice(props) {
 
         <div className="col-sm">
           <button className="dashboard-button std-button" onClick={GMButtonClick}>
-            Mestre
+            {content.dashboard.button.GM}
           </button>
         </div>
       </div>

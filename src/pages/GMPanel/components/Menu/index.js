@@ -1,4 +1,5 @@
 import React from "react";
+import content from "../../../../utils/content";
 
 import "./styles.css";
 
@@ -22,23 +23,23 @@ function Menu({ history }) {
       <div className="row menu-bar align-items-center justify-content-between">
         <div className="col menu-box" onClick={ManagementCLick}>
           <img className="menu-img" src={management} alt="management" />
-          <button className="menu-button">Gerenciamento</button>
+          <button className="menu-button">{content.GMPanel.button.management}</button>
         </div>
         <div className="col menu-box" onClick={EncounterCLick}>
           <img className="menu-img" src={encounter} alt="encounter" />
-          <button className="menu-button">Encontro</button>
+          <button className="menu-button">{content.GMPanel.button.encounter}</button>
         </div>
         <div className="col menu-box" onClick={RulesCLick}>
           <img className="menu-img" src={rules} alt="rules" />
-          <button className="menu-button">Regras Mestre</button>
+          <button className="menu-button">{content.GMPanel.button.rules}</button>
         </div>
         <div className="col menu-box" onClick={TestsCLick}>
           <img className="menu-img" src={tests} alt="tests" />
-          <button className="menu-button">Testes</button>
+          <button className="menu-button">{content.GMPanel.button.tests}</button>
         </div>
         <div className="col menu-box" onClick={ToolsCLick}>
           <img className="menu-img" src={tools} alt="tools" />
-          <button className="menu-button">Ferramentas</button>
+          <button className="menu-button">{content.GMPanel.button.tools}</button>
         </div>
       </div>
     </>

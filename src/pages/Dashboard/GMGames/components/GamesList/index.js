@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import content from "../../../../../utils/content";
 import api from "../../../../../services/api";
 
 import "./styles.css";
@@ -68,7 +69,7 @@ function GamesList({ history }) {
             <h1 className="noGames-h1">Você ainda não criou nenhuma jogo.</h1>
           )}
           <button className="std-button" onClick={NewGameClick}>
-            Novo
+            {content.dashboard.button.newGame}
           </button>
         </>
       )}

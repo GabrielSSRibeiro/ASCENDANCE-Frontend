@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import content from "../../../../../../utils/content";
 import api from "../../../../../../services/api";
 
 import "./styles.css";
@@ -29,7 +30,7 @@ function AddGame({ history }) {
         <div className="row justify-content-md-center newGame-box">
           <div className="col-sm-auto">
             <label className="newGame-label" htmlFor="name">
-              Nome
+              {content.newGame.label}
             </label>
 
             <div className="w-100"></div>
@@ -39,7 +40,7 @@ function AddGame({ history }) {
             <div className="w-100"></div>
 
             <div className="col-sm">
-              <button className="dashboard-button std-button">Criar</button>
+              <button className="dashboard-button std-button">{content.newGame.button}</button>
             </div>
           </div>
         </div>

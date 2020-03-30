@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
+import content from "../../utils/content";
 
 import "./styles.css";
 import turnArrow from "../../assets/arrows/turnArrow.png";
@@ -35,7 +36,7 @@ function MembersBar({ history }) {
         <div className="col-sl membersBar-right">
           <img className="membersBar-gm" src={GMd20} alt="GMd20" />
           <label htmlFor="GMLabel" className="membersBar-gm-label">
-            Mestre
+            {content.membersBar}
           </label>
         </div>
       </div>

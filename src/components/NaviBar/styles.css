@@ -11,6 +11,7 @@
   color: #ffffff;
   background-color: transparent;
   border: none;
+  transition: all 0.2s;
 }
 .naviBar-user:hover {
   color: #e5e5e5;
@@ -26,6 +27,7 @@
   letter-spacing: 0.7rem;
   background-color: transparent;
   border: none;
+  transition: all 0.2s;
 }
 .naviBar-title:hover {
   color: #e5e5e5;

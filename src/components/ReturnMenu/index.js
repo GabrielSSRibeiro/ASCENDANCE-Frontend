@@ -1,4 +1,5 @@
 import React from "react";
+import content from "../../utils/content";
 
 import "./styles.css";
 import returnArrow from "../../assets/arrows/returnArrow.png";
@@ -9,7 +10,7 @@ function ReturnMenu({ returnFunction, title }) {
       <div className="col-1 returnMenu-box" onClick={returnFunction}>
         <img className="returnMenu-img" src={returnArrow} alt="Return" />
         <button className="returnMenu-button ">
-          <strong>Voltar</strong>
+          <strong>{content.returnMenu}</strong>
         </button>
       </div>
       <div className="col-sl-auto">

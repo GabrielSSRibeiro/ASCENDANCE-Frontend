@@ -12,7 +12,7 @@ function GamesList({ history }) {
   function StartGame(title, GM) {
     localStorage.setItem("game", title);
     localStorage.setItem("GM", GM);
-    history.push("/char-race");
+    history.push("/char-creation-race");
   }
 
   async function DeleteGame(title) {

@@ -1,4 +1,5 @@
 import React from "react";
+import content from "../../../../utils/content";
 import NaviBar from "../../../../components/NaviBar";
 import ReturnMenu from "../../../../components/ReturnMenu";
 import AddPlayer from "./components/AddPlayer";
@@ -13,7 +14,7 @@ function NewPlayer({ history }) {
   return (
     <>
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnManagement} title="Adicionar Jogador" />
+      <ReturnMenu returnFunction={ReturnManagement} title={content.newPlayer.returnMenu} />
       <AddPlayer history={history} />
     </>
   );

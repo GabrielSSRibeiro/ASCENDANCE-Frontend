@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import content from "../../../../utils/content";
 import api from "../../../../services/api";
 import { socket } from "../../../../services/socket";
 
@@ -20,7 +21,7 @@ function SignInForm(props) {
     const response = await api.get("users", { params: { nickName, password } });
 
     if (response.data) {
-      if (response.data === "") {
+      if (response.data === "incorrect") {
         alert("Senha incorreta.");
       } else {
         localStorage.setItem("user", nickName);
@@ -41,7 +42,7 @@ function SignInForm(props) {
       <div className="row justify-content-md-center ">
         <div className="col-sm-auto signInForm">
           <label htmlFor="login" className="login-label">
-            Usuário
+            {content.login.label.user}
           </label>
           <div className="w-100"></div>
           <input className="login-input" onChange={e => setNickName(e.target.value)}></input>
@@ -57,7 +58,7 @@ function SignInForm(props) {
             onClick={ReturnAccAuth}
           />
           <label htmlFor="password" className="login-label">
-            Senha
+            {content.login.label.password}
           </label>
           <div className="w-100"></div>
           <input

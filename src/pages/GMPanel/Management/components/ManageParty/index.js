@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import content from "../../../../../utils/content";
 import api from "../../../../../services/api";
 
 import "./styles.css";
@@ -48,22 +49,27 @@ function ManageParty(props) {
                   {member.user}
                 </label>
               </div>
-              <button className="sl-button manageParty-btn">Gerenciar</button>
+              <button className="sl-button manageParty-btn">
+                {content.management.button.manage}
+              </button>
             </div>
           </React.Fragment>
         ))}
         <div className="col-auto" style={{ display: partyMembers.length < 5 ? "" : "none" }}>
           <button className="sl-button" onClick={NewPlayerClick}>
-            Adicionar
+            {content.management.button.add}
           </button>
         </div>
       </div>
 
       {/* notes */}
       <label className="manageParty-notes-label" htmlFor="generalNotes">
-        Notas Gerais
+        {content.management.label}
       </label>
-      <textarea className="manageParty-general-notes" placeholder="Notas da campanha..."></textarea>
+      <textarea
+        className="manageParty-general-notes"
+        placeholder={content.management.textArea}
+      ></textarea>
     </>
   );
 }
