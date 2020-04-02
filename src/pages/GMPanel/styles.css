@@ -1,0 +1,43 @@
+.GM-panel-bar {
+  margin: 0;
+  margin-top: 35px;
+  height: 60px;
+  margin-bottom: 60px;
+  background-color: #ffffff;
+  opacity: 92%;
+}
+
+.GM-panel-box {
+  height: 100%;
+  padding-top: 0.5%;
+  padding-bottom: -0.5%;
+  cursor: pointer;
+}
+
+.GM-panel-box:hover {
+  background-color: #e5e5e5;
+}
+.GM-panel-box:active {
+  transform: scale(0.9);
+}
+
+.GM-panel-img {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.GM-panel-button {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  color: #7b2574;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: x-small;
+}

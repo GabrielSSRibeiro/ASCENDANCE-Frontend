@@ -3,99 +3,17 @@ import content from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
-import InfoLongSingle from "../../../components/InfoLongSingle";
+import InfoBoxLong from "../../../components/InfoBoxLong";
 
 import "./styles.css";
 
 function RaceSelection({ history }) {
-  const initialState = {
-    selected: "",
-    human: "",
-    dwarf: "",
-    elf: "",
-    halfling: "",
-    hybrid: ""
-  };
+  const [selected, setSelected] = useState("");
 
-  const [{ selected, human, dwarf, elf, halfling, hybrid }, setRace] = useState(initialState);
+  const races = content.raceSelection.button.races;
 
   function ReturnPlayerList() {
     history.push("/dashboard-player-list");
-  }
-
-  function HumanClick() {
-    if (human === initialState.human) {
-      setRace({
-        selected: content.raceSelection.button.human,
-        human: "selected",
-        dwarf: "",
-        elf: "",
-        halfling: "",
-        hybrid: ""
-      });
-    } else {
-      setRace(initialState);
-    }
-  }
-
-  function DwarfClick() {
-    if (dwarf === initialState.dwarf) {
-      setRace({
-        selected: content.raceSelection.button.dwarf,
-        human: "",
-        dwarf: "selected",
-        elf: "",
-        halfling: "",
-        hybrid: ""
-      });
-    } else {
-      setRace(initialState);
-    }
-  }
-
-  function ElfClick() {
-    if (elf === initialState.elf) {
-      setRace({
-        selected: content.raceSelection.button.elf,
-        human: "",
-        dwarf: "",
-        elf: "selected",
-        halfling: "",
-        hybrid: ""
-      });
-    } else {
-      setRace(initialState);
-    }
-  }
-
-  function HalflingClick() {
-    if (halfling === initialState.halfling) {
-      setRace({
-        selected: content.raceSelection.button.halfling,
-        human: "",
-        dwarf: "",
-        elf: "",
-        halfling: "selected",
-        hybrid: ""
-      });
-    } else {
-      setRace(initialState);
-    }
-  }
-
-  function HybridClick() {
-    if (hybrid === initialState.hybrid) {
-      setRace({
-        selected: content.raceSelection.button.hybrid,
-        human: "",
-        dwarf: "",
-        elf: "",
-        halfling: "",
-        hybrid: "selected"
-      });
-    } else {
-      setRace(initialState);
-    }
   }
 
   async function NextClick() {
@@ -103,15 +21,13 @@ function RaceSelection({ history }) {
     const title = localStorage.getItem("game");
     const GM = localStorage.getItem("GM");
 
-    if (selected !== initialState.selected) {
-      await api.put("char-creation", {
-        user,
-        title,
-        GM,
-        race: selected
-      });
-      history.push("/char-creation-origin");
-    }
+    await api.put("char-creation", {
+      user,
+      title,
+      GM,
+      race: selected
+    });
+    history.push("/char-creation-origin");
   }
 
   return (
@@ -119,42 +35,40 @@ function RaceSelection({ history }) {
       <NaviBar history={history} />
       <ReturnMenu returnFunction={ReturnPlayerList} title={content.raceSelection.returnMenu} />
 
-      <button className={`big-round-button raceSelection-btn ${human}`} onClick={HumanClick}>
-        {content.raceSelection.button.human}
-      </button>
-
-      <button className={`big-round-button raceSelection-btn ${dwarf}`} onClick={DwarfClick}>
-        {content.raceSelection.button.dwarf}
-      </button>
-
-      <button className={`big-round-button raceSelection-btn ${elf}`} onClick={ElfClick}>
-        {content.raceSelection.button.elf}
-      </button>
-
-      <button className={`big-round-button raceSelection-btn ${halfling}`} onClick={HalflingClick}>
-        {content.raceSelection.button.halfling}
-      </button>
+      {races.map(race => (
+        <React.Fragment key={race}>
+          {/* addes a br for the last button */}
+          {races.indexOf(race) + 1 === races.length && <div className="w-100"></div>}
+          <button
+            // changes class for the last button
+            className={`big-round-button  
+                ${
+                  races.indexOf(race) + 1 === races.length
+                    ? "raceSelection-btn-hybrid"
+                    : "raceSelection-btn"
+                } ${selected === race && "selected"}`}
+            onClick={() => (race === selected ? setSelected("") : setSelected(race))}
+          >
+            {race}
+          </button>
+        </React.Fragment>
+      ))}
 
       <div className="w-100"></div>
 
       <button
-        className={`big-round-button raceSelection-btn-hybrid ${hybrid}`}
-        onClick={HybridClick}
+        className={`std-button raceSelection-btn-next ${!selected && "unavailable"}`}
+        onClick={selected && NextClick}
       >
-        {content.raceSelection.button.hybrid}
-      </button>
-
-      <div className="w-100"></div>
-
-      <button className="std-button raceSelection-btn-next" onClick={NextClick}>
         {content.raceSelection.button.next}
       </button>
 
-      <InfoLongSingle
-        title={content.raceSelection.infoLongSingle.title}
-        texts={[
-          content.raceSelection.infoLongSingle.texts[1],
-          content.raceSelection.infoLongSingle.texts[2]
+      <InfoBoxLong
+        content={[
+          {
+            title: content.raceSelection.infoLongSingle.title,
+            texts: content.raceSelection.infoLongSingle.texts
+          }
         ]}
       />
     </>

@@ -11,13 +11,13 @@ const portuguese = {
       signIn: "Entrar",
       signUp: "Cadastrar"
     },
-    textBox: {
-      1: "Bem Vindo à ESSENCIA!",
-      2: "Um sistema de RPG moderno, simples e tático",
-      3: "Domine o combate, use as habilidades e crie suas próprias magias. O limite é a suacriatividade nesse jogo de interpretação"
-    },
+    textBox: [
+      "Bem Vindo à ESSENCIA!",
+      "Um sistema de RPG moderno, simples e tático",
+      "Domine o combate, use as habilidades e crie suas próprias magias. O limite é a suacriatividade nesse jogo de interpretação"
+    ],
     label: {
-      user: "Usuário",
+      nickName: "Usuário",
       email: "E-mail",
       password: "Senha"
     }
@@ -29,15 +29,17 @@ const portuguese = {
       GM: "Mestre",
       newGame: "Novo"
     },
-    textBox: {
-      1: "Como Jogador, entre em um jogo que você foi convidado.",
-      2: "Como Mestre, cria suas próprias aventuras e convide jogadores."
-    },
+    textBox: [
+      "Como Jogador, entre em um jogo que você foi convidado.",
+      "Como Mestre, cria suas próprias aventuras e convide jogadores."
+    ],
     returnMenu: {
       player: "Selecione o Jogo",
       GM: "Selecione o Jogo"
     }
   },
+  playerGames: "Você ainda não participa de nenhum jogo.",
+  GMGames: "Você ainda não criou nenhuma jogo.",
   newGame: {
     label: "Nome",
     button: "Criar"
@@ -48,17 +50,10 @@ const portuguese = {
     returnMenu: "Escolha a Raça",
     infoLongSingle: {
       title: "Human",
-      texts: {
-        1: "Descrição do que é ser dessa raça",
-        2: "Você fala o idioma de sua raça e comum."
-      }
+      texts: ["Descrição do que é ser dessa raça", "Você fala o idioma de sua raça e comum."]
     },
     button: {
-      human: "Humano",
-      dwarf: "Anão",
-      elf: "Elfo",
-      halfling: "Halfling",
-      hybrid: "Mestiço",
+      races: ["Humano", "Anão", "Elfo", "Halfling", "Mestiço"],
       next: "Próximo"
     }
   },

@@ -1,16 +1,18 @@
 import React from "react";
-import content from "../../../../utils/content";
 
 import "./styles.css";
 
-function TextBox() {
+function TextBox({ content }) {
   return (
     <div className="dashboard-textBox">
       <p>
-        {content.dashboard.textBox[1]}
-        <br></br>
-        <br></br>
-        {content.dashboard.textBox[2]}
+        {content.map(text => (
+          <React.Fragment key={text}>
+            {text}
+            <br />
+            <br />
+          </React.Fragment>
+        ))}
       </p>
     </div>
   );

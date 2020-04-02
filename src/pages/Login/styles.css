@@ -1,9 +1,16 @@
-.login-label {
-  color: #ffffff;
+.login-form-btn-back {
+  position: absolute;
+  top: 25%;
+  left: -20%;
+  cursor: pointer;
+}
+.login-form-btn-back:hover {
+  transform: scale(1.1);
+}
+.login-form-btn-back:active {
+  transform: scale(0.9);
 }
 
-.login-input {
-  margin-bottom: 5px;
-  border-radius: 6px;
-  padding: 0 5px;
+.login-btn {
+  margin: 25px;
 }

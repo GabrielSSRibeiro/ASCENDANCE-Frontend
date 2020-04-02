@@ -44,6 +44,21 @@ input:focus {
   font-weight: 600 !important;
 }
 
+.unavailable {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+  cursor: default !important;
+}
+.unavailable:hover {
+  transform: scale(1) !important;
+}
+.unavailable:active {
+  transform: scale(1) !important;
+}
+
 .std-button {
   width: 160px;
   height: 40px;
@@ -111,24 +126,6 @@ input:focus {
 .big-round-button:active,
 .sl-round-button:active {
   transform: scale(0.9);
-}
-
-.info-label {
-  border-bottom: thin solid #f27036;
-  line-height: 2rem;
-  width: 50%;
-  color: #ffffff;
-}
-
-.info-content {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0.5%;
-}
-
-.info-content p {
-  color: #ffffff;
-  font-size: 0.8rem;
 }
 
 .hide {
