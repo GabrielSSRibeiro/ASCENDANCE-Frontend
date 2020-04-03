@@ -83,7 +83,7 @@ const portuguese = {
   newPlayer: {
     returnMenu: "Adicionar Jogador",
     label: "Nome",
-    button: "Criar"
+    button: "Adicionar"
   }
 
   // Player
