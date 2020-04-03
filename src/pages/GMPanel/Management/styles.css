@@ -1,68 +1,81 @@
-.management-area {
+.management-container main {
   margin: auto;
   margin-top: -1.5%;
   height: 250px;
   width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.management-member {
-  border-right: thin solid #e5e5e5;
-  border-left: thin solid #e5e5e5;
+.management-container main section {
   height: 100%;
   width: 20%;
   margin: 0;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+.management-container main section:not(:last-child) {
+  border-right: thin solid #e5e5e5;
 }
 
-.management-delete-img {
+.management-container main section img {
   position: absolute;
   top: 0%;
   right: 3%;
 }
-.management-delete-img:hover {
+.management-container main section img:hover {
   transform: scale(1.1);
 }
-.management-delete-img:active {
+.management-container main section img:active {
   transform: scale(0.9);
 }
 
-.management-avatar {
-  width: 90%;
-  padding-top: 90%;
-  margin: 0 auto;
+.management-container main section div {
+  width: 75%;
+  padding-top: 75%;
+  margin: 0;
   background-color: #ffffff;
   border-radius: 100%;
+  position: relative;
 }
 
-.management-avatar-label {
+.management-container main section div label {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
   font-weight: 600;
+  margin: 0;
   color: #563065;
 }
-
-.management-btn {
-  position: absolute;
-  bottom: 0%;
-  left: 25%;
+.management-container main button {
+  margin-left: 5%;
 }
 
-.management-general-notes {
+.management-container section {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.management-container section label {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.management-container section textarea {
   margin: 0;
   padding: 0 5px;
-  position: fixed;
-  top: 75%;
-  left: 10%;
   width: 80%;
   height: 100px;
   border-radius: 10px;
-}
-
-.management-notes-label {
-  margin: 0;
-  margin-top: 4%;
-  font-weight: 600;
-  color: #ffffff;
 }

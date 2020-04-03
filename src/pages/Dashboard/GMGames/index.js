@@ -44,43 +44,38 @@ function GMGames({ history }) {
   }, []);
 
   return (
-    <>
+    <div className="GMGames-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnDashboard} title="Selecione o Jogo" />
+      <ReturnMenu returnFunction={ReturnDashboard} title={content.GMGames.returnMenu} />
       {gamesList && (
-        <>
+        <main>
           {gamesList.length > 0 && (
-            <div className="row align-items-center justify-content-center GMGames-list">
+            <section>
               {gamesList.map(game => (
-                <React.Fragment key={game._id}>
-                  <div className="col-auto GMGames-item-container">
-                    <img
-                      className="GMGames-check-img"
-                      onClick={() => StartGame(game.title, game.GM)}
-                      src={checkIcon}
-                      alt="Icon made by Pixel perfect from www.flaticon.com"
-                    />
-                    <span className="GMGames-item">{game.title}</span>
-                    <img
-                      className="GMGames-delete-img"
-                      src={deleteIcon}
-                      onClick={() => DeleteGame(game.title)}
-                      alt="Icon made by kiranshastry from www.flaticon.com"
-                    />
-                  </div>
-                  <div className="w-100"></div>
-                </React.Fragment>
+                <div key={game._id}>
+                  <img
+                    onClick={() => StartGame(game.title, game.GM)}
+                    src={checkIcon}
+                    alt="Icon made by Pixel perfect from www.flaticon.com"
+                  />
+                  <span>{game.title}</span>
+                  <img
+                    src={deleteIcon}
+                    onClick={() => DeleteGame(game.title)}
+                    alt="Icon made by kiranshastry from www.flaticon.com"
+                  />
+                </div>
               ))}
-            </div>
+            </section>
           )}
           {/* no games found */}
-          {gamesList.length === 0 && <h1 className="noGames-h1">{content.GMGames}</h1>}
+          {gamesList.length === 0 && <h1>{content.GMGames.noGames}</h1>}
           <button className="std-button" onClick={NewGameClick}>
             {content.dashboard.button.newGame}
           </button>
-        </>
+        </main>
       )}
-    </>
+    </div>
   );
 }
 

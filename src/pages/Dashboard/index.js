@@ -14,26 +14,23 @@ function Dashboard({ history }) {
     history.push("/dashboard-gm-list");
   }
   return (
-    <>
+    <div className="dashboard-container">
       <NaviBar history={history} />
       <h1 className="game-title">{content.dashboard.title}</h1>
-      <TextBox content={content.dashboard.textBox} />
-      <div className="row">
-        <div className="col-sm">
-          <button className="dashboard-button std-button-filled" onClick={PlayerButtonClick}>
+
+      <main>
+        <TextBox content={content.dashboard.textBox} />
+        <section>
+          <button className="std-button-filled" onClick={PlayerButtonClick}>
             {content.dashboard.button.player}
           </button>
-        </div>
 
-        <div className="w-100"></div>
-
-        <div className="col-sm">
-          <button className="dashboard-button std-button" onClick={GMButtonClick}>
+          <button className="std-button" onClick={GMButtonClick}>
             {content.dashboard.button.GM}
           </button>
-        </div>
-      </div>
-    </>
+        </section>
+      </main>
+    </div>
   );
 }
 

@@ -1,11 +1,26 @@
-.raceSelection-btn {
-  margin: -3% 1%;
+.raceSelection-container main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.raceSelection-btn-hybrid {
-  margin-top: 4%;
+.raceSelection-container main section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.raceSelection-btn-next {
+.raceSelection-container main section div {
+  margin: -5% 2%;
+}
+.raceSelection-container main section div:last-child {
+  margin: 0;
+  margin-top: 6%;
+}
+
+.raceSelection-container main button {
   margin: 2.5%;
 }

@@ -1,4 +1,4 @@
-.membersBar-box {
+.membersBar-container {
   position: fixed;
   bottom: 0%;
   margin: 0;
@@ -9,72 +9,44 @@
   opacity: 92%;
 }
 
-.membersBar-left {
+.membersBar-container aside:first-child {
   position: absolute;
   left: 0%;
   width: 50px;
   height: 50px;
   margin: 0 auto;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.membersBar-left:hover {
+.membersBar-container aside:first-child:hover {
   background-color: #e5e5e5;
 }
-.membersBar-left:active {
+.membersBar-container aside:first-child:active {
   transform: scale(0.9);
 }
 
-.membersBar-turn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.membersBar-right {
-  position: absolute;
-  padding: 5px;
-  right: 0%;
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  background-color: #602876;
-  cursor: pointer;
-}
-.membersBar-right:hover {
-  background-color: #2a1333;
-}
-.membersBar-right:active {
-  transform: scale(0.9);
-}
-
-.membersBar-gm {
-  position: absolute;
-  top: 3%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
-
-.membersBar-gm-label {
-  position: absolute;
-  margin: 0;
-  bottom: 0%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  color: #efecf0;
-
-  font-size: x-small;
-}
-
-.membersBar-member {
+.membersBar-container section {
   width: 50px;
   height: 50px;
   margin: 0 auto;
   padding: 3px;
   cursor: pointer;
+  position: relative;
 }
 
-.membersBar-avatar {
+.membersBar-container section div {
+  width: 100%;
+  padding-top: 100%;
+  margin: 0;
+  background-color: #501e64;
+  border-radius: 100%;
+  float: left;
+}
+
+.membersBar-container section div + div {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -85,11 +57,35 @@
   border-radius: 100%;
 }
 
-.membersBar-avatar-border {
-  width: 100%;
-  padding-top: 100%;
+.membersBar-container aside:last-child {
+  position: absolute;
+  padding: 5px;
+  top: 0;
+  right: 0%;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #602876;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.membersBar-container aside:last-child:hover {
+  background-color: #2a1333;
+}
+.membersBar-container aside:last-child:active {
+  transform: scale(0.9);
+}
+
+.membersBar-container aside:last-child img {
+  margin-top: 7%;
+}
+
+.membersBar-container aside:last-child label {
   margin: 0;
-  background-color: #501e64;
-  border-radius: 100%;
-  float: left;
+  color: #efecf0;
+  font-size: 10px;
 }

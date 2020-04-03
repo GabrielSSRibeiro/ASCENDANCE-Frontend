@@ -31,47 +31,41 @@ function RaceSelection({ history }) {
   }
 
   return (
-    <>
+    <div className="raceSelection-container">
       <NaviBar history={history} />
       <ReturnMenu returnFunction={ReturnPlayerList} title={content.raceSelection.returnMenu} />
-
-      {races.map(race => (
-        <React.Fragment key={race}>
-          {/* addes a br for the last button */}
-          {races.indexOf(race) + 1 === races.length && <div className="w-100"></div>}
-          <button
-            // changes class for the last button
-            className={`big-round-button  
-                ${
-                  races.indexOf(race) + 1 === races.length
-                    ? "raceSelection-btn-hybrid"
-                    : "raceSelection-btn"
-                } ${selected === race && "selected"}`}
-            onClick={() => (race === selected ? setSelected("") : setSelected(race))}
-          >
-            {race}
-          </button>
-        </React.Fragment>
-      ))}
-
-      <div className="w-100"></div>
-
-      <button
-        className={`std-button raceSelection-btn-next ${!selected && "unavailable"}`}
-        onClick={selected && NextClick}
-      >
-        {content.raceSelection.button.next}
-      </button>
-
-      <InfoBoxLong
-        content={[
-          {
-            title: content.raceSelection.infoLongSingle.title,
-            texts: content.raceSelection.infoLongSingle.texts
-          }
-        ]}
-      />
-    </>
+      <main>
+        <section>
+          {races.map(race => (
+            <div key={race}>
+              <button
+                className={`big-round-button ${selected === race && "selected"}`}
+                onClick={() => (race === selected ? setSelected("") : setSelected(race))}
+              >
+                {race}
+              </button>
+            </div>
+          ))}
+        </section>
+        <button
+          className={`std-button ${!selected && "unavailable"}`}
+          onClick={NextClick}
+          disabled={selected ? false : true}
+        >
+          {content.raceSelection.button.next}
+        </button>
+      </main>
+      <section>
+        <InfoBoxLong
+          content={[
+            {
+              title: content.raceSelection.infoLongSingle.title,
+              texts: content.raceSelection.infoLongSingle.texts
+            }
+          ]}
+        />
+      </section>
+    </div>
   );
 }
 

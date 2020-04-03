@@ -14,7 +14,7 @@ const portuguese = {
     textBox: [
       "Bem Vindo à ESSENCIA!",
       "Um sistema de RPG moderno, simples e tático",
-      "Domine o combate, use as habilidades e crie suas próprias magias. O limite é a suacriatividade nesse jogo de interpretação"
+      '"Domine o combate, use as habilidades e crie suas próprias magias. O limite é a suacriatividade nesse jogo de interpretação"'
     ],
     label: {
       nickName: "Usuário",
@@ -38,9 +38,13 @@ const portuguese = {
       GM: "Selecione o Jogo"
     }
   },
-  playerGames: "Você ainda não participa de nenhum jogo.",
-  GMGames: "Você ainda não criou nenhuma jogo.",
+  playerGames: {
+    returnMenu: "Selecione o Jogo",
+    noGames: "Você ainda não participa de nenhum jogo."
+  },
+  GMGames: { returnMenu: "Selecione o Jogo", noGames: "Você ainda não criou nenhuma jogo." },
   newGame: {
+    returnMenu: "Escolha de Nome",
     label: "Nome",
     button: "Criar"
   },

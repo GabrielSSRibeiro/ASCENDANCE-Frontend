@@ -40,46 +40,31 @@ function Management({ history }) {
   }, []);
 
   return (
-    <>
+    <div className="management-container">
       <NaviBar history={history} />
       <ReturnMenu returnFunction={ReturnGMPanel} title={content.management.returnMenu} />
-      <div className="row management-area align-items-center justify-content-center">
+      <main>
         {partyMembers.map(member => (
-          <React.Fragment key={member._id}>
-            <div className="col-auto management-member">
-              <img
-                className="management-delete-img"
-                src={deleteIcon}
-                onClick={() => RemovePlayer(member.user)}
-                alt="Delete"
-              />
-              <div className="management-avatar">
-                <label htmlFor="userAvatar" className="management-avatar-label">
-                  {member.user}
-                </label>
-              </div>
-              <button className="sl-button management-btn">
-                {content.management.button.manage}
-              </button>
+          <section key={member._id}>
+            <img src={deleteIcon} onClick={() => RemovePlayer(member.user)} alt="Delete" />
+            <div>
+              <label>{member.user}</label>
             </div>
-          </React.Fragment>
+            <button className="sl-button">{content.management.button.manage}</button>
+          </section>
         ))}
-        <div className="col-auto" style={{ display: partyMembers.length < 5 ? "" : "none" }}>
+        {partyMembers.length < 5 && (
           <button className="sl-button" onClick={NewPlayerClick}>
             {content.management.button.add}
           </button>
-        </div>
-      </div>
+        )}
+      </main>
 
-      {/* notes */}
-      <label className="management-notes-label" htmlFor="generalNotes">
-        {content.management.label}
-      </label>
-      <textarea
-        className="management-general-notes"
-        placeholder={content.management.textArea}
-      ></textarea>
-    </>
+      <section>
+        <label>{content.management.label}</label>
+        <textarea placeholder={content.management.textArea}></textarea>
+      </section>
+    </div>
   );
 }
 

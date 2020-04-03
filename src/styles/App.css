@@ -5,7 +5,8 @@
   font-weight: 400;
   margin: 0;
   padding: 0;
-  position: relative;
+  outline: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -23,13 +24,13 @@ body {
     rgba(86, 48, 101, 1) 54.47%,
     rgba(137, 80, 160, 1) 100%
   );
-  text-align: center;
 }
 
 .game-title {
   letter-spacing: 0.7rem;
   margin: 10% auto 5%;
   color: #ffffff;
+  text-align: center;
 }
 
 button:focus,
@@ -126,8 +127,4 @@ input:focus {
 .big-round-button:active,
 .sl-round-button:active {
   transform: scale(0.9);
-}
-
-.hide {
-  display: none;
 }

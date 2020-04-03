@@ -4,7 +4,6 @@ import api from "../../services/api";
 import { socket } from "../../services/socket";
 
 import TextBox from "./components/TextBox";
-import FormField from "../../components/FormField";
 
 import "./styles.css";
 import returnLogin from "../../assets/arrows/returnLogin.png";
@@ -64,96 +63,55 @@ function Login({ history }) {
   }
 
   return (
-    <>
+    <div className="login-container">
       <h1 className="game-title">{content.login.title}</h1>
-      <TextBox content={content.login.textBox} />
 
-      {display === "buttons" && (
-        <div className="row">
-          <div className="col-sm">
-            <button className="login-btn std-button-filled" onClick={() => setDisplay("signIn")}>
+      <main>
+        <TextBox content={content.login.textBox} />
+        {display === "buttons" && (
+          <section>
+            <button className="std-button-filled" onClick={() => setDisplay("signIn")}>
               {content.login.button.signIn}
             </button>
-          </div>
 
-          <div className="w-100"></div>
-
-          <div className="col-sm">
-            <button className="login-btn std-button" onClick={() => setDisplay("signUp")}>
+            <button className="std-button" onClick={() => setDisplay("signUp")}>
               {content.login.button.signUp}
             </button>
-          </div>
-        </div>
-      )}
-      {display === "signIn" && (
-        <form onSubmit={HandleSignIn}>
-          <div className="row justify-content-md-center ">
-            <div className="col-sm-auto form-field-alignment-l">
-              <FormField label={content.login.label.nickName} onChange={setNickName} />
-            </div>
+          </section>
+        )}
 
-            <div className="w-100"></div>
+        {display === "signIn" && (
+          <form onSubmit={HandleSignIn}>
+            <label>{content.login.label.nickName}</label>
+            <input onChange={e => setNickName(e.target.value)}></input>
 
-            <div className="col-sm-auto form-field-alignment-l">
-              <img
-                className="login-form-btn-back"
-                src={returnLogin}
-                alt="Return"
-                onClick={() => setDisplay("buttons")}
-              />
-              <FormField
-                label={content.login.label.password}
-                onChange={setPassword}
-                type="password"
-              />
-            </div>
+            <img src={returnLogin} alt="Return" onClick={() => setDisplay("buttons")} />
 
-            <div className="w-100"></div>
+            <label>{content.login.label.password}</label>
+            <input type="password" onChange={e => setPassword(e.target.value)}></input>
 
-            <div className="col-sm">
-              <button className="login-btn std-button">{content.login.button.signIn}</button>
-            </div>
-          </div>
-        </form>
-      )}
-      {display === "signUp" && (
-        <form onSubmit={HandleSignUp}>
-          <div className="row justify-content-md-center ">
-            <div className="col-sm-auto form-field-alignment-l">
-              <FormField label={content.login.label.nickName} onChange={setNickName} />
-            </div>
+            <button className="std-button">{content.login.button.signIn}</button>
+          </form>
+        )}
 
-            <div className="w-100"></div>
+        {display === "signUp" && (
+          <form onSubmit={HandleSignUp}>
+            <label>{content.login.label.nickName}</label>
+            <input onChange={e => setNickName(e.target.value)}></input>
 
-            <div className="col-sm-auto form-field-alignment-l">
-              <FormField label={content.login.label.email} onChange={setEmail} />
-            </div>
+            <img src={returnLogin} alt="Return" onClick={() => setDisplay("buttons")} />
 
-            <div className="w-100"></div>
+            <label>{content.login.label.email}</label>
+            <input type="email" onChange={e => setEmail(e.target.value)}></input>
 
-            <div className="col-sm-auto form-field-alignment-l">
-              <img
-                className="login-form-btn-back"
-                src={returnLogin}
-                alt="Return"
-                onClick={() => setDisplay("buttons")}
-              />
-              <FormField
-                label={content.login.label.password}
-                onChange={setPassword}
-                type="password"
-              />
-            </div>
+            <label>{content.login.label.password}</label>
+            <input type="password" onChange={e => setPassword(e.target.value)}></input>
 
-            <div className="w-100"></div>
-
-            <div className="col-sm">
-              <button className="login-btn std-button">{content.login.button.signUp}</button>
-            </div>
-          </div>
-        </form>
-      )}
-    </>
+            <button className="std-button">{content.login.button.signUp}</button>
+          </form>
+        )}
+      </main>
+    </div>
   );
 }
 

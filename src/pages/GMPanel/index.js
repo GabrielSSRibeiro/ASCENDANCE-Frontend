@@ -1,45 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import content from "../../utils/content";
 import NaviBar from "../../components/NaviBar";
 import MembersBar from "../../components/MembersBar";
 
 import "./styles.css";
-import management from "../../assets/GMMenu/management.png";
-import encounter from "../../assets/GMMenu/encounter.png";
-import rules from "../../assets/GMMenu/rules.png";
-import tests from "../../assets/GMMenu/tests.png";
-import tools from "../../assets/GMMenu/tools.png";
 
 function GMPanel({ history }) {
-  function ManagementCLick() {
-    history.push("/gm-management");
-  }
+  const tabs = Object.keys(content.GMPanel.button).map(item => {
+    return {
+      name: content.GMPanel.button[item],
+      img: require(`../../assets/GMMenu/${item}.png`),
+      onClick: () => history.push(`/gm-${item}`)
+    };
+  });
 
-  function EncounterCLick() {}
-  function RulesCLick() {}
-  function TestsCLick() {}
-  function ToolsCLick() {}
-
-  const tabs = [
-    { name: content.GMPanel.button.management, img: management, onClick: ManagementCLick },
-    { name: content.GMPanel.button.encounter, img: encounter, onClick: EncounterCLick },
-    { name: content.GMPanel.button.rules, img: rules, onClick: RulesCLick },
-    { name: content.GMPanel.button.tests, img: tests, onClick: TestsCLick },
-    { name: content.GMPanel.button.tools, img: tools, onClick: ToolsCLick }
-  ];
   return (
-    <>
+    <div className="GMPanel-container">
       <NaviBar history={history} />
-      <div className="row GM-panel-bar align-items-center justify-content-between">
+      <header>
         {tabs.map(item => (
-          <div className="col GM-panel-box" onClick={item.onClick}>
-            <img className="GM-panel-img" src={item.img} alt="management" />
-            <button className="GM-panel-button">{item.name}</button>
+          <div key={item.name} onClick={item.onClick}>
+            <img src={item.img} alt="management" />
+            <button>{item.name}</button>
           </div>
         ))}
-      </div>
+      </header>
       <MembersBar />
-    </>
+    </div>
   );
 }
 

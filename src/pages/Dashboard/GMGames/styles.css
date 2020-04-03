@@ -1,38 +1,17 @@
-.GMGames-list {
-  margin: auto;
+.GMGames-container main {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.GMGames-container main section {
   width: 25%;
   padding: 0;
 }
 
-.GMGames-check-img {
-  position: absolute;
-  top: 50%;
-  left: -3%;
-  transform: translate(-100%, -50%);
-  cursor: pointer;
-}
-.GMGames-check-img:hover {
-  transform: translate(-100%, -50%) scale(1.1);
-}
-.GMGames-check-img:active {
-  transform: translate(-100%, -50%) scale(0.9);
-}
-
-.GMGames-delete-img {
-  position: absolute;
-  top: 50%;
-  left: 103%;
-  transform: translate(0%, -50%);
-  cursor: pointer;
-}
-.GMGames-delete-img:hover {
-  transform: translate(0%, -50%) scale(1.1);
-}
-.GMGames-delete-img:active {
-  transform: translate(0%, -50%) scale(0.9);
-}
-
-.GMGames-item-container {
+.GMGames-container main section div {
+  position: relative;
   padding: 0;
   margin: 0;
   margin-bottom: 10%;
@@ -41,12 +20,45 @@
   border-radius: 5px;
   background-color: #ffffff;
   opacity: 92%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
 }
 
-.GMGames-item {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.GMGames-container main section div img:first-child {
+  left: -40px;
+  justify-self: flex-start;
+  position: relative;
+  cursor: pointer;
+}
+.GMGames-container main section div img:first-child:hover {
+  transform: scale(1.1);
+}
+.GMGames-container main section div img:first-child:active {
+  transform: scale(0.9);
+}
+
+.GMGames-container main section div span {
   color: #7b2574;
+}
+
+.GMGames-container main section div span + img {
+  right: -32px;
+  justify-self: flex-end;
+  position: relative;
+  cursor: pointer;
+}
+.GMGames-container main section div span + img:hover {
+  transform: scale(1.1);
+}
+.GMGames-container main section div span + img:active {
+  transform: scale(0.9);
+}
+
+.GMGames-container main h1 {
+  margin: 0 auto 5%;
+  color: #ffffff;
+  text-align: center;
 }

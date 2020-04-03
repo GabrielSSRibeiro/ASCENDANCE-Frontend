@@ -6,7 +6,7 @@ import "./styles.css";
 import turnArrow from "../../assets/arrows/turnArrow.png";
 import GMd20 from "../../assets/dice/GMd20.png";
 
-function MembersBar({ history }) {
+function MembersBar() {
   const [partyMembers, setPartyMembers] = useState([]);
 
   useEffect(() => {
@@ -22,25 +22,25 @@ function MembersBar({ history }) {
   }, []);
 
   return (
-    <>
-      <div className="row align-items-center justify-content-center membersBar-box">
-        <div className="col-sl membersBar-left">
-          <img className="membersBar-turn" src={turnArrow} alt="turnArrow" />
-        </div>
+    <div className="membersBar-container">
+      <aside>
+        <img src={turnArrow} alt="turnArrow" />
+      </aside>
+
+      <section>
         {partyMembers.map(member => (
-          <div key={member._id} className="col-sl membersBar-member">
-            <div className="membersBar-avatar-border"></div>
-            <div className="membersBar-avatar"></div>
-          </div>
+          <React.Fragment key={member._id}>
+            <div></div>
+            <div></div>
+          </React.Fragment>
         ))}
-        <div className="col-sl membersBar-right">
-          <img className="membersBar-gm" src={GMd20} alt="GMd20" />
-          <label htmlFor="GMLabel" className="membersBar-gm-label">
-            {content.membersBar}
-          </label>
-        </div>
-      </div>
-    </>
+      </section>
+
+      <aside>
+        <img src={GMd20} alt="GMd20" />
+        <label>{content.membersBar}</label>
+      </aside>
+    </div>
   );
 }
 

@@ -38,13 +38,9 @@ function NaviBar({ history }) {
   }
 
   return (
-    <div className="naviBar row">
-      <button className="col-sl-auto mr-auto naviBar-title" onClick={RedirectDashboard}>
-        {content.naviBar}
-      </button>
-      <button className="col-sl-auto naviBar-user" onClick={RedirectLogin}>
-        {userName}
-      </button>
+    <div className="naviBar-container">
+      <button onClick={RedirectDashboard}>{content.naviBar}</button>
+      <button onClick={RedirectLogin}>{userName}</button>
     </div>
   );
 }

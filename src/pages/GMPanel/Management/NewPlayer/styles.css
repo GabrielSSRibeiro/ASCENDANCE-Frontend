@@ -1,15 +1,26 @@
-.addPlayer-input {
-  width: 100%;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  padding: 0 5px;
+.newPlayer-container main {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: flex-start;
 }
 
-.addPlayer-label {
+.newPlayer-container form {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.newPlayer-container form label {
+  justify-self: left;
   color: #ffffff;
 }
 
-.addPlayer-box {
-  margin: 0;
-  text-align: left;
+.newPlayer-container form input {
+  width: 250px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  padding: 0 5px;
 }

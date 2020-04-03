@@ -4,7 +4,6 @@ import content from "../../../../utils/content";
 
 import NaviBar from "../../../../components/NaviBar";
 import ReturnMenu from "../../../../components/ReturnMenu";
-import FormField from "../../../../components/FormField";
 
 import "./styles.css";
 
@@ -35,23 +34,18 @@ function NewPlayer({ history }) {
   }
 
   return (
-    <>
+    <div className="newPlayer-container">
       <NaviBar history={history} />
       <ReturnMenu returnFunction={ReturnManagement} title={content.newPlayer.returnMenu} />
-      <form onSubmit={HandleSubmit}>
-        <div className="row justify-content-md-center addPlayer-box">
-          <div className="col-sm-auto">
-            <FormField label={content.newPlayer.label} onChange={setPlayerUser} />
+      <main>
+        <form onSubmit={HandleSubmit}>
+          <label>{content.newPlayer.label}</label>
+          <input onChange={e => setPlayerUser(e.target.value)}></input>
 
-            <div className="w-100"></div>
-
-            <div className="col-sm">
-              <button className="dashboard-button std-button">{content.newPlayer.button}</button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </>
+          <button className="std-button">{content.newPlayer.button}</button>
+        </form>
+      </main>
+    </div>
   );
 }
 export default NewPlayer;

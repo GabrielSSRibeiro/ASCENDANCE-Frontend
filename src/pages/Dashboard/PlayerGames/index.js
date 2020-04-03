@@ -45,41 +45,35 @@ function PlayerGames({ history }) {
   }, []);
 
   return (
-    <>
+    <div className="player-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnDashboard} title="Seleção de Jogo" />
+      <ReturnMenu returnFunction={ReturnDashboard} title={content.playerGames.returnMenu} />
       {playerGamesList && (
-        <>
+        <main>
           {playerGamesList.length > 0 && (
-            <div className="row align-items-center justify-content-center playerGames-list">
+            <section>
               {playerGamesList.map(game => (
-                <React.Fragment key={game._id}>
-                  <div className="col-auto playerGames-item-container">
-                    <img
-                      className="playerGames-check-img"
-                      onClick={() => StartGame(game.title, game.GM)}
-                      src={checkIcon}
-                      alt="Icon made by Pixel perfect from www.flaticon.com"
-                    />
-                    <span className="playerGames-item">{game.title}</span>
-                    <img
-                      className="playerGames-delete-img"
-                      src={deleteIcon}
-                      onClick={() => DeleteGame(game.title)}
-                      alt="Icon made by kiranshastry from www.flaticon.com"
-                    />
-                  </div>
-                  <div className="w-100"></div>
-                </React.Fragment>
+                <div key={game._id}>
+                  <img
+                    onClick={() => StartGame(game.title, game.GM)}
+                    src={checkIcon}
+                    alt="Icon made by Pixel perfect from www.flaticon.com"
+                  />
+                  <span>{game.title}</span>
+                  <img
+                    src={deleteIcon}
+                    onClick={() => DeleteGame(game.title)}
+                    alt="Icon made by kiranshastry from www.flaticon.com"
+                  />
+                </div>
               ))}
-            </div>
+            </section>
           )}
-
           {/* no games found */}
-          {playerGamesList.length === 0 && <h1 className="noGames-h1">{content.playerGames}</h1>}
-        </>
+          {playerGamesList.length === 0 && <h1>{content.playerGames.noGames}</h1>}
+        </main>
       )}
-    </>
+    </div>
   );
 }
 

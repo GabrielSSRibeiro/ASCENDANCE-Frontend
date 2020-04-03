@@ -1,16 +1,72 @@
-.login-form-btn-back {
-  position: absolute;
-  top: 25%;
-  left: -20%;
-  cursor: pointer;
-}
-.login-form-btn-back:hover {
-  transform: scale(1.1);
-}
-.login-form-btn-back:active {
-  transform: scale(0.9);
+.login-container main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: flex-start;
 }
 
-.login-btn {
+/* aside */
+.login-container main aside {
+  background: linear-gradient(270deg, rgba(117, 112, 112, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  padding: 9%;
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.login-container main aside p {
+  color: #ffffff;
+  text-align: left;
+}
+
+.login-container main aside p + p {
+  margin-top: 8%;
+}
+
+/* section */
+.login-container main section {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.login-container main section button {
   margin: 25px;
+}
+
+/* form */
+.login-container main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.login-container main form label {
+  align-self: flex-start;
+  color: #ffffff;
+}
+
+.login-container main form input {
+  margin-bottom: 5px;
+  border-radius: 6px;
+  padding: 0 5px;
+}
+
+.login-container main form button {
+  margin: 25px;
+}
+
+.login-container main form img {
+  position: absolute;
+  top: 25%;
+  left: -25%;
+  cursor: pointer;
+}
+.login-container main form img:hover {
+  transform: scale(1.1);
+}
+.login-container main form img:active {
+  transform: scale(0.9);
 }

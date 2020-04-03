@@ -1,4 +1,26 @@
-.newGame-box {
-  margin: 0;
-  text-align: left;
+.newGame-container main {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: flex-start;
+}
+
+.newGame-container form {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.newGame-container form label {
+  justify-self: left;
+  color: #ffffff;
+}
+
+.newGame-container form input {
+  width: 300px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  padding: 0 5px;
 }

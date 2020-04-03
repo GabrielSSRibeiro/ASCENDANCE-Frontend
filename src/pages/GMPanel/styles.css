@@ -1,43 +1,43 @@
-.GM-panel-bar {
+.GMPanel-container header {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
   margin: 0;
   margin-top: 35px;
   height: 60px;
   margin-bottom: 60px;
   background-color: #ffffff;
   opacity: 92%;
+  position: relative;
 }
 
-.GM-panel-box {
+.GMPanel-container header div {
   height: 100%;
+  width: 100%;
   padding-top: 0.5%;
   padding-bottom: -0.5%;
   cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.GM-panel-box:hover {
+.GMPanel-container header div:hover {
   background-color: #e5e5e5;
 }
-.GM-panel-box:active {
+.GMPanel-container header div:active {
   transform: scale(0.9);
 }
 
-.GM-panel-img {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.GM-panel-button {
-  position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.GMPanel-container header div button {
   font-weight: 600;
   color: #7b2574;
   margin: 0;
   padding: 0;
   border: none;
   background-color: transparent;
-  font-size: x-small;
+  font-size: 12px;
 }
