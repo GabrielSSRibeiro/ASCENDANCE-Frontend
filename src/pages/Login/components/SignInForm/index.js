@@ -13,8 +13,9 @@ function SignInForm({ display, history }) {
     e.preventDefault();
 
     const response = await api.get("users", {
-      params: { nickName, password }
+      params: { nickName, password },
     });
+    console.log(response.data);
 
     if (response.data) {
       if (response.data === "incorrect") {
@@ -37,12 +38,12 @@ function SignInForm({ display, history }) {
     <>
       <form onSubmit={HandleSignIn}>
         <label>{content.login.label.nickName}</label>
-        <input onChange={e => setNickName(e.target.value)}></input>
+        <input onChange={(e) => setNickName(e.target.value)}></input>
 
         <img src={returnLogin} alt="Return" onClick={() => display("buttons")} />
 
         <label>{content.login.label.password}</label>
-        <input type="password" onChange={e => setPassword(e.target.value)}></input>
+        <input type="password" onChange={(e) => setPassword(e.target.value)}></input>
 
         <button className="std-button">{content.login.button.signIn}</button>
       </form>

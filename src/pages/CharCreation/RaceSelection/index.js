@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import content from "../../../utils/content";
+import { raceSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
@@ -10,7 +10,13 @@ import "./styles.css";
 function RaceSelection({ history }) {
   const [selected, setSelected] = useState("");
 
-  const races = content.raceSelection.button.races;
+  const races = Object.keys(raceSelection.races).map((race, index) => {
+    return {
+      index,
+      name: raceSelection.races[race].name,
+      infoBoxLong: raceSelection.races[race].infoBoxLong,
+    };
+  });
 
   function ReturnPlayerList() {
     history.push("/dashboard-player-list");
@@ -25,7 +31,7 @@ function RaceSelection({ history }) {
       user,
       title,
       GM,
-      race: selected
+      race: races[selected].name,
     });
     history.push("/char-creation-origin");
   }
@@ -33,16 +39,18 @@ function RaceSelection({ history }) {
   return (
     <div className="raceSelection-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnPlayerList} title={content.raceSelection.returnMenu} />
+      <ReturnMenu returnFunction={ReturnPlayerList} title={raceSelection.returnMenu} />
       <main>
         <section>
-          {races.map(race => (
-            <div key={race}>
+          {races.map((race) => (
+            <div key={race.name}>
               <button
-                className={`big-round-button ${selected === race && "selected"}`}
-                onClick={() => (race === selected ? setSelected("") : setSelected(race))}
+                className={`big-round-button ${selected === race.index && "selected"}`}
+                onClick={() =>
+                  race.index === selected ? setSelected("") : setSelected(race.index)
+                }
               >
-                {race}
+                {race.name}
               </button>
             </div>
           ))}
@@ -52,18 +60,20 @@ function RaceSelection({ history }) {
           onClick={NextClick}
           disabled={selected ? false : true}
         >
-          {content.raceSelection.button.next}
+          {raceSelection.next}
         </button>
       </main>
       <section>
-        <InfoBoxLong
-          content={[
-            {
-              title: content.raceSelection.infoLongSingle.title,
-              texts: content.raceSelection.infoLongSingle.texts
-            }
-          ]}
-        />
+        {selected !== "" && (
+          <InfoBoxLong
+            content={[
+              {
+                title: races[selected].name,
+                texts: races[selected].infoBoxLong,
+              },
+            ]}
+          />
+        )}
       </section>
     </div>
   );

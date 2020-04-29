@@ -1,18 +1,10 @@
-import portuguese from "./Languages/portuguese";
-import english from "./Languages/english";
-
 let content;
 
-let language = "portuguese";
 if (localStorage.getItem("language")) {
-  language = localStorage.getItem("language");
+  content = require(`./Languages/${localStorage.getItem("language")}`).default;
+} else {
+  // website's default language
+  content = require("./Languages/portuguese");
 }
 
-if (language === "portuguese") {
-  content = portuguese;
-}
-if (language === "english") {
-  content = english;
-}
-
-export default content;
+module.exports = content;

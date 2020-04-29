@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import content from "../../utils/content";
+import { login } from "../../utils/content";
 
 import TextBox from "./components/TextBox";
 import SignInForm from "./components/SignInForm";
@@ -12,18 +12,18 @@ function Login({ history }) {
 
   return (
     <div className="login-container">
-      <h1 className="game-title">{content.login.title}</h1>
+      <h1 className="game-title">{login.title}</h1>
 
       <main>
-        <TextBox content={content.login.textBox} />
+        <TextBox content={login.textBox} />
         {display === "buttons" && (
           <section>
             <button className="std-button-filled" onClick={() => setDisplay("signIn")}>
-              {content.login.button.signIn}
+              {login.button.signIn}
             </button>
 
             <button className="std-button" onClick={() => setDisplay("signUp")}>
-              {content.login.button.signUp}
+              {login.button.signUp}
             </button>
           </section>
         )}

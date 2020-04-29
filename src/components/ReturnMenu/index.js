@@ -1,5 +1,5 @@
 import React from "react";
-import content from "../../utils/content";
+import { returnMenu } from "../../utils/content";
 
 import "./styles.css";
 import returnArrow from "../../assets/arrows/returnArrow.png";
@@ -10,7 +10,7 @@ function ReturnMenu({ returnFunction, title }) {
       <div onClick={returnFunction}>
         <img src={returnArrow} alt="Return" />
         <button>
-          <strong>{content.returnMenu}</strong>
+          <strong>{returnMenu}</strong>
         </button>
       </div>
       <p>{title}</p>

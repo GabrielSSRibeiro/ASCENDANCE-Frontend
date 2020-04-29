@@ -55,7 +55,7 @@
   margin: 0;
   color: #563065;
 }
-.management-container main button {
+.management-container main section + button {
   margin-left: 5%;
 }
 

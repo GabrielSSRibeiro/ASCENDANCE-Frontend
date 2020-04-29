@@ -1,5 +1,5 @@
 import React from "react";
-import content from "../../utils/content";
+import { dashboard } from "../../utils/content";
 import NaviBar from "../../components/NaviBar";
 import TextBox from "./components/TextBox";
 
@@ -16,17 +16,17 @@ function Dashboard({ history }) {
   return (
     <div className="dashboard-container">
       <NaviBar history={history} />
-      <h1 className="game-title">{content.dashboard.title}</h1>
+      <h1 className="game-title">{dashboard.title}</h1>
 
       <main>
-        <TextBox content={content.dashboard.textBox} />
+        <TextBox content={dashboard.textBox} />
         <section>
           <button className="std-button-filled" onClick={PlayerButtonClick}>
-            {content.dashboard.button.player}
+            {dashboard.button.player}
           </button>
 
           <button className="std-button" onClick={GMButtonClick}>
-            {content.dashboard.button.GM}
+            {dashboard.button.GM}
           </button>
         </section>
       </main>

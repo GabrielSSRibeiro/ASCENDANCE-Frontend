@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
-import content from "../../utils/content";
+import { naviBar } from "../../utils/content";
 
 import "./styles.css";
 
@@ -39,7 +39,7 @@ function NaviBar({ history }) {
 
   return (
     <div className="naviBar-container">
-      <button onClick={RedirectDashboard}>{content.naviBar}</button>
+      <button onClick={RedirectDashboard}>{naviBar}</button>
       <button onClick={RedirectLogin}>{userName}</button>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
-import content from "../../utils/content";
+import { membersBar } from "../../utils/content";
 
 import "./styles.css";
 import turnArrow from "../../assets/arrows/turnArrow.png";
@@ -28,7 +28,7 @@ function MembersBar() {
       </aside>
 
       <section>
-        {partyMembers.map(member => (
+        {partyMembers.map((member) => (
           <React.Fragment key={member._id}>
             <div></div>
             <div></div>
@@ -38,7 +38,7 @@ function MembersBar() {
 
       <aside>
         <img src={GMd20} alt="GMd20" />
-        <label>{content.membersBar}</label>
+        <label>{membersBar}</label>
       </aside>
     </div>
   );

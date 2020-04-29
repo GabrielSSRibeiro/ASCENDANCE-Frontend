@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
-import content from "../../../utils/content";
+import { gmGames } from "../../../utils/content";
+import { dashboard } from "../../../utils/content";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
@@ -46,12 +47,12 @@ function GMGames({ history }) {
   return (
     <div className="GMGames-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnDashboard} title={content.GMGames.returnMenu} />
+      <ReturnMenu returnFunction={ReturnDashboard} title={gmGames.returnMenu} />
       {gamesList && (
         <main>
           {gamesList.length > 0 && (
             <section>
-              {gamesList.map(game => (
+              {gamesList.map((game) => (
                 <div key={game._id}>
                   <img
                     onClick={() => StartGame(game.title, game.GM)}
@@ -69,9 +70,9 @@ function GMGames({ history }) {
             </section>
           )}
           {/* no games found */}
-          {gamesList.length === 0 && <h1>{content.GMGames.noGames}</h1>}
+          {gamesList.length === 0 && <h1>{gmGames.noGames}</h1>}
           <button className="std-button" onClick={NewGameClick}>
-            {content.dashboard.button.newGame}
+            {dashboard.button.newGame}
           </button>
         </main>
       )}

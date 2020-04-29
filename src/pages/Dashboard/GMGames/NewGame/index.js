@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../../../../services/api";
-import content from "../../../../utils/content";
+import { newGame } from "../../../../utils/content";
 
 import NaviBar from "../../../../components/NaviBar";
 import ReturnMenu from "../../../../components/ReturnMenu";
@@ -20,7 +20,7 @@ function NewGame({ history }) {
     const GM = localStorage.getItem("user");
     const response = await api.post("gm-games", {
       GM,
-      title
+      title,
     });
 
     if (!(response.data === "")) {
@@ -35,13 +35,13 @@ function NewGame({ history }) {
   return (
     <div className="newGame-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnGMGamesList} title={content.newGame.returnMenu} />
+      <ReturnMenu returnFunction={ReturnGMGamesList} title={newGame.returnMenu} />
       <main>
         <form onSubmit={HandleSubmit}>
-          <label>{content.newGame.label}</label>
-          <input onChange={e => setTitle(e.target.value)}></input>
+          <label>{newGame.label}</label>
+          <input onChange={(e) => setTitle(e.target.value)}></input>
 
-          <button className="std-button">{content.newGame.button}</button>
+          <button className="std-button">{newGame.button}</button>
         </form>
       </main>
     </div>

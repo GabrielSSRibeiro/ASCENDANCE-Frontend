@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../../../../services/api";
-import content from "../../../../utils/content";
+import { newPlayer } from "../../../../utils/content";
 
 import NaviBar from "../../../../components/NaviBar";
 import ReturnMenu from "../../../../components/ReturnMenu";
@@ -22,12 +22,16 @@ function NewPlayer({ history }) {
     const response = await api.put("gm-management", {
       GM,
       title,
-      playerUser
+      playerUser,
     });
 
-    if (!(response.data === "")) {
-      localStorage.setItem("game", title);
-      history.push("/gm-management");
+    if (response.data !== "") {
+      if (response.data !== "member") {
+        localStorage.setItem("game", title);
+        history.push("/gm-management");
+      } else {
+        alert("Usuário já está no jogo.");
+      }
     } else {
       alert("Usuário não encontrado.");
     }
@@ -36,13 +40,13 @@ function NewPlayer({ history }) {
   return (
     <div className="newPlayer-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnManagement} title={content.newPlayer.returnMenu} />
+      <ReturnMenu returnFunction={ReturnManagement} title={newPlayer.returnMenu} />
       <main>
         <form onSubmit={HandleSubmit}>
-          <label>{content.newPlayer.label}</label>
-          <input onChange={e => setPlayerUser(e.target.value)}></input>
+          <label>{newPlayer.label}</label>
+          <input onChange={(e) => setPlayerUser(e.target.value)}></input>
 
-          <button className="std-button">{content.newPlayer.button}</button>
+          <button className="std-button">{newPlayer.button}</button>
         </form>
       </main>
     </div>

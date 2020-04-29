@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
 import { subscribeToUser, unSubscribeToUser } from "../../../services/socket";
-import content from "../../../utils/content";
+import { playerGames } from "../../../utils/content";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
@@ -47,12 +47,12 @@ function PlayerGames({ history }) {
   return (
     <div className="player-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnDashboard} title={content.playerGames.returnMenu} />
+      <ReturnMenu returnFunction={ReturnDashboard} title={playerGames.returnMenu} />
       {playerGamesList && (
         <main>
           {playerGamesList.length > 0 && (
             <section>
-              {playerGamesList.map(game => (
+              {playerGamesList.map((game) => (
                 <div key={game._id}>
                   <img
                     onClick={() => StartGame(game.title, game.GM)}
@@ -70,7 +70,7 @@ function PlayerGames({ history }) {
             </section>
           )}
           {/* no games found */}
-          {playerGamesList.length === 0 && <h1>{content.playerGames.noGames}</h1>}
+          {playerGamesList.length === 0 && <h1>{playerGames.noGames}</h1>}
         </main>
       )}
     </div>

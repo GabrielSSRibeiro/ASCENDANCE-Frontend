@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
-import content from "../../../utils/content";
+import { management } from "../../../utils/content";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
@@ -42,27 +42,27 @@ function Management({ history }) {
   return (
     <div className="management-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnGMPanel} title={content.management.returnMenu} />
+      <ReturnMenu returnFunction={ReturnGMPanel} title={management.returnMenu} />
       <main>
-        {partyMembers.map(member => (
+        {partyMembers.map((member) => (
           <section key={member._id}>
             <img src={deleteIcon} onClick={() => RemovePlayer(member.user)} alt="Delete" />
             <div>
               <label>{member.user}</label>
             </div>
-            <button className="sl-button">{content.management.button.manage}</button>
+            <button className="sl-button">{management.button.manage}</button>
           </section>
         ))}
         {partyMembers.length < 5 && (
           <button className="sl-button" onClick={NewPlayerClick}>
-            {content.management.button.add}
+            {management.button.add}
           </button>
         )}
       </main>
 
       <section>
-        <label>{content.management.label}</label>
-        <textarea placeholder={content.management.textArea}></textarea>
+        <label>{management.label}</label>
+        <textarea placeholder={management.textArea}></textarea>
       </section>
     </div>
   );
