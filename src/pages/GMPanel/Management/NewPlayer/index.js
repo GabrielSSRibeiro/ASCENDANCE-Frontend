@@ -30,10 +30,10 @@ function NewPlayer({ history }) {
         localStorage.setItem("game", title);
         history.push("/gm-management");
       } else {
-        alert("Usuário já está no jogo.");
+        alert(newPlayer.alreadyIn);
       }
     } else {
-      alert("Usuário não encontrado.");
+      alert(newPlayer.notFound);
     }
   }
 

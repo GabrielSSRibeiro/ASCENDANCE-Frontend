@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../../../../services/api";
-import content from "../../../../utils/content";
+import { login } from "../../../../utils/content";
 import { socket } from "../../../../services/socket";
 
 import returnLogin from "../../../../assets/arrows/returnLogin.png";
@@ -16,7 +16,7 @@ function SignUpForm({ display, history }) {
     const response = await api.post("users", {
       nickName,
       email,
-      password
+      password,
     });
 
     if (!(response.data === "")) {
@@ -36,18 +36,18 @@ function SignUpForm({ display, history }) {
   return (
     <>
       <form onSubmit={HandleSignUp}>
-        <label>{content.login.label.nickName}</label>
-        <input onChange={e => setNickName(e.target.value)}></input>
+        <label>{login.label.nickName}</label>
+        <input onChange={(e) => setNickName(e.target.value)}></input>
 
         <img src={returnLogin} alt="Return" onClick={() => display("buttons")} />
 
-        <label>{content.login.label.email}</label>
-        <input type="email" onChange={e => setEmail(e.target.value)}></input>
+        <label>{login.label.email}</label>
+        <input type="email" onChange={(e) => setEmail(e.target.value)}></input>
 
-        <label>{content.login.label.password}</label>
-        <input type="password" onChange={e => setPassword(e.target.value)}></input>
+        <label>{login.label.password}</label>
+        <input type="password" onChange={(e) => setPassword(e.target.value)}></input>
 
-        <button className="std-button">{content.login.button.signUp}</button>
+        <button className="std-button">{login.button.signUp}</button>
       </form>
     </>
   );

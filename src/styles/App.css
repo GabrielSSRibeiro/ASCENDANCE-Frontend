@@ -45,7 +45,7 @@ input:focus {
   font-weight: 600 !important;
 }
 
-.unavailable {
+.disabled {
   background-color: rgba(255, 255, 255, 0.3) !important;
   color: rgba(255, 255, 255, 0.3) !important;
   border: none !important;
@@ -53,10 +53,10 @@ input:focus {
   font-weight: 600 !important;
   cursor: default !important;
 }
-.unavailable:hover {
+.disabled:hover {
   transform: scale(1) !important;
 }
-.unavailable:active {
+.disabled:active {
   transform: scale(1) !important;
 }
 
@@ -75,8 +75,10 @@ input:focus {
   height: 40px;
   border: none;
   border-radius: 15px;
-  background-color: #563065;
-  color: #ffffff;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #2a1333;
+  box-shadow: rgba(123, 37, 116, 0.5) 3px 4px 7px;
   transition: all 0.2s;
 }
 

@@ -28,7 +28,7 @@ function NewGame({ history }) {
       localStorage.setItem("GM", GM);
       history.push("/gm-panel");
     } else {
-      alert("Já existe um jogo com esse nome.");
+      alert(newGame.takenName);
     }
   }
 

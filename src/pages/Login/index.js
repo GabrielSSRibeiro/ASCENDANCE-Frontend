@@ -13,9 +13,12 @@ function Login({ history }) {
   return (
     <div className="login-container">
       <h1 className="game-title">{login.title}</h1>
+      <span>{login.version}</span>
 
       <main>
-        <TextBox content={login.textBox} />
+        <aside>
+          <TextBox content={login.textBox} />
+        </aside>
         {display === "buttons" && (
           <section>
             <button className="std-button-filled" onClick={() => setDisplay("signIn")}>

@@ -56,7 +56,7 @@ function RaceSelection({ history }) {
           ))}
         </section>
         <button
-          className={`std-button ${!selected && "unavailable"}`}
+          className={`std-button ${!selected && "disabled"}`}
           onClick={NextClick}
           disabled={selected ? false : true}
         >
@@ -64,16 +64,24 @@ function RaceSelection({ history }) {
         </button>
       </main>
       <section>
-        {selected !== "" && (
-          <InfoBoxLong
-            content={[
-              {
-                title: races[selected].name,
-                texts: races[selected].infoBoxLong,
-              },
-            ]}
-          />
-        )}
+        <InfoBoxLong
+          // if there is no race selected, show default
+          content={
+            selected !== ""
+              ? [
+                  {
+                    title: races[selected].name,
+                    texts: races[selected].infoBoxLong,
+                  },
+                ]
+              : [
+                  {
+                    title: raceSelection.race.name,
+                    texts: raceSelection.race.infoBoxLong,
+                  },
+                ]
+          }
+        />
       </section>
     </div>
   );

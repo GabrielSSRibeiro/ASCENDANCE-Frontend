@@ -1,3 +1,10 @@
+.login-container span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ffffff;
+}
+
 .login-container main {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,6 +19,10 @@
   width: 500px;
   height: 300px;
   border-radius: 5px;
+}
+
+.login-container main aside p:nth-child(2) {
+  color: #eed81a;
 }
 
 .login-container main aside p {

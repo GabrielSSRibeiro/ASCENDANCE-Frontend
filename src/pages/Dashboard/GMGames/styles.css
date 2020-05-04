@@ -5,25 +5,19 @@
   align-items: center;
 }
 
-.GMGames-container main section {
-  width: 25%;
-  padding: 0;
-}
-
 .GMGames-container main section div {
   position: relative;
   padding: 0;
   margin: 0;
   margin-bottom: 10%;
-  width: 100%;
+  width: 350px;
   height: 35px;
   border-radius: 5px;
   background-color: #ffffff;
   opacity: 92%;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -42,6 +36,7 @@
 
 .GMGames-container main section div span {
   color: #7b2574;
+  margin: auto;
 }
 
 .GMGames-container main section div span + img {

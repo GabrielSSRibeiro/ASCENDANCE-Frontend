@@ -6,6 +6,7 @@ module.exports.returnMenu = "Voltar";
 // pages
 module.exports.login = {
   title: "ESSENCIA",
+  version: "Versão 0.0 - Alfa Fechado",
   button: {
     signIn: "Entrar",
     signUp: "Cadastrar",
@@ -20,6 +21,8 @@ module.exports.login = {
     email: "E-mail",
     password: "Senha",
   },
+  notFound: "Usuário não encontrado.",
+  incorrect: "Senha incorreta.",
 };
 
 module.exports.dashboard = {
@@ -50,31 +53,40 @@ module.exports.newGame = {
   returnMenu: "Escolha de Nome",
   label: "Nome",
   button: "Criar",
+  takenName: "Já existe um jogo com esse nome.",
 };
 
 //  CharCreation
 module.exports.raceSelection = {
   returnMenu: "Escolha a Raça",
+  race: {
+    name: "Raça",
+    infoBoxLong: [
+      "O que significa a raça do personagem",
+      "Você fala o idioma de sua raça e comum.",
+      "Não afeta as estatísticas do jogo.",
+    ],
+  },
   races: {
     human: {
       name: "Humano",
-      infoBoxLong: ["Descrição do que é ser dessa raça", "Você fala o idioma de sua raça e comum."],
+      infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
     dwarf: {
       name: "Anão",
-      infoBoxLong: ["Descrição do que é ser dessa raça", "Você fala o idioma de sua raça e comum."],
+      infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
     elf: {
       name: "Elfo",
-      infoBoxLong: ["Descrição do que é ser dessa raça", "Você fala o idioma de sua raça e comum."],
+      infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
     halfling: {
       name: "Halfling",
-      infoBoxLong: ["Descrição do que é ser dessa raça", "Você fala o idioma de sua raça e comum."],
+      infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
     hybrid: {
       name: "Mestiço",
-      infoBoxLong: ["Descrição do que é ser dessa raça", "Você fala o idioma de sua raça e comum."],
+      infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
   },
   next: "Próximo",
@@ -103,6 +115,8 @@ module.exports.newPlayer = {
   returnMenu: "Adicionar Jogador",
   label: "Nome",
   button: "Adicionar",
+  notFound: "Usuário não encontrado.",
+  alreadyIn: "Usuário já está no jogo.",
 };
 
 // Player
