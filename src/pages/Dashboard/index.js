@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { dashboard } from "../../utils/content";
 import NaviBar from "../../components/NaviBar";
 import TextBox from "./components/TextBox";
@@ -6,6 +6,11 @@ import TextBox from "./components/TextBox";
 import "./styles.css";
 
 function Dashboard({ history }) {
+  useEffect(() => {
+    localStorage.removeItem("game");
+    localStorage.removeItem("GM");
+  }, []);
+
   function PlayerButtonClick() {
     history.push("/dashboard-player-list");
   }

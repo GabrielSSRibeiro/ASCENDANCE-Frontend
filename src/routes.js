@@ -43,19 +43,19 @@ export default function Routes() {
         <Route path="/dashboard-gm-list-new-game" exact component={NewGame} />
 
         {/* CharCreation */}
-        <Route path="/char-creation-race" exact component={RaceSelection} />
-        <Route path="/char-creation-origin" exact component={OriginSelection} />
-        <Route path="/char-creation-class" exact component={ClassSelection} />
-        <Route path="/char-creation-multiclass" exact component={Multiclass} />
-        <Route path="/char-creation-discipline" exact component={DisciplineSelection} />
-        <Route path="/char-creation-defensive-specialty" exact component={DefensiveSpecialty} />
-        <Route path="/char-creation-ofensive-specialty" exact component={OfensiveSpecialty} />
-        <Route path="/char-creation-past" exact component={PastDefinition} />
-        <Route path="/char-creation-characteristics" exact component={CharacteristicsDefinition} />
-        <Route path="/char-creation-alignment" exact component={AlignmentSelection} />
-        <Route path="/char-creation-atributes" exact component={AtributesAllocation} />
-        <Route path="/char-creation-equipment" exact component={EquipmentDefinition} />
-        <Route path="/char-creation-profile" exact component={ProfileDefinition} />
+        <Route path="/char-creation-0" exact component={RaceSelection} />
+        <Route path="/char-creation-1" exact component={OriginSelection} />
+        <Route path="/char-creation-2" exact component={ClassSelection} />
+        <Route path="/char-creation-3" exact component={Multiclass} />
+        <Route path="/char-creation-4" exact component={DisciplineSelection} />
+        <Route path="/char-creation-5" exact component={DefensiveSpecialty} />
+        <Route path="/char-creation-6" exact component={OfensiveSpecialty} />
+        <Route path="/char-creation-7" exact component={PastDefinition} />
+        <Route path="/char-creation-8" exact component={CharacteristicsDefinition} />
+        <Route path="/char-creation-9" exact component={AlignmentSelection} />
+        <Route path="/char-creation-10" exact component={AtributesAllocation} />
+        <Route path="/char-creation-11" exact component={EquipmentDefinition} />
+        <Route path="/char-creation-12" exact component={ProfileDefinition} />
 
         {/* GM */}
         <Route path="/gm-panel" exact component={GMPanel} />

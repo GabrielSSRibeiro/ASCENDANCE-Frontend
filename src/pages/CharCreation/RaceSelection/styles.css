@@ -1,11 +1,18 @@
-.raceSelection-container main {
+.raceSelection-container > main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.raceSelection-container main section {
+.raceSelection-container > main > span {
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: -2%;
+  margin-bottom: 4%;
+}
+
+.raceSelection-container > main > section {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,14 +20,20 @@
   flex-wrap: wrap;
 }
 
-.raceSelection-container main section div {
+.raceSelection-container > main > section > div {
   margin: -5% 2%;
 }
-.raceSelection-container main section div:last-child {
+.raceSelection-container > main > section > div:last-child {
   margin: 0;
   margin-top: 6%;
 }
 
-.raceSelection-container main button {
+.raceSelection-container > main > button {
   margin: 2.5%;
+}
+
+.raceSelection-container > section {
+  position: absolute;
+  width: 100%;
+  bottom: 5%;
 }

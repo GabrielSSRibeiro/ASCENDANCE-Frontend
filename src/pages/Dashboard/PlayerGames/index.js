@@ -24,7 +24,54 @@ function PlayerGames({ history }) {
   function StartGame(title, GM) {
     localStorage.setItem("game", title);
     localStorage.setItem("GM", GM);
-    history.push("/char-creation-race");
+
+    // -------------------------------------
+    // .race
+
+    // .lifeDie
+
+    // .class
+
+    // .disciplines
+
+    // .defensiveSpecialty
+
+    // .ofensiveSpecialty
+
+    // .past
+
+    // .personality
+
+    // .firstAlignment
+
+    // .intelligence
+    // .strength
+    // .charisma
+    // .constitution
+    // .dexterity
+
+    // .ofensiveItems
+    // .defensiveItems
+    // .otherItems
+
+    // .name
+
+    // async function CheckProgress() {
+    //   const response = await api.get("users", { params: { nickName, password } });
+    // }
+
+    // CheckProgress();
+
+    // ----------------------------------------
+
+    if (!localStorage.getItem("charCreationCurrent")) {
+      localStorage.setItem("charCreationCurrent", 0);
+    }
+    if (!localStorage.getItem("charCreationLastDone")) {
+      localStorage.setItem("charCreationLastDone", -1);
+    }
+
+    history.push(`/char-creation-${parseInt(localStorage.getItem("charCreationLastDone")) + 1}`);
   }
 
   async function DeleteGame(title) {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { raceSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
-import ReturnMenu from "../../../components/ReturnMenu";
+import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
 import "./styles.css";
@@ -33,14 +33,19 @@ function RaceSelection({ history }) {
       GM,
       race: races[selected].name,
     });
-    history.push("/char-creation-origin");
   }
 
   return (
     <div className="raceSelection-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnPlayerList} title={raceSelection.returnMenu} />
+      <CharCreationBar
+        ready={selected}
+        previous={ReturnPlayerList}
+        next={NextClick}
+        history={history}
+      />
       <main>
+        <span>{raceSelection.title}</span>
         <section>
           {races.map((race) => (
             <div key={race.name}>
@@ -55,13 +60,6 @@ function RaceSelection({ history }) {
             </div>
           ))}
         </section>
-        <button
-          className={`std-button ${!selected && "disabled"}`}
-          onClick={NextClick}
-          disabled={selected ? false : true}
-        >
-          {raceSelection.next}
-        </button>
       </main>
       <section>
         <InfoBoxLong
