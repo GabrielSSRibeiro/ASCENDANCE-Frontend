@@ -96,12 +96,12 @@ module.exports.raceSelection = {
       infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
     halfling: {
-      name: "Halfling",
+      name: "Orc",
       infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
     hybrid: {
       name: "Mestiço",
-      infoBoxLong: ["Descrição do que é ser dessa raça"],
+      infoBoxLong: ["É a combinação de uma das outras com alguma outra raça qualquer"],
     },
   },
   next: "Próximo",
