@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { raceSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
@@ -8,15 +8,9 @@ import InfoBoxLong from "../../../components/InfoBoxLong";
 import "./styles.css";
 
 function RaceSelection({ history }) {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).race);
 
-  const races = Object.keys(raceSelection.races).map((race, index) => {
-    return {
-      index,
-      name: raceSelection.races[race].name,
-      infoBoxLong: raceSelection.races[race].infoBoxLong,
-    };
-  });
+  const races = Object.entries(raceSelection.races).map((race) => race);
 
   function ReturnPlayerList() {
     history.push("/dashboard-player-list");
@@ -26,48 +20,47 @@ function RaceSelection({ history }) {
     const user = localStorage.getItem("user");
     const title = localStorage.getItem("game");
     const GM = localStorage.getItem("GM");
+    let level = parseInt(JSON.parse(localStorage.getItem("character")).level);
 
-    await api.put("char-creation", {
+    // updates the level based on last page completed
+    const current = parseInt(
+      window.location.pathname.slice(window.location.pathname.lastIndexOf("-") + 1)
+    );
+    if (level < current) {
+      level = current;
+    }
+
+    const response = await api.put("char-creation", {
       user,
       title,
       GM,
-      race: races[selected].name,
+      race: selected,
+      level,
     });
+
+    // updates local storage
+    const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
+    localStorage.setItem("character", JSON.stringify(player));
+
+    history.push(`/char-creation-${current + 1}`);
   }
-
-  // async function GetRace() {
-  //   const GM = localStorage.getItem("GM");
-  //   const title = localStorage.getItem("game");
-  //   const response = await api.get("gm-panel", { params: { GM, title } });
-
-  //   const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
-
-  //   const match = races.find((value) => value.name === player.race);
-
-  //   return match.index;
-  // }
 
   return (
     <div className="raceSelection-container">
       <NaviBar history={history} />
-      <CharCreationBar
-        ready={selected ? true : false}
-        previous={ReturnPlayerList}
-        next={NextClick}
-        history={history}
-      />
+      <CharCreationBar ready={selected ? true : false} next={NextClick} history={history} />
       <main>
         <span>{raceSelection.title}</span>
         <section>
           {races.map((race) => (
-            <div key={race.name}>
+            <div key={race[1].name}>
               <button
-                className={`big-round-button ${selected === race.index && "selected"}`}
+                className={`big-round-button ${selected === race[1].name && "selected"}`}
                 onClick={() =>
-                  race.index === selected ? setSelected("") : setSelected(race.index)
+                  race[1].name === selected ? setSelected("") : setSelected(race[1].name)
                 }
               >
-                {race.name}
+                {race[1].name}
               </button>
             </div>
           ))}
@@ -80,8 +73,8 @@ function RaceSelection({ history }) {
             selected !== ""
               ? [
                   {
-                    title: races[selected].name,
-                    texts: races[selected].infoBoxLong,
+                    title: selected,
+                    texts: races.find((value) => value[1].name === selected)[1].infoBoxLong,
                   },
                 ]
               : [
