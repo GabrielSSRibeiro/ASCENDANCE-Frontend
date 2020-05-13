@@ -8,10 +8,15 @@
 /* aside */
 .dashboard-container main aside {
   background: linear-gradient(270deg, rgba(117, 112, 112, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  padding: 12%;
+  padding: 5%;
   width: 500px;
   height: 300px;
   border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboard-container main aside p {

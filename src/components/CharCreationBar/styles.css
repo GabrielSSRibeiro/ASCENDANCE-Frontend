@@ -47,7 +47,6 @@
 
 .CharCreationBar-container > main > button {
   height: 100%;
-  width: calc(100% / 13);
   border: 0;
   position: relative;
   transition: all 0.2s;

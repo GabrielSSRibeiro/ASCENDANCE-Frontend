@@ -6,7 +6,6 @@ module.exports.progressBar = [
   { name: "Raça", previous: "Cancelar", next: "Seguinte" },
   { name: "Origem", previous: "Anterior", next: "Seguinte" },
   { name: "Classe", previous: "Anterior", next: "Seguinte" },
-  { name: "Multiclasse", previous: "Anterior", next: "Seguinte" },
   { name: "Disciplinas", previous: "Anterior", next: "Seguinte" },
   { name: "Defensivo", previous: "Anterior", next: "Seguinte" },
   { name: "Ofensivo", previous: "Anterior", next: "Seguinte" },
@@ -14,7 +13,6 @@ module.exports.progressBar = [
   { name: "Características", previous: "Anterior", next: "Seguinte" },
   { name: "Tendência", previous: "Anterior", next: "Seguinte" },
   { name: "Atributos", previous: "Anterior", next: "Seguinte" },
-  { name: "Equipamento", previous: "Anterior", next: "Seguinte" },
   { name: "Perfil", previous: "Anterior", next: "Seguinte" },
 ];
 
@@ -59,6 +57,9 @@ module.exports.dashboard = {
 module.exports.playerGames = {
   returnMenu: "Selecione o Jogo",
   noGames: "Você ainda não participa de nenhum jogo.",
+  noCharacter: "Sem Personagem",
+  inProgress: "Em Progresso",
+  level: "Nível",
 };
 module.exports.gmGames = {
   returnMenu: "Selecione o Jogo",
@@ -95,7 +96,7 @@ module.exports.raceSelection = {
       name: "Elfo",
       infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
-    halfling: {
+    orc: {
       name: "Orc",
       infoBoxLong: ["Descrição do que é ser dessa raça"],
     },
@@ -119,6 +120,7 @@ module.exports.gmPanel = {
 };
 module.exports.management = {
   returnMenu: "Gerenciamento",
+  avatar: "foto",
   button: {
     manage: "Gerenciar",
     add: "Adicionar",

@@ -13,11 +13,6 @@ import checkIcon from "../../../assets/edition/check.png";
 function PlayerGames({ history }) {
   const [playerGamesList, setPlayerGamesList] = useState();
 
-  let player;
-  function GetPlayer(game) {
-    player = game.party.find((value) => value.user === localStorage.getItem("user"));
-  }
-
   function ReturnDashboard() {
     history.push("/dashboard");
   }
@@ -105,35 +100,51 @@ function PlayerGames({ history }) {
         <main>
           {playerGamesList.length > 0 && (
             <>
-              {playerGamesList.map((game) => (
-                <section key={game._id}>
-                  {GetPlayer(game)}
-                  <header>
-                    <span>{game.title}</span>
-                    <img
-                      src={deleteIcon}
-                      onClick={() => DeleteGame(game.title)}
-                      alt="Icon made by kiranshastry from www.flaticon.com"
-                    />
-                  </header>
-                  <div>
-                    <div>{player.avatar ? player.avatar : "..."}</div>
-                    <aside>
-                      <span>
-                        <strong>{player.name ? player.name : "Sem Personagem"}</strong>
-                      </span>
-                      <span>
-                        <strong>Nível {player.level}</strong>
-                      </span>
+              {playerGamesList.map((game) => {
+                let player;
+                player = game.party.find((value) => value.user === localStorage.getItem("user"));
+
+                return (
+                  <section key={game._id}>
+                    <header>
+                      <span>{game.title}</span>
                       <img
-                        onClick={() => StartGame(game.title, game.GM)}
-                        src={checkIcon}
-                        alt="Icon made by Pixel perfect from www.flaticon.com"
+                        src={deleteIcon}
+                        onClick={() => DeleteGame(game.title)}
+                        alt="Icon made by kiranshastry from www.flaticon.com"
                       />
-                    </aside>
-                  </div>
-                </section>
-              ))}
+                    </header>
+                    <div>
+                      <div>{player.avatar ? player.avatar : player.race && "..."}</div>
+                      <aside>
+                        <span>
+                          {/* charracter progress display */}
+                          <strong>
+                            {player.name
+                              ? player.name
+                              : player.race
+                              ? playerGames.inProgress
+                              : playerGames.noCharacter}
+                          </strong>
+                        </span>
+                        <span>
+                          {/* only shows level if completely created */}
+                          {player.name && (
+                            <strong>
+                              {playerGames.level} {player.level}
+                            </strong>
+                          )}
+                        </span>
+                        <img
+                          onClick={() => StartGame(game.title, game.GM)}
+                          src={checkIcon}
+                          alt="Icon made by Pixel perfect from www.flaticon.com"
+                        />
+                      </aside>
+                    </div>
+                  </section>
+                );
+              })}
             </>
           )}
           {/* no games found */}

@@ -51,8 +51,10 @@ function CharCreationBar({ ready, previous, next, history }) {
       </button>
       <main>
         {progressBar.map((item, index) => (
+          // char creation buttons
           <button
             key={index}
+            style={{ width: `calc(100% / ${progressBar.length})` }}
             onClick={() => HandleClick(index)}
             disabled={
               index <= parseInt(localStorage.getItem("charCreationLastDone")) + 1 ? false : true
@@ -77,8 +79,8 @@ function CharCreationBar({ ready, previous, next, history }) {
         ))}
       </main>
       <button
-        className={ready === "" ? "notReady" : ""}
-        disabled={ready !== "" ? false : true}
+        className={!ready ? "notReady" : ""}
+        disabled={ready ? false : true}
         onClick={HandleNext}
       >
         {progressBar[localStorage.getItem("charCreationCurrent")].next}

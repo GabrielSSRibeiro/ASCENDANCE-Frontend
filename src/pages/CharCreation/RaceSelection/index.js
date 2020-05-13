@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { raceSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
@@ -35,11 +35,23 @@ function RaceSelection({ history }) {
     });
   }
 
+  // async function GetRace() {
+  //   const GM = localStorage.getItem("GM");
+  //   const title = localStorage.getItem("game");
+  //   const response = await api.get("gm-panel", { params: { GM, title } });
+
+  //   const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
+
+  //   const match = races.find((value) => value.name === player.race);
+
+  //   return match.index;
+  // }
+
   return (
     <div className="raceSelection-container">
       <NaviBar history={history} />
       <CharCreationBar
-        ready={selected}
+        ready={selected ? true : false}
         previous={ReturnPlayerList}
         next={NextClick}
         history={history}
