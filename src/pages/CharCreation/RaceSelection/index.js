@@ -12,37 +12,14 @@ function RaceSelection({ history }) {
 
   const races = Object.entries(raceSelection.races).map((race) => race);
 
-  function ReturnPlayerList() {
-    history.push("/dashboard-player-list");
-  }
-
-  async function NextClick() {
-    const user = localStorage.getItem("user");
-    const title = localStorage.getItem("game");
-    const GM = localStorage.getItem("GM");
-    let level = parseInt(JSON.parse(localStorage.getItem("character")).level);
-
-    // updates the level based on last page completed
-    const current = parseInt(
-      window.location.pathname.slice(window.location.pathname.lastIndexOf("-") + 1)
-    );
-    if (level < current) {
-      level = current;
-    }
-
-    const response = await api.put("char-creation", {
+  async function NextClick(user, title, GM, level) {
+    return await api.put("char-creation", {
       user,
       title,
       GM,
       race: selected,
       level,
     });
-
-    // updates local storage
-    const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
-    localStorage.setItem("character", JSON.stringify(player));
-
-    history.push(`/char-creation-${current + 1}`);
   }
 
   return (
