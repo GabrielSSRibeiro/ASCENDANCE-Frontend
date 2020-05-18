@@ -1,3 +1,5 @@
+const React = require("react");
+
 // components
 module.exports.naviBar = "ESSENCIA";
 module.exports.membersBar = "Mestre";
@@ -105,7 +107,70 @@ module.exports.raceSelection = {
       infoBoxLong: ["É a combinação de uma das outras com alguma outra raça qualquer"],
     },
   },
-  next: "Próximo",
+};
+module.exports.originSelection = {
+  title: "Escolha a Origem Mágica",
+  outline: {
+    race: "Raça",
+  },
+  origin: {
+    name: "Origem",
+    infoBoxLong: [
+      [
+        "Poucas pessoas se destacam com a capacidade de manipular sua ",
+        <strong>Essência</strong>,
+        " por mais que a tenham.",
+      ],
+      "Você fala o idioma de sua raça e comum.",
+    ],
+  },
+  origins: {
+    innate: {
+      name: "Inata",
+      infoBoxLong: [
+        "Descrever o que é essa origem.",
+        "Possui 4 pontos em Disciplinas mágicas",
+        "Dado de Vida é d4",
+        "Classes são Feiticeiro e Mago",
+      ],
+    },
+    granted: {
+      name: "Concedida",
+      infoBoxLong: [
+        "Descrever o que é essa origem.",
+        "Possui 3 pontos em Disciplinas mágicas",
+        "Dado de Vida é d6",
+        "Classes são Clérigo e Bruxo",
+      ],
+    },
+    nourished: {
+      name: "Nutrida",
+      infoBoxLong: [
+        "Descrever o que é essa origem.",
+        "Possui 2 pontos em Disciplinas mágicas",
+        "Dado de Vida é d8",
+        "Classes são Paladino e Druida",
+      ],
+    },
+    occasional: {
+      name: "Ocasional",
+      infoBoxLong: [
+        "Descrever o que é essa origem.",
+        "Possui 1 pontos em Disciplinas mágicas",
+        "Dado de Vida é d10",
+        "Classes são Guerreiro e Ladino",
+      ],
+    },
+    nonexistent: {
+      name: "Inexistente",
+      infoBoxLong: [
+        "Descrever o que é essa origem.",
+        "Possui 0 pontos em Disciplinas mágicas",
+        "Dado de Vida é d12",
+        "Classes são Bárbaro e Monge",
+      ],
+    },
+  },
 };
 
 // GM

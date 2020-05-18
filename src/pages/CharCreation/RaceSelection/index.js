@@ -43,26 +43,25 @@ function RaceSelection({ history }) {
           ))}
         </section>
       </main>
-      <section>
-        <InfoBoxLong
-          // if there is no race selected, show default
-          content={
-            selected !== ""
-              ? [
-                  {
-                    title: selected,
-                    texts: races.find((value) => value[1].name === selected)[1].infoBoxLong,
-                  },
-                ]
-              : [
-                  {
-                    title: raceSelection.race.name,
-                    texts: raceSelection.race.infoBoxLong,
-                  },
-                ]
-          }
-        />
-      </section>
+
+      <InfoBoxLong
+        // if there is no selected, show default
+        content={
+          selected !== ""
+            ? [
+                {
+                  title: selected,
+                  texts: races.find((value) => value[1].name === selected)[1].infoBoxLong,
+                },
+              ]
+            : [
+                {
+                  title: raceSelection.race.name,
+                  texts: raceSelection.race.infoBoxLong,
+                },
+              ]
+        }
+      />
     </div>
   );
 }

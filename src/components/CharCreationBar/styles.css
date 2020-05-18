@@ -3,7 +3,6 @@
   margin: 0;
   margin-top: 35px;
   height: 60px;
-  margin-bottom: 60px;
   background-color: #f1eef2;
 
   display: flex;
@@ -59,6 +58,12 @@
 }
 .CharCreationBar-container > main > button:hover {
   background-color: #e5e5e5;
+}
+
+@media (max-width: 1200px) {
+  .CharCreationBar-container > main > button {
+    display: none;
+  }
 }
 
 .CharCreationBar-container > main > button div {

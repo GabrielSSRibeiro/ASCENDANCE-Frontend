@@ -80,6 +80,13 @@
   align-items: center;
 }
 
+@media (max-height: 500px) {
+  .management-container section {
+    position: relative;
+    margin-top: 10%;
+  }
+}
+
 .management-container section label {
   font-weight: 600;
   color: #ffffff;

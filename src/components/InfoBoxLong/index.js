@@ -6,13 +6,14 @@ function InfoBoxLong({ content }) {
   return (
     <div className="infoBoxLong-container">
       {content.map((item) => (
-        <div key={item}>
+        <main key={item}>
           <label>{item.title}</label>
-
-          {item.texts.map((text) => (
-            <p key={text}>{text}</p>
-          ))}
-        </div>
+          <div>
+            {item.texts.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
+          </div>
+        </main>
       ))}
     </div>
   );
