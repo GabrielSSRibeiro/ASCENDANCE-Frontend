@@ -116,58 +116,92 @@ module.exports.originSelection = {
   origin: {
     name: "Origem",
     infoBoxLong: [
-      [
-        "Poucas pessoas se destacam com a capacidade de manipular sua ",
-        <strong>Essência</strong>,
-        " por mais que a tenham",
-      ],
+      <>
+        Poucas pessoas se destacam com a capacidade de manipular sua <strong>Essência</strong> por
+        mais que a tenham
+      </>,
       "Você fala o idioma de sua raça e comum",
     ],
   },
   origins: {
     innate: {
+      id: "5e80a01a-75bb-4632-86d5-fa83953276e3",
       name: "Inata",
       infoBoxLong: [
         "Descrever o que é essa origem",
-        ["Possui 4 pontos em ", <strong>Disciplinas</strong>, " mágicas"],
-        [<strong>Dado de Vida</strong>, " é d4"],
-        ["Classes são ", <strong>Feiticeiro</strong>, " e ", <strong>Mago</strong>],
+        <>
+          Possui 4 pontos em <strong>Disciplinas</strong> mágicas
+        </>,
+        <>
+          <strong>Dado de Vida</strong> é d4
+        </>,
+        <>
+          Classes são <strong>Feiticeiro</strong> e <strong>Mago</strong>
+        </>,
       ],
     },
     granted: {
+      id: "223d1dcb-8828-4f4a-a936-7d9832c91a17",
       name: "Concedida",
       infoBoxLong: [
         "Descrever o que é essa origem",
-        ["Possui 3 pontos em ", <strong>Disciplinas</strong>, " mágicas"],
-        [<strong>Dado de Vida</strong>, " é d6"],
-        ["Classes são ", <strong>Clérigo</strong>, " e ", <strong>Bruxo</strong>],
+        <>
+          Possui 3 pontos em <strong>Disciplinas</strong> mágicas
+        </>,
+        <>
+          <strong>Dado de Vida</strong> é d6
+        </>,
+        <>
+          Classes são <strong>Clérigo</strong> e <strong>Bruxo</strong>
+        </>,
       ],
     },
     nourished: {
+      id: "0839e1e4-da98-4f30-a09d-c226c9070aca",
       name: "Nutrida",
       infoBoxLong: [
         "Descrever o que é essa origem",
-        ["Possui 2 pontos em ", <strong>Disciplinas</strong>, " mágicas"],
-        [<strong>Dado de Vida</strong>, " é d8"],
-        ["Classes são ", <strong>Paladino</strong>, " e ", <strong>Druida</strong>],
+        <>
+          Possui 2 pontos em <strong>Disciplinas</strong> mágicas
+        </>,
+        <>
+          <strong>Dado de Vida</strong> é d8
+        </>,
+        <>
+          Classes são <strong>Paladino</strong> e <strong>Druida</strong>
+        </>,
       ],
     },
     occasional: {
+      id: "1de4ffc4-feff-4539-b0e8-fc391633466d",
       name: "Ocasional",
       infoBoxLong: [
         "Descrever o que é essa origem",
-        ["Possui 1 pontos em ", <strong>Disciplinas</strong>, " mágicas"],
-        [<strong>Dado de Vida</strong>, " é d10"],
-        ["Classes são ", <strong>Guerreiro</strong>, " e ", <strong>Ladino</strong>],
+        <>
+          Possui 1 pontos em <strong>Disciplinas</strong> mágicas
+        </>,
+        <>
+          <strong>Dado de Vida</strong> é d10
+        </>,
+        <>
+          Classes são <strong>Guerreiro</strong> e <strong>Ladino</strong>
+        </>,
       ],
     },
     nonexistent: {
+      id: "37b1eaf8-7d28-4d48-8eb4-f8bc45d23b80",
       name: "Inexistente",
       infoBoxLong: [
         "Descrever o que é essa origem",
-        ["Possui 0 pontos em ", <strong>Disciplinas</strong>, " mágicas"],
-        [<strong>Dado de Vida</strong>, " é d12"],
-        ["Classes são ", <strong>Bárbaro</strong>, " e ", <strong>Monge</strong>],
+        <>
+          Possui 0 pontos em <strong>Disciplinas</strong> mágicas
+        </>,
+        <>
+          <strong>Dado de Vida</strong> é d12
+        </>,
+        <>
+          Classes são <strong>Bárbaro</strong> e <strong>Monge</strong>
+        </>,
       ],
     },
   },
