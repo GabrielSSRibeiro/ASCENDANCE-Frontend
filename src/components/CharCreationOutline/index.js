@@ -3,7 +3,7 @@ import React from "react";
 import "./styles.css";
 
 function CharCreationOutline({ content }) {
-  const outline = Object.entries(content.outline).map((item, index) => {
+  const outline = Object.entries(content.outline).map((item) => {
     return {
       title: item[1],
       text: JSON.parse(localStorage.getItem("character"))[item[0]],

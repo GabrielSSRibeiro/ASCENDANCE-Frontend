@@ -19,15 +19,7 @@ function CharCreationBar({ ready, next, history }) {
     const user = localStorage.getItem("user");
     const title = localStorage.getItem("game");
     const GM = localStorage.getItem("GM");
-    let level = parseInt(JSON.parse(localStorage.getItem("character")).level);
-
-    // updates the level based on last page completed
-    const current = parseInt(
-      window.location.pathname.slice(window.location.pathname.lastIndexOf("-") + 1)
-    );
-    if (level < current) {
-      level = current;
-    }
+    const level = current;
 
     const response = await next(user, title, GM, level);
     const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));

@@ -15,7 +15,6 @@ function SignInForm({ display, history }) {
     const response = await api.get("users", {
       params: { nickName, password },
     });
-    console.log(response.data);
 
     if (response.data) {
       if (response.data === "incorrect") {

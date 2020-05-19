@@ -11,20 +11,13 @@ import "./styles.css";
 function OriginSelection({ history }) {
   const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).origin);
 
-  const dictionary = {
-    "5e80a01a-75bb-4632-86d5-fa83953276e3": { lifeDie: 4 },
-    "223d1dcb-8828-4f4a-a936-7d9832c91a17": { lifeDie: 6 },
-    "0839e1e4-da98-4f30-a09d-c226c9070aca": { lifeDie: 8 },
-    "1de4ffc4-feff-4539-b0e8-fc391633466d": { lifeDie: 10 },
-    "37b1eaf8-7d28-4d48-8eb4-f8bc45d23b80": { lifeDie: 12 },
-  };
-  const origins = Object.entries(originSelection.origins).map((origin) => {
-    return { ...origin, lifeDie: dictionary[origin[1].id].lifeDie };
+  const origins = Object.entries(originSelection.origins).map((origin, index) => {
+    return { ...origin, index };
   });
 
   async function NextClick(user, title, GM, level) {
     let lifeDie;
-    lifeDie = origins.find((value) => value[1].name === selected).lifeDie;
+    lifeDie = 4 + origins.find((value) => value[1].name === selected).index * 2;
 
     return await api.put("char-creation", {
       user,
@@ -32,6 +25,8 @@ function OriginSelection({ history }) {
       GM,
       origin: selected,
       lifeDie,
+      class: "",
+      class2: "",
       level,
     });
   }
