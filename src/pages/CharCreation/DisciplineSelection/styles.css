@@ -1,0 +1,80 @@
+.disciplineSelection-container > main {
+  margin-top: 30px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.disciplineSelection-container > main > span {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.disciplineSelection-container > main > section {
+  color: #ffffff;
+  width: 500px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.disciplineSelection-container > main > section > span {
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.disciplineSelection-container > main > section > span > strong {
+  font-size: 24px;
+}
+
+.disciplineSelection-container > main > section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.disciplineSelection-container > main > section > div:nth-child(n + 4) {
+  margin-top: 20px;
+}
+
+.disciplineSelection-container > main > section > div > label {
+  margin-top: 7px;
+}
+
+.disciplineSelection-container > main > section > div > .nodes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.disciplineSelection-container > main > section > div > div > button {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #dedede;
+  background-color: transparent;
+  transition: all 0.2s;
+  margin: 0 3px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.disciplineSelection-container > main > section > div > div > button:hover {
+  transform: scale(1.1);
+}
+.disciplineSelection-container > main > section > div > div > button:active {
+  transform: scale(0.9);
+}

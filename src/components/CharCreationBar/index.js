@@ -19,6 +19,7 @@ function CharCreationBar({ ready, next, history }) {
     const user = localStorage.getItem("user");
     const title = localStorage.getItem("game");
     const GM = localStorage.getItem("GM");
+
     const level = current;
 
     const response = await next(user, title, GM, level);
