@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { originSelection } from "../../../utils/content";
+import { ofensiveSpecialty } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
@@ -8,11 +8,13 @@ import InfoBoxLong from "../../../components/InfoBoxLong";
 
 import "./styles.css";
 
-function MyFunction({ history }) {
-  const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).origin);
+function OfensiveSpecialty({ history }) {
+  const [selected, setSelected] = useState(
+    JSON.parse(localStorage.getItem("character")).ofensiveSpecialty
+  );
 
-  const origins = Object.entries(originSelection.origins).map((origin, index) => {
-    return { ...origin, index };
+  const specialties = Object.entries(ofensiveSpecialty.specialties).map((specialty) => {
+    return { ...specialty };
   });
 
   async function NextClick(user, title, GM, level) {
@@ -20,29 +22,29 @@ function MyFunction({ history }) {
       user,
       title,
       GM,
-      origin: selected,
+      ofensiveSpecialty: selected,
       level,
     });
   }
 
   return (
-    <div className="originSelection-container">
+    <div className="ofensiveSpecialty-container">
       <NaviBar history={history} />
       <CharCreationBar ready={selected ? true : false} next={NextClick} history={history} />
 
       <main>
-        <CharCreationOutline content={originSelection} />
-        <span>{originSelection.title}</span>
+        <CharCreationOutline content={ofensiveSpecialty} />
+        <span>{ofensiveSpecialty.title}</span>
         <section>
-          {origins.map((origin) => (
-            <div key={origin[1].name}>
+          {specialties.map((specialty) => (
+            <div key={specialty[1].name}>
               <button
-                className={`big-round-button ${selected === origin[1].name && "selected"}`}
+                className={`big-round-button ${selected === specialty[1].name && "selected"}`}
                 onClick={() =>
-                  origin[1].name === selected ? setSelected("") : setSelected(origin[1].name)
+                  specialty[1].name === selected ? setSelected("") : setSelected(specialty[1].name)
                 }
               >
-                {origin[1].name}
+                {specialty[1].name}
               </button>
             </div>
           ))}
@@ -55,14 +57,18 @@ function MyFunction({ history }) {
           selected !== ""
             ? [
                 {
-                  title: selected,
-                  texts: origins.find((value) => value[1].name === selected)[1].infoBoxLong,
+                  title: ofensiveSpecialty.infoBoxLong.bonuses,
+                  texts: specialties.find((value) => value[1].name === selected)[1].bonuses,
+                },
+                {
+                  title: ofensiveSpecialty.infoBoxLong.feats,
+                  texts: specialties.find((value) => value[1].name === selected)[1].feats,
                 },
               ]
             : [
                 {
-                  title: originSelection.origin.name,
-                  texts: originSelection.origin.infoBoxLong,
+                  title: ofensiveSpecialty.specialty.name,
+                  texts: ofensiveSpecialty.specialty.infoBoxLong,
                 },
               ]
         }
@@ -71,4 +77,4 @@ function MyFunction({ history }) {
   );
 }
 
-export default MyFunction;
+export default OfensiveSpecialty;

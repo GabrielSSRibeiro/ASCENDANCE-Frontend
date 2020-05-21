@@ -103,6 +103,7 @@ input:focus {
 .big-round-button {
   width: 100px;
   height: 100px;
+  padding: 5px;
   font-size: 0.9rem;
   border: 2px solid #ffffff;
   border-radius: 100%;

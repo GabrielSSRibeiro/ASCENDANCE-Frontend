@@ -1,4 +1,4 @@
-.originSelection-container > main {
+.ofensiveSpecialty-container > main {
   margin-top: 30px;
   position: relative;
 
@@ -8,19 +8,19 @@
   justify-content: center;
 }
 
-.originSelection-container > main > span {
+.ofensiveSpecialty-container > main > span {
   color: #ffffff;
   font-weight: 600;
   margin-bottom: 50px;
 }
 
-.originSelection-container > main > section {
+.ofensiveSpecialty-container > main > section {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.originSelection-container > main > section > div {
+.ofensiveSpecialty-container > main > section > div {
   margin: -5% 2%;
 }
