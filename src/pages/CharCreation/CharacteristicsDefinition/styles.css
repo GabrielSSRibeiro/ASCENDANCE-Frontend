@@ -1,4 +1,4 @@
-.originSelection-container > main {
+.characteristicsDefinition-container > main {
   margin-top: 30px;
   position: relative;
 
@@ -8,19 +8,52 @@
   justify-content: center;
 }
 
-.originSelection-container > main > span {
+.characteristicsDefinition-container > main > span {
   color: #ffffff;
   font-weight: 600;
   margin-bottom: 50px;
 }
 
-.originSelection-container > main > section {
+.characteristicsDefinition-container > main > {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.originSelection-container > main > section > div {
-  margin: -5% 2%;
+.characteristicsDefinition-container > main > section {
+  width: 800px;
+  margin-top: -20px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+@media (max-width: 900px) {
+  .characteristicsDefinition-container > main > section {
+    width: 400px;
+  }
+}
+
+.characteristicsDefinition-container > main > section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.characteristicsDefinition-container > main > section > div > label {
+  color: #ffffff;
+}
+
+.characteristicsDefinition-container > main > section > div > textarea {
+  margin: 0 20px 20px 20px;
+  padding: 5px;
+  font-size: 14px;
+  width: 315px;
+  height: 60px;
+  border-radius: 7px;
+  resize: none;
 }

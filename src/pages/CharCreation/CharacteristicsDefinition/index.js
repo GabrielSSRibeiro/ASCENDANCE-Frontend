@@ -1,74 +1,78 @@
 import React, { useState } from "react";
-import { originSelection } from "../../../utils/content";
+import { characteristicsDefinition } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
-import CharCreationOutline from "../../../components/CharCreationOutline";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
 import "./styles.css";
 
-function MyFunction({ history }) {
-  const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).origin);
-
-  const origins = Object.entries(originSelection.origins).map((origin, index) => {
-    return { ...origin, index };
+function CharacteristicsDefinition({ history }) {
+  const [selected, setSelected] = useState({
+    personality: JSON.parse(localStorage.getItem("character")).personality,
+    occupation: JSON.parse(localStorage.getItem("character")).occupation,
+    goal: JSON.parse(localStorage.getItem("character")).goal,
+    flaw: JSON.parse(localStorage.getItem("character")).flaw,
   });
+
+  const characteristics = Object.entries(characteristicsDefinition.characteristics).map(
+    (characteristic) => {
+      return { ...characteristic };
+    }
+  );
 
   async function NextClick(user, title, GM, level) {
     return await api.put("char-creation", {
       user,
       title,
       GM,
-      origin: selected,
+      personality: selected.personality,
+      occupation: selected.occupation,
+      goal: selected.goal,
+      flaw: selected.flaw,
       level,
     });
   }
 
   return (
-    <div className="originSelection-container">
+    <div className="characteristicsDefinition-container">
       <NaviBar history={history} />
-      <CharCreationBar ready={selected ? true : false} next={NextClick} history={history} />
+      <CharCreationBar
+        ready={
+          selected.personality && selected.occupation && selected.goal && selected.flaw
+            ? true
+            : false
+        }
+        next={NextClick}
+        history={history}
+      />
 
       <main>
-        <CharCreationOutline content={originSelection} />
-        <span>{originSelection.title}</span>
+        <span>{characteristicsDefinition.title}</span>
         <section>
-          {origins.map((origin) => (
-            <div key={origin[1].name}>
-              <button
-                className={`big-round-button ${selected === origin[1].name && "selected"}`}
-                onClick={() =>
-                  origin[1].name === selected ? setSelected("") : setSelected(origin[1].name)
-                }
-              >
-                {origin[1].name}
-              </button>
+          {characteristics.map((characteristic) => (
+            <div key={characteristic[1].title}>
+              <label>{characteristic[1].title}</label>
+              <textarea
+                placeholder={characteristic[1].placeholder}
+                onChange={(e) => setSelected({ ...selected, [characteristic[0]]: e.target.value })}
+                value={selected[characteristic[0]]}
+              ></textarea>
             </div>
           ))}
         </section>
       </main>
 
       <InfoBoxLong
-        // if there is no selected, show default
-        content={
-          selected !== ""
-            ? [
-                {
-                  title: selected,
-                  texts: origins.find((value) => value[1].name === selected)[1].infoBoxLong,
-                },
-              ]
-            : [
-                {
-                  title: originSelection.origin.name,
-                  texts: originSelection.origin.infoBoxLong,
-                },
-              ]
-        }
+        content={[
+          {
+            title: characteristicsDefinition.infoBoxLong.title,
+            texts: characteristicsDefinition.infoBoxLong.texts,
+          },
+        ]}
       />
     </div>
   );
 }
 
-export default MyFunction;
+export default CharacteristicsDefinition;

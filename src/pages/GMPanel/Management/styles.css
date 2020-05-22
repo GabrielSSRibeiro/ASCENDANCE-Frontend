@@ -6,9 +6,14 @@
 
   display: flex;
   flex-direction: row;
-  flex-flow: wrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 900px) {
+  .management-container main {
+    margin-bottom: 250px;
+  }
 }
 
 .management-container > main > section {
@@ -80,7 +85,7 @@
   align-items: center;
 }
 
-@media (max-height: 500px) {
+@media (max-height: 500px), (max-width: 1200px) {
   .management-container section {
     position: relative;
     margin-top: 10%;

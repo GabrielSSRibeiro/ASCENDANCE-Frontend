@@ -1,4 +1,4 @@
-.originSelection-container > main {
+.alignmentSelection-container > main {
   margin-top: 30px;
   position: relative;
 
@@ -8,19 +8,41 @@
   justify-content: center;
 }
 
-.originSelection-container > main > span {
+.alignmentSelection-container > main > span {
   color: #ffffff;
   font-weight: 600;
   margin-bottom: 50px;
 }
 
-.originSelection-container > main > section {
+.alignmentSelection-container > main > div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alignmentSelection-container > main > div > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignmentSelection-container > main > div > section > span {
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+
+.alignmentSelection-container > main > div > section > .alignment {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.originSelection-container > main > section > div {
+.alignmentSelection-container > main > div > section > .alignment > div {
   margin: -5% 2%;
 }

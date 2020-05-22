@@ -125,7 +125,6 @@ module.exports.originSelection = {
   },
   origins: {
     innate: {
-      id: "5e80a01a-75bb-4632-86d5-fa83953276e3",
       name: "Inata",
       infoBoxLong: [
         "Descrever o que é essa origem",
@@ -141,7 +140,6 @@ module.exports.originSelection = {
       ],
     },
     granted: {
-      id: "223d1dcb-8828-4f4a-a936-7d9832c91a17",
       name: "Concedida",
       infoBoxLong: [
         "Descrever o que é essa origem",
@@ -157,7 +155,6 @@ module.exports.originSelection = {
       ],
     },
     nourished: {
-      id: "0839e1e4-da98-4f30-a09d-c226c9070aca",
       name: "Nutrida",
       infoBoxLong: [
         "Descrever o que é essa origem",
@@ -173,7 +170,6 @@ module.exports.originSelection = {
       ],
     },
     occasional: {
-      id: "1de4ffc4-feff-4539-b0e8-fc391633466d",
       name: "Ocasional",
       infoBoxLong: [
         "Descrever o que é essa origem",
@@ -189,7 +185,6 @@ module.exports.originSelection = {
       ],
     },
     nonexistent: {
-      id: "37b1eaf8-7d28-4d48-8eb4-f8bc45d23b80",
       name: "Inexistente",
       infoBoxLong: [
         "Descrever o que é essa origem",
@@ -598,6 +593,115 @@ module.exports.ofensiveSpecialty = {
     },
   },
   infoBoxLong: { bonuses: "Bônus", feats: "Talentos" },
+};
+module.exports.pastDefinition = {
+  title: "Escreva Seu Passado",
+  outline: {
+    race: "Raça",
+    origin: "Origem Mágica",
+    class: "Classe",
+    defensiveSpecialty: "Especialidade Defensiva",
+    ofensiveSpecialty: "Especialidade Ofensiva",
+  },
+  placeholder:
+    "Ex: Ehrazok, era um homem humano já em seus trinta e sete anos. Ele, como muitos já em sua idade, era responsável pela forja de armas. Ehrazok foi treinado na arte curativa por seus compatriotas e no confronto de venenos, por sua bela esposa Barsara...",
+  infoBoxLong: {
+    title: "Passado",
+    texts: [
+      "Lorem ipsum dolor",
+      "O mestre pode lhe conceder ou retirar pontos iniciais de acordo com seu passado. Converse com ele",
+    ],
+  },
+};
+module.exports.characteristicsDefinition = {
+  title: "Defina Suas Características",
+  characteristics: {
+    personality: {
+      title: "Personalidade",
+      placeholder: "Ex: Agitado, calmo, brincalhão...",
+    },
+    occupation: {
+      title: "Profissão",
+      placeholder: "Ex: Caçador, vendedor, ferreiro...",
+    },
+    goal: {
+      title: "Objetivo",
+      placeholder: "Ex: Restauras a honra da família, ficar rico...",
+    },
+    flaw: {
+      title: "Defeito",
+      placeholder: "Ex: Ganância, bondade, impulsividade...",
+    },
+  },
+  infoBoxLong: {
+    title: "Características",
+    texts: ["Lorem ipsum dolor"],
+  },
+};
+module.exports.alignmentSelection = {
+  title: "Escolha a Sua Tendência",
+  alignment: {
+    name: "Tendência",
+    infoBoxLong: ["Descrever o que é tendência"],
+  },
+  firstAlignments: {
+    lawful: {
+      name: "Leal",
+      infoBoxLong: ["Descrever o que é essa tendência"],
+    },
+    neutral: {
+      name: "Neutro",
+      infoBoxLong: ["Descrever o que é essa tendência"],
+    },
+    chaotic: {
+      name: "Caótico",
+      infoBoxLong: ["Descrever o que é essa tendência"],
+    },
+  },
+  secondAlignments: {
+    good: {
+      name: "Bom",
+      infoBoxLong: ["Descrever o que é essa tendência"],
+    },
+    neutral: {
+      name: "Neutro",
+      infoBoxLong: ["Descrever o que é essa tendência"],
+    },
+    evil: {
+      name: "Mal",
+      infoBoxLong: ["Descrever o que é essa tendência"],
+    },
+  },
+  firstTitle: "Escolha 1 entre as 3 índoles",
+  secondTitle: "Escolha 1 entre as 3 atitudes",
+};
+module.exports.atributesAllocation = {
+  title: "Escolha a(s) Disciplina(s)",
+  outline: {
+    race: "Raça",
+    origin: "Origem Mágica",
+    class: "Classe",
+  },
+  discipline: {
+    name: "Disciplina",
+    points: [
+      <>
+        O primeiro concede o uso da <strong>Disciplina</strong> Cada ponto seguinte aumenta seu{" "}
+        <strong>Poder</strong> mínimo com a <strong>Disciplina</strong> em 10, sem custo extra
+      </>,
+      <>
+        <strong>Poder</strong> é utilizado para determinar a potência de uma <strong>Magia</strong>
+      </>,
+    ],
+    discipline: ["Descrição do que é uma Disciplina e cada uma delas"],
+  },
+  disciplines: {
+    feel: "Sentir",
+    create: "Criar",
+    change: "Alterar",
+    control: "Controlar",
+  },
+  infoBoxLong: { points: "Uso de Pontos", discipline: "Disciplina" },
 };
 
 // GM

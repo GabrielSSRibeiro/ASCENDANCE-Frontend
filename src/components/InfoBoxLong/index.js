@@ -8,7 +8,9 @@ function InfoBoxLong({ content }) {
     <div className="infoBoxLong-container">
       {content.map((item) => (
         <main key={uuid()}>
-          <label>{item.title}</label>
+          <label style={item.title ? { borderBottom: "thin solid #f27036" } : { border: "0" }}>
+            {item.title}
+          </label>
           <div>
             {item.texts.map((text) => (
               <p key={uuid()}>{text}</p>

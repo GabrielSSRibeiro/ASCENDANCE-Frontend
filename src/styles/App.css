@@ -27,7 +27,7 @@ body {
     rgba(137, 80, 160, 1) 100%
   );
 }
-@media (max-height: 500px) {
+@media (max-height: 500px), (max-width: 1200px) {
   body {
     background: rgba(47, 22, 56, 1);
   }

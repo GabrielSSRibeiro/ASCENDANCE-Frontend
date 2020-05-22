@@ -14,7 +14,7 @@
   justify-content: space-evenly;
 }
 
-@media (max-height: 500px) {
+@media (max-height: 500px), (max-width: 1200px) {
   .infoBoxLong-container {
     position: relative;
     margin-top: 10%;
@@ -45,7 +45,6 @@
 }
 
 .infoBoxLong-container label {
-  border-bottom: thin solid #f27036;
   line-height: 2rem;
   width: 50%;
   color: #ffffff;
