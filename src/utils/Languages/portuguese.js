@@ -697,36 +697,47 @@ module.exports.atributesAllocation = {
     intelligence: {
       name: "Inteligência",
       infoBoxLong: [
-        "Quanto maior, melhor é a sua memória",
+        "Impacta na sua memória",
         <>
-          <strong>Habilidades</strong> são <strong>Raciocínio</strong> e <strong>História</strong>
+          <strong>Raciocínio</strong>
+        </>,
+        <>
+          <strong>História</strong>
         </>,
       ],
     },
     strength: {
       name: "Força",
       infoBoxLong: [
-        "Quanto maior, mais peso você pode carregar",
+        "Impacta no peso que você pode carregar",
         <>
-          <strong>Habilidades</strong> são <strong>Atletismo</strong> e <strong>Intimidação</strong>
+          <strong>Atletismo</strong>
+        </>,
+        <>
+          <strong>Intimidação</strong>
         </>,
       ],
     },
     charisma: {
       name: "Carisma",
       infoBoxLong: [
-        "Quanto maior, melhor é a sua interação com os outros",
+        "Impacta na sua interação com os outros",
         <>
-          <strong>Habilidades</strong> são <strong>Improvisação</strong> e <strong>Intuição</strong>
+          <strong>Improvisação</strong>
+        </>,
+        <>
+          <strong>Intuição</strong>
         </>,
       ],
     },
     constitution: {
       name: "Constituição",
       infoBoxLong: [
-        "Quanto maior, mais você resiste antes de sofrer com adversidades",
+        "Impacta na sua resistência à adversidades",
         <>
-          <strong>Habilidades</strong> são <strong>Sobrevivência</strong> e{" "}
+          <strong>Sobrevivência</strong>
+        </>,
+        <>
           <strong>Robustez</strong>
         </>,
       ],
@@ -734,18 +745,24 @@ module.exports.atributesAllocation = {
     dexterity: {
       name: "Destreza",
       infoBoxLong: [
-        "Quanto maior, melhor é o seu alcance a distância",
+        "Impacta no seu alcance a distância",
         <>
-          <strong>Habilidades</strong> são <strong>Leveza</strong> e <strong>Furtividade</strong>
+          <strong>Leveza</strong>
+        </>,
+        <>
+          <strong>Furtividade</strong>
         </>,
       ],
     },
     wisdom: {
       name: "Sabedoria",
       infoBoxLong: [
-        "Quanto maior, melhor são os seus sentidos",
+        "Impacta nos seus sentidos",
         <>
-          <strong>Habilidades</strong> são <strong>Natureza</strong> e <strong>Percepção</strong>
+          <strong>Natureza</strong>
+        </>,
+        <>
+          <strong>Percepção</strong>
         </>,
       ],
     },
