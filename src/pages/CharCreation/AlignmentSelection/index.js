@@ -36,7 +36,11 @@ function AlignmentSelection({ history }) {
   return (
     <div className="alignmentSelection-container">
       <NaviBar history={history} />
-      <CharCreationBar ready={selected ? true : false} next={NextClick} history={history} />
+      <CharCreationBar
+        ready={selected && selected2 ? true : false}
+        next={NextClick}
+        history={history}
+      />
 
       <main>
         <span>{alignmentSelection.title}</span>

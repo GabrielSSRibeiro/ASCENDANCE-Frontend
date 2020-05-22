@@ -27,9 +27,9 @@ function PlayerGames({ history }) {
     history.push(`/char-creation-${player.level + 1}`);
   }
 
-  async function DeleteGame(title) {
+  async function DeleteGame(title, GM) {
     const playerUser = localStorage.getItem("user");
-    await api.delete("player-games", { params: { title, playerUser } });
+    await api.delete("player-games", { params: { title, GM, playerUser } });
 
     const response = await api.get("player-games", { params: { user: playerUser } });
     setPlayerGamesList(response.data);
@@ -68,7 +68,7 @@ function PlayerGames({ history }) {
                       <span>{game.title}</span>
                       <img
                         src={deleteIcon}
-                        onClick={() => DeleteGame(game.title)}
+                        onClick={() => DeleteGame(game.title, game.GM)}
                         alt="Icon made by kiranshastry from www.flaticon.com"
                       />
                     </header>

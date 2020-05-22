@@ -11,12 +11,12 @@
 .atributesAllocation-container > main > span {
   color: #ffffff;
   font-weight: 600;
-  margin-bottom: 50px;
 }
 
 .atributesAllocation-container > main > section {
   color: #ffffff;
-  width: 500px;
+  margin-top: -10px;
+  width: 1100px;
 
   display: flex;
   flex-direction: row;
@@ -24,13 +24,25 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media (max-width: 1200px) {
+  .atributesAllocation-container > main > section {
+    margin-top: 120px;
+    width: 400px;
+    justify-content: center;
+  }
+}
 
 .atributesAllocation-container > main > section > span {
   font-size: 16px;
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, 50%);
+}
+@media (max-width: 1200px) {
+  .atributesAllocation-container > main > section > span {
+    top: 7%;
+  }
 }
 
 .atributesAllocation-container > main > section > span > strong {
@@ -42,6 +54,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin: 0 100px;
+}
+@media (max-width: 1200px) {
+  .atributesAllocation-container > main > section > div {
+    margin-top: 20px;
+  }
 }
 .atributesAllocation-container > main > section > div:nth-child(n + 4) {
   margin-top: 20px;

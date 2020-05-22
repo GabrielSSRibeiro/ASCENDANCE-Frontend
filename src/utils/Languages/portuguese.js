@@ -676,32 +676,86 @@ module.exports.alignmentSelection = {
   secondTitle: "Escolha 1 entre as 3 atitudes",
 };
 module.exports.atributesAllocation = {
-  title: "Escolha a(s) Disciplina(s)",
-  outline: {
-    race: "Raça",
-    origin: "Origem Mágica",
-    class: "Classe",
-  },
+  title: "Defina os Pontos de Atributo",
   discipline: {
-    name: "Disciplina",
+    name: "Atributo",
     points: [
       <>
-        O primeiro concede o uso da <strong>Disciplina</strong> Cada ponto seguinte aumenta seu{" "}
-        <strong>Poder</strong> mínimo com a <strong>Disciplina</strong> em 10, sem custo extra
+        O valor de um <strong>Atributo</strong> define como você é. Cada ponto em um Atributo
+        concede +1 para as <strong>Habilidades</strong> dele
       </>,
       <>
-        <strong>Poder</strong> é utilizado para determinar a potência de uma <strong>Magia</strong>
+        <strong>Talentos</strong> gerais tem certos <strong>Atributos</strong> como pré-requisito
+      </>,
+      <>
+        0 - Abaixo do comum 1 - Normal de uma pessoa 2 - bom 3 - Ótimo 4 - Especialista 5 -
+        Impressionante
       </>,
     ],
-    discipline: ["Descrição do que é uma Disciplina e cada uma delas"],
   },
   disciplines: {
-    feel: "Sentir",
-    create: "Criar",
-    change: "Alterar",
-    control: "Controlar",
+    intelligence: {
+      name: "Inteligência",
+      infoBoxLong: [
+        "Quanto maior, melhor é a sua memória",
+        <>
+          <strong>Habilidades</strong> são <strong>Raciocínio</strong> e <strong>História</strong>
+        </>,
+      ],
+    },
+    strength: {
+      name: "Força",
+      infoBoxLong: [
+        "Quanto maior, mais peso você pode carregar",
+        <>
+          <strong>Habilidades</strong> são <strong>Atletismo</strong> e <strong>Intimidação</strong>
+        </>,
+      ],
+    },
+    charisma: {
+      name: "Carisma",
+      infoBoxLong: [
+        "Quanto maior, melhor é a sua interação com os outros",
+        <>
+          <strong>Habilidades</strong> são <strong>Improvisação</strong> e <strong>Intuição</strong>
+        </>,
+      ],
+    },
+    constitution: {
+      name: "Constituição",
+      infoBoxLong: [
+        "Quanto maior, mais você resiste antes de sofrer com adversidades",
+        <>
+          <strong>Habilidades</strong> são <strong>Sobrevivência</strong> e{" "}
+          <strong>Robustez</strong>
+        </>,
+      ],
+    },
+    dexterity: {
+      name: "Destreza",
+      infoBoxLong: [
+        "Quanto maior, melhor é o seu alcance a distância",
+        <>
+          <strong>Habilidades</strong> são <strong>Leveza</strong> e <strong>Furtividade</strong>
+        </>,
+      ],
+    },
+    wisdom: {
+      name: "Sabedoria",
+      infoBoxLong: [
+        "Quanto maior, melhor são os seus sentidos",
+        <>
+          <strong>Habilidades</strong> são <strong>Natureza</strong> e <strong>Percepção</strong>
+        </>,
+      ],
+    },
   },
-  infoBoxLong: { points: "Uso de Pontos", discipline: "Disciplina" },
+};
+module.exports.profileDefinition = {
+  title: "Escolha Nome e Foto",
+  name: "Nome",
+  photo: "Foto",
+  button: "Carregar",
 };
 
 // GM

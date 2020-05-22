@@ -1,4 +1,4 @@
-.originSelection-container > main {
+.profileDefinition-container > main {
   margin-top: 30px;
   position: relative;
 
@@ -8,19 +8,8 @@
   justify-content: center;
 }
 
-.originSelection-container > main > span {
+.profileDefinition-container > main > span {
   color: #ffffff;
   font-weight: 600;
   margin-bottom: 50px;
-}
-
-.originSelection-container > main > section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.originSelection-container > main > section > div {
-  margin: -5% 2%;
 }

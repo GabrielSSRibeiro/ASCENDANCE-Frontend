@@ -21,6 +21,12 @@
   align-items: center;
   justify-content: space-between;
 }
+@media (max-width: 1200px) {
+  .alignmentSelection-container > main > div {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
 .alignmentSelection-container > main > div > section {
   display: flex;
@@ -41,6 +47,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 1200px) {
+  .alignmentSelection-container > main > div > section > .alignment {
+    margin-bottom: 70px;
+  }
 }
 
 .alignmentSelection-container > main > div > section > .alignment > div {

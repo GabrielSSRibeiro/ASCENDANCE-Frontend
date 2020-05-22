@@ -53,7 +53,6 @@ function DisciplineSelection({ history }) {
           {disciplines.map((discipline) => (
             <div key={discipline[1]}>
               <div className="nodes">
-                {/* {for( let index = 0; index < 4; index++) {}return ( */}
                 {Array.from(Array(4)).map((item, index) => (
                   <button
                     key={index}

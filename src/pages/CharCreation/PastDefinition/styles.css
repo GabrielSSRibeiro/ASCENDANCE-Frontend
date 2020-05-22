@@ -19,6 +19,7 @@
   margin-top: -25px;
   margin-left: 285px;
   padding: 5px 10px;
+  min-width: 200px;
   width: calc(100% - 315px);
   height: 235px;
   border-radius: 20px;

@@ -18,7 +18,8 @@ function Management({ history }) {
   async function RemovePlayer(user) {
     const playerUser = user;
     const title = localStorage.getItem("game");
-    const response = await api.delete("player-games", { params: { title, playerUser } });
+    const GM = localStorage.getItem("GM");
+    const response = await api.delete("player-games", { params: { title, GM, playerUser } });
 
     setPartyMembers(response.data.party);
   }
