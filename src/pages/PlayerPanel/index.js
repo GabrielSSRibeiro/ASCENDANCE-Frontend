@@ -1,10 +1,10 @@
 import React from "react";
+import NaviBar from "../../components/NaviBar";
 
 import "./styles.css";
 
 function PlayerPanel({ history }) {
-  const title = localStorage.getItem("game");
-  return <h1>{title}</h1>;
+  return <NaviBar history={history} />;
 }
 
 export default PlayerPanel;

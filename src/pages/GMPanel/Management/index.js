@@ -48,7 +48,14 @@ function Management({ history }) {
         {partyMembers.map((member) => (
           <section key={member._id}>
             <img src={deleteIcon} onClick={() => RemovePlayer(member.user)} alt="Delete" />
-            <div>{!member.avatar && <label>{management.avatar}</label>}</div>
+            <div
+              style={{
+                backgroundImage: member.avatar && `url(${member.avatar})`,
+                backgroundSize: "100%",
+              }}
+            >
+              {!member.avatar && <label>{management.avatar}</label>}
+            </div>
             <label>{member.name ? member.name : member.user}</label>
             <button className="sl-button">{management.button.manage}</button>
           </section>

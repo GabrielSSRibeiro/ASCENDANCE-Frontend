@@ -22,9 +22,14 @@ function PlayerGames({ history }) {
 
     const response = await api.get("gm-panel", { params: { GM, title } });
     const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
-    localStorage.setItem("character", JSON.stringify(player));
 
-    history.push(`/char-creation-${player.level + 1}`);
+    if (player.name) {
+      history.push("/player-panel");
+    } else {
+      localStorage.setItem("character", JSON.stringify(player));
+
+      history.push(`/char-creation-${player.level + 1}`);
+    }
   }
 
   async function DeleteGame(title, GM) {
@@ -73,7 +78,14 @@ function PlayerGames({ history }) {
                       />
                     </header>
                     <div>
-                      <div>{player.avatar ? player.avatar : player.race && "..."}</div>
+                      <div
+                        style={{
+                          backgroundImage: player.avatar && `url(${player.avatar})`,
+                          backgroundSize: "100%",
+                        }}
+                      >
+                        {!player.avatar && "..."}
+                      </div>
                       <aside>
                         <span>
                           {/* charracter progress display */}

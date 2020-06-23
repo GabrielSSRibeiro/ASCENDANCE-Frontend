@@ -29,10 +29,15 @@ function MembersBar() {
 
       <section>
         {partyMembers.map((member) => (
-          <React.Fragment key={member._id}>
-            <div></div>
-            <div></div>
-          </React.Fragment>
+          <div
+            key={member._id}
+            style={{
+              backgroundImage: member.avatar && `url(${member.avatar})`,
+              backgroundSize: "100%",
+            }}
+          >
+            <p>{!member.avatar && "..."}</p>
+          </div>
         ))}
       </section>
 

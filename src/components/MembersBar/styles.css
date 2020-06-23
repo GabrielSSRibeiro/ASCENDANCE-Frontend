@@ -4,9 +4,13 @@
   margin: 0;
   height: 50px;
   width: 100%;
-  padding: 0 5%;
   background-color: #ffffff;
   opacity: 92%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media (max-height: 500px) {
@@ -17,11 +21,8 @@
 }
 
 .membersBar-container aside:first-child {
-  position: absolute;
-  left: 0%;
   width: 50px;
   height: 50px;
-  margin: 0 auto;
   cursor: pointer;
 
   display: flex;
@@ -36,42 +37,39 @@
 }
 
 .membersBar-container section {
-  width: 50px;
+  width: calc(100% - 100px);
   height: 50px;
-  margin: 0 auto;
-  padding: 3px;
-  cursor: pointer;
-  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .membersBar-container section div {
-  width: 100%;
-  padding-top: 100%;
-  margin: 0;
-  background-color: #501e64;
-  border-radius: 100%;
-  float: left;
-}
-
-.membersBar-container section div + div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  padding-top: 70%;
+  width: 45px;
+  height: 45px;
   background-color: #ffffff;
   border-radius: 100%;
+  border: solid #501e64;
+  border-width: 4px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.membersBar-container section div > p {
+  font-size: 30px;
+  justify-content: center;
 }
 
 .membersBar-container aside:last-child {
-  position: absolute;
   padding: 5px;
-  top: 0;
-  right: 0%;
   width: 50px;
   height: 50px;
-  margin: 0 auto;
   background-color: #602876;
   cursor: pointer;
 

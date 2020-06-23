@@ -13,3 +13,43 @@
   font-weight: 600;
   margin-bottom: 50px;
 }
+
+.profileDefinition-container > main > label {
+  color: #ffffff;
+}
+
+.profileDefinition-container > main > input {
+  border-radius: 7px;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 40px;
+  padding: 0 5px;
+  text-align: center;
+  border: none;
+}
+
+.profileDefinition-container > main > .avatar {
+  width: 200px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  border: solid #ffffff;
+  border-width: 4px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileDefinition-container > main > .avatar > input {
+  display: none;
+}
+
+.profileDefinition-container > main > .avatar > label {
+  color: #7b2574;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: none;
+}

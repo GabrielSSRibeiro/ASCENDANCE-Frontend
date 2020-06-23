@@ -23,14 +23,17 @@ function CharCreationBar({ ready, next, history }) {
     const level = current;
 
     const response = await next(user, title, GM, level);
-    const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
 
-    // updates local storage
-    localStorage.setItem("character", JSON.stringify(player));
-
-    if (current > 10) {
+    if (current === 10) {
       history.push("/player-panel");
     } else {
+      const player = response.data.party.find(
+        (value) => value.user === localStorage.getItem("user")
+      );
+
+      // updates local storage
+      localStorage.setItem("character", JSON.stringify(player));
+
       history.push(`/char-creation-${current + 1}`);
     }
   }

@@ -771,8 +771,8 @@ module.exports.atributesAllocation = {
 module.exports.profileDefinition = {
   title: "Escolha Nome e Foto",
   name: "Nome",
-  photo: "Foto",
-  button: "Carregar",
+  upload: "Carregar",
+  wrong: "Arquivo inválido",
 };
 
 // GM

@@ -92,6 +92,12 @@
   }
 }
 
+.management-container section > div {
+  border: solid #ffffff;
+  border-width: 4px;
+  cursor: pointer;
+}
+
 .management-container section label {
   font-weight: 600;
   color: #ffffff;
