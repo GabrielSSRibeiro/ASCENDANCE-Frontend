@@ -1,10 +1,8 @@
-let content;
+const defaultLanguage = "portuguese";
+const selectedLanguage = localStorage.getItem("language") || defaultLanguage;
 
-if (localStorage.getItem("language")) {
-  content = require(`./Languages/${localStorage.getItem("language")}`).default;
-} else {
-  // website's default language
-  content = require("./Languages/portuguese");
-}
+const pages = ["components", "charCreation", "dashboard", "gmPanel", "login"];
 
-module.exports = content;
+pages.forEach((page) => {
+  module.exports = require(`./Languages/${selectedLanguage}/${page}`);
+});
