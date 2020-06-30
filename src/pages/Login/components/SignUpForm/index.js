@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import api from "../../../../services/api";
+import { useAuth } from "../../../../contexts/auth";
 import { login } from "../../../../utils/content";
-import { socket } from "../../../../services/socket";
 
 import returnLogin from "../../../../assets/arrows/returnLogin.png";
 
@@ -10,26 +9,15 @@ function SignUpForm({ display, history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { signUp } = useAuth();
+
   async function HandleSignUp(e) {
     e.preventDefault();
 
-    const response = await api.post("users", {
-      nickName,
-      email,
-      password,
-    });
+    const success = await signUp(nickName, email, password, login.userAlreadyExists);
 
-    if (!(response.data === "")) {
-      const { nickName } = response.data;
-      localStorage.setItem("user", nickName);
-      localStorage.setItem("password", password);
-
-      //update socket connection
-      socket.emit("login", nickName);
-
+    if (success) {
       history.push("/dashboard");
-    } else {
-      alert("Nome de usuário já existe.");
     }
   }
 

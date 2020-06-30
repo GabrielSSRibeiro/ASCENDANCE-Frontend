@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
+import { useAuth } from "../../contexts/auth";
+
 import { naviBar } from "../../utils/content";
 
 import "./styles.css";
 
 function NaviBar({ history }) {
   const [userName, setUserName] = useState();
+
+  const { signOut } = useAuth();
 
   useEffect(() => {
     async function userCheck() {
@@ -28,7 +32,7 @@ function NaviBar({ history }) {
   }, [history]);
 
   function RedirectLogin() {
-    localStorage.clear();
+    signOut();
     history.push("/");
   }
   function RedirectDashboard() {

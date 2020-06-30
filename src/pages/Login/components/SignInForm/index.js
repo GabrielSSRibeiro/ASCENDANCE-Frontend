@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import api from "../../../../services/api";
+import { useAuth } from "../../../../contexts/auth";
 import { login } from "../../../../utils/content";
-import { socket } from "../../../../services/socket";
 
 import returnLogin from "../../../../assets/arrows/returnLogin.png";
 
@@ -9,27 +8,15 @@ function SignInForm({ display, history }) {
   const [nickName, setNickName] = useState("");
   const [password, setPassword] = useState("");
 
+  const { signIn } = useAuth();
+
   async function HandleSignIn(e) {
     e.preventDefault();
 
-    const response = await api.get("users", {
-      params: { nickName, password },
-    });
+    const success = await signIn(nickName, password, login.userNotFound, login.incorrectPassword);
 
-    if (response.data) {
-      if (response.data === "incorrect") {
-        alert(login.incorrect);
-      } else {
-        localStorage.setItem("user", nickName);
-        localStorage.setItem("password", password);
-
-        //update socket connection
-        socket.emit("login", nickName);
-
-        history.push("/dashboard");
-      }
-    } else {
-      alert(login.notFound);
+    if (success) {
+      history.push("/dashboard");
     }
   }
 

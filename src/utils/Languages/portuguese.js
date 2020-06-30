@@ -1,11 +1,9 @@
 const React = require("react");
 
+//components
 module.exports.naviBar = "ESSENCIA";
-
 module.exports.membersBar = "Mestre";
-
 module.exports.returnMenu = "Voltar";
-
 module.exports.progressBar = [
   { name: "Raça", previous: "Cancelar", next: "Seguinte" },
   { name: "Origem", previous: "Anterior", next: "Seguinte" },
@@ -20,6 +18,7 @@ module.exports.progressBar = [
   { name: "Perfil", previous: "Anterior", next: "Seguinte" },
 ];
 
+//dashboard
 module.exports.login = {
   title: "ESSENCIA",
   version: "Versão 0.0 - Alfa Fechado",
@@ -37,10 +36,10 @@ module.exports.login = {
     email: "E-mail",
     password: "Senha",
   },
-  notFound: "Usuário não encontrado.",
-  incorrect: "Senha incorreta.",
+  userAlreadyExists: "Nome de usuário já existe.",
+  userNotFound: "Usuário não encontrado.",
+  incorrectPassword: "Senha incorreta.",
 };
-
 module.exports.dashboard = {
   title: "ESSENCIA",
   button: {
@@ -75,33 +74,7 @@ module.exports.newGame = {
   takenName: "Já existe um jogo com esse nome.",
 };
 
-module.exports.gmPanel = {
-  button: {
-    management: "Gerenciamento",
-    encounter: "Encontro",
-    rules: "Regras Mestre",
-    tests: "Testes",
-    tools: "Ferramentas",
-  },
-};
-module.exports.management = {
-  returnMenu: "Gerenciamento",
-  avatar: "foto",
-  button: {
-    manage: "Gerenciar",
-    add: "Adicionar",
-  },
-  label: "Notas Gerais",
-  textArea: "Notas da campanha...",
-};
-module.exports.newPlayer = {
-  returnMenu: "Adicionar Jogador",
-  label: "Nome",
-  button: "Adicionar",
-  notFound: "Usuário não encontrado.",
-  alreadyIn: "Usuário já está no jogo.",
-};
-
+// char creation
 module.exports.raceSelection = {
   title: "Escolha a Raça",
   race: {
@@ -800,4 +773,32 @@ module.exports.profileDefinition = {
   name: "Nome",
   upload: "Carregar",
   wrong: "Arquivo inválido",
+};
+
+// GM panel
+module.exports.gmPanel = {
+  button: {
+    management: "Gerenciamento",
+    encounter: "Encontro",
+    rules: "Regras Mestre",
+    tests: "Testes",
+    tools: "Ferramentas",
+  },
+};
+module.exports.management = {
+  returnMenu: "Gerenciamento",
+  avatar: "foto",
+  button: {
+    manage: "Gerenciar",
+    add: "Adicionar",
+  },
+  label: "Notas Gerais",
+  textArea: "Notas da campanha...",
+};
+module.exports.newPlayer = {
+  returnMenu: "Adicionar Jogador",
+  label: "Nome",
+  button: "Adicionar",
+  notFound: "Usuário não encontrado.",
+  alreadyIn: "Usuário já está no jogo.",
 };
