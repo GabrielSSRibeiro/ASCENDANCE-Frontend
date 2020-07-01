@@ -16,13 +16,9 @@ function NaviBar({ history }) {
       const nickName = localStorage.getItem("user");
       const password = localStorage.getItem("password");
 
-      if (nickName && password) {
-        const response = await api.get("users", { params: { nickName, password } });
-        if (response.data === nickName) {
-          setUserName(nickName);
-        } else {
-          history.push("/");
-        }
+      const response = await api.get("users", { params: { nickName, password } });
+      if (response.data === nickName) {
+        setUserName(nickName);
       } else {
         history.push("/");
       }
