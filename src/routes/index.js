@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { useAuth } from "../contexts/auth";
 
 import Login from "../pages/Login";
@@ -36,7 +36,13 @@ export default function Routes() {
   return (
     <BrowserRouter>
       {!signed ? (
-        <Route path="/" exact component={Login} />
+        <Switch>
+          <Route path="/" exact component={Login} />
+
+          <Route>
+            <Redirect to="/" />
+          </Route>
+        </Switch>
       ) : (
         <>
           <Route path="/dashboard" exact component={Dashboard} />
