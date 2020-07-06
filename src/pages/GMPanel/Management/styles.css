@@ -1,0 +1,112 @@
+.management-container main {
+  margin: auto;
+  margin-top: -1.5%;
+  height: 250px;
+  width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .management-container main {
+    margin-bottom: 250px;
+  }
+}
+
+.management-container > main > section {
+  height: 100%;
+  width: 20%;
+  margin: 0;
+  top: 0;
+  position: relative;
+  min-width: 175px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.management-container main section:not(:last-child) {
+  border-right: thin solid #e5e5e5;
+}
+
+.management-container main section img {
+  position: absolute;
+  top: 0%;
+  right: 3%;
+}
+.management-container main section img:hover {
+  transform: scale(1.1);
+}
+.management-container main section img:active {
+  transform: scale(0.9);
+}
+
+.management-container main section div {
+  width: 160px;
+  height: 160px;
+
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 100%;
+  position: relative;
+}
+
+.management-container main section div label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  margin: 0;
+  color: #563065;
+}
+
+.management-container main section > label {
+  font-weight: 300;
+  margin: 10px;
+}
+
+.management-container main section + button {
+  margin-left: 5%;
+}
+
+.management-container section {
+  position: absolute;
+  width: 100%;
+  bottom: 5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-height: 500px), (max-width: 1200px) {
+  .management-container section {
+    position: relative;
+    margin-top: 10%;
+  }
+}
+
+.management-container section > div {
+  border: solid #ffffff;
+  border-width: 4px;
+  cursor: pointer;
+}
+
+.management-container section label {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.management-container section textarea {
+  margin: 0;
+  padding: 0 5px;
+  width: 95%;
+  height: 100px;
+  border-radius: 10px;
+}

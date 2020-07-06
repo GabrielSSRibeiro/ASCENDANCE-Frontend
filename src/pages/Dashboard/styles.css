@@ -1,0 +1,76 @@
+.dashboard-container main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: flex-start;
+}
+
+/* aside */
+.dashboard-container main aside {
+  background: linear-gradient(270deg, rgba(117, 112, 112, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  padding: 5%;
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-container main aside p {
+  color: #ffffff;
+  text-align: left;
+}
+
+.dashboard-container main aside p + p {
+  margin-top: 8%;
+}
+
+/* section */
+.dashboard-container main section {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.dashboard-container main section button {
+  margin: 25px;
+}
+
+/* form */
+.dashboard-container main form {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  position: relative;
+}
+
+.dashboard-container main form label {
+  justify-self: left;
+  color: #ffffff;
+}
+
+.dashboard-container main form input {
+  margin-bottom: 5px;
+  border-radius: 6px;
+  padding: 0 5px;
+}
+
+.dashboard-container main form button {
+  margin: 25px;
+}
+
+.dashboard-container main form img {
+  position: absolute;
+  top: 25%;
+  left: -25%;
+  cursor: pointer;
+}
+.dashboard-container main form img:hover {
+  transform: scale(1.1);
+}
+.dashboard-container main form img:active {
+  transform: scale(0.9);
+}

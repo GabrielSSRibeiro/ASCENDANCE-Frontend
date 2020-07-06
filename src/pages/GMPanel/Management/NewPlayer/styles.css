@@ -1,0 +1,26 @@
+.newPlayer-container main {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: flex-start;
+}
+
+.newPlayer-container form {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.newPlayer-container form label {
+  justify-self: left;
+  color: #ffffff;
+}
+
+.newPlayer-container form input {
+  width: 250px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  padding: 0 5px;
+}

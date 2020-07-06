@@ -1,0 +1,42 @@
+.naviBar-container {
+  background-color: #563065;
+  margin: 0;
+  height: 35px;
+  margin-bottom: -35px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.naviBar-container button:first-child {
+  margin: 0%;
+  margin-left: 2%;
+  color: #ffffff;
+  letter-spacing: 0.7rem;
+  background-color: transparent;
+  border: none;
+  transition: all 0.2s;
+}
+.naviBar-container button:first-child:hover {
+  color: #e5e5e5;
+}
+.naviBar-container button:first-child:active {
+  transform: scale(0.9);
+}
+
+.naviBar-container button:last-child {
+  margin: 0;
+  margin-right: 2%;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  transition: all 0.2s;
+}
+.naviBar-container button:last-child:hover {
+  color: #e5e5e5;
+}
+.naviBar-container button:last-child:active {
+  transform: scale(0.9);
+}

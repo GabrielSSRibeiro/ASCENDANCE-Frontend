@@ -1,38 +1,41 @@
 import React, { useState } from "react";
-import InitialButtons from "../../components/Login/InitialButtons";
-import SignInForm from "../../components/Login/SignInForm";
-import SignUpForm from "../../components/Login/SignUpForm";
-import TextBox from "../../components/Login/TextBox";
+import { login } from "../../utils/content";
+
+import TextBox from "./components/TextBox";
+import SignInForm from "./components/SignInForm";
+import SignUpForm from "./components/SignUpForm";
 
 import "./styles.css";
 
 function Login({ history }) {
-  const [initialButtons, setInitialButtons] = useState(true);
-  const [signInForm, setSignInForm] = useState(false);
-  const [signUpForm, setSignUpForm] = useState(false);
-
-  function SignInButtonClick() {
-    setInitialButtons(!initialButtons);
-    setSignInForm(!signInForm);
-  }
-
-  function SignUpButtonClick() {
-    setInitialButtons(!initialButtons);
-    setSignUpForm(!signUpForm);
-  }
+  const [display, setDisplay] = useState("buttons");
 
   return (
-    <>
-      <h1>ESSENCIA</h1>
-      <TextBox />
-      <InitialButtons
-        Functions={{ SignInButtonClick, SignUpButtonClick }}
-        States={{ initialButtons, setInitialButtons }}
-      />
-      {/* forms */}
-      {signInForm ? <SignInForm Functions={SignInButtonClick} Route={history} /> : ""}
-      {signUpForm ? <SignUpForm Functions={SignUpButtonClick} Route={history} /> : ""}
-    </>
+    <div className="login-container">
+      <h1 className="game-title">{login.title}</h1>
+      <span>{login.version}</span>
+
+      <main>
+        <aside>
+          <TextBox content={login.textBox} />
+        </aside>
+        {display === "buttons" && (
+          <section>
+            <button className="std-button-filled" onClick={() => setDisplay("signIn")}>
+              {login.button.signIn}
+            </button>
+
+            <button className="std-button" onClick={() => setDisplay("signUp")}>
+              {login.button.signUp}
+            </button>
+          </section>
+        )}
+
+        {display === "signIn" && <SignInForm display={setDisplay} history={history} />}
+
+        {display === "signUp" && <SignUpForm display={setDisplay} history={history} />}
+      </main>
+    </div>
   );
 }
 

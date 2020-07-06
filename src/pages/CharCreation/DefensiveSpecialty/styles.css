@@ -1,0 +1,26 @@
+.defensiveSpecialty-container > main {
+  margin-top: 30px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.defensiveSpecialty-container > main > span {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.defensiveSpecialty-container > main > section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.defensiveSpecialty-container > main > section > div {
+  margin: -5% 2%;
+}

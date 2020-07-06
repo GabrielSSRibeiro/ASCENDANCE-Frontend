@@ -1,0 +1,59 @@
+.GMGames-container main {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.GMGames-container main section div {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10%;
+  width: 350px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  opacity: 92%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GMGames-container main section div img:first-child {
+  left: -40px;
+  justify-self: flex-start;
+  position: relative;
+  cursor: pointer;
+}
+.GMGames-container main section div img:first-child:hover {
+  transform: scale(1.1);
+}
+.GMGames-container main section div img:first-child:active {
+  transform: scale(0.9);
+}
+
+.GMGames-container main section div span {
+  color: #7b2574;
+  margin: auto;
+}
+
+.GMGames-container main section div span + img {
+  right: -32px;
+  justify-self: flex-end;
+  position: relative;
+  cursor: pointer;
+}
+.GMGames-container main section div span + img:hover {
+  transform: scale(1.1);
+}
+.GMGames-container main section div span + img:active {
+  transform: scale(0.9);
+}
+
+.GMGames-container main h1 {
+  margin: 0 auto 5%;
+  color: #ffffff;
+  text-align: center;
+}

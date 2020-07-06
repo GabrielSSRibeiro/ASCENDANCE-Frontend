@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Routes from "./routes";
+import { connect, disconnect } from "../src/services/socket";
+import { AuthProvider } from "./contexts/auth";
+
 import "./styles/App.css";
 
 function App() {
-  return <Routes />;
+  useEffect(() => {
+    function SetupWebsocket() {
+      const user = localStorage.getItem("user");
+      disconnect();
+
+      connect(user);
+    }
+
+    SetupWebsocket();
+  }, []);
+
+  return (
+    <AuthProvider>
+      <Routes />;
+    </AuthProvider>
+  );
 }
 
 export default App;
+//

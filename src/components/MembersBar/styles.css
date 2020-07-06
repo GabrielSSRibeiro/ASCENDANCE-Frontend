@@ -1,0 +1,97 @@
+.membersBar-container {
+  position: absolute;
+  bottom: 0%;
+  margin: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #ffffff;
+  opacity: 92%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-height: 500px) {
+  .membersBar-container {
+    position: relative;
+    margin-top: 10%;
+  }
+}
+
+.membersBar-container aside:first-child {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.membersBar-container aside:first-child:hover {
+  background-color: #e5e5e5;
+}
+.membersBar-container aside:first-child:active {
+  transform: scale(0.9);
+}
+
+.membersBar-container section {
+  width: calc(100% - 100px);
+  height: 50px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.membersBar-container section div {
+  width: 45px;
+  height: 45px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  border: solid #501e64;
+  border-width: 4px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.membersBar-container section div > p {
+  font-size: 30px;
+  justify-content: center;
+}
+
+.membersBar-container aside:last-child {
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  background-color: #602876;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.membersBar-container aside:last-child:hover {
+  background-color: #2a1333;
+}
+.membersBar-container aside:last-child:active {
+  transform: scale(0.9);
+}
+
+.membersBar-container aside:last-child img {
+  margin-top: 2%;
+  transform: scale(0.8);
+}
+
+.membersBar-container aside:last-child label {
+  margin: 0;
+  color: #efecf0;
+  font-size: 10px;
+}

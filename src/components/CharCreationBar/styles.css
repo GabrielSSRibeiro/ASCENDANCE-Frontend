@@ -1,0 +1,147 @@
+.CharCreationBar-container {
+  position: relative;
+  margin: 0;
+  margin-top: 35px;
+  height: 60px;
+  background-color: #f1eef2;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.CharCreationBar-container > button:first-child {
+  width: 120px;
+  height: 100%;
+  border: 0;
+  border-right: thin solid #563065;
+  cursor: pointer;
+  background-color: #f1eef2;
+  color: #2a1333;
+  transition: all 0.2s;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.CharCreationBar-container > button:first-child:hover {
+  background-color: #501e64;
+  color: #e5e5e5;
+}
+.CharCreationBar-container > button:first-child:active {
+  transform: scale(0.9);
+}
+
+.CharCreationBar-container > main {
+  height: 100%;
+  width: calc(100% - 240px);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.CharCreationBar-container > main > button {
+  height: 100%;
+  border: 0;
+  position: relative;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.CharCreationBar-container > main > button:hover {
+  background-color: #e5e5e5;
+}
+
+@media (max-width: 1200px) {
+  .CharCreationBar-container > main > button {
+    display: none;
+  }
+}
+
+.CharCreationBar-container > main > button div {
+  border-radius: 100%;
+  border: thin dotted #563065;
+  background-color: #f1eef2;
+  position: relative;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}
+.CharCreationBar-container > main > button > div:active {
+  transform: scale(0.9);
+}
+
+.CharCreationBar-container > main > button .completed {
+  background-color: #563065 !important;
+  border: 0 !important;
+
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.CharCreationBar-container > main > button .selected {
+  border: thin solid #563065 !important;
+  background-color: #f1eef2 !important;
+  width: 28px !important;
+  height: 28px !important;
+}
+
+.CharCreationBar-container > main > button > hr {
+  width: 100%;
+  position: absolute;
+  border-top: thin solid #563065;
+  margin: auto;
+}
+
+.CharCreationBar-container > main > button > p {
+  font-size: 10px;
+  position: absolute;
+  top: 2.5%;
+  color: #2a1333;
+}
+
+.CharCreationBar-container > main + button {
+  width: 120px;
+  height: 100%;
+  border: none;
+  border-left: thin solid #563065;
+  color: #2a1333;
+  background-color: #f1eef2;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.CharCreationBar-container > main + button:hover {
+  background-color: #501e64;
+  color: #e5e5e5;
+}
+.CharCreationBar-container > main + button:active {
+  transform: scale(0.9);
+}
+.notReady {
+  background-color: #cccccc !important;
+  color: #2a133354 !important;
+  cursor: default !important;
+}
+.notReady:hover {
+  background-color: #cccccc !important;
+  color: #2a133354 !important;
+}
+.notReady:active {
+  background-color: #cccccc !important;
+  color: #2a133354 !important;
+}

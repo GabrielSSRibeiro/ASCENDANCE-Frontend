@@ -1,0 +1,33 @@
+.pastDefinition-container > main {
+  margin-top: 30px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pastDefinition-container > main > span {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.pastDefinition-container > main > textarea {
+  margin: auto;
+  margin-top: -25px;
+  margin-left: 285px;
+  padding: 5px 10px;
+  min-width: 200px;
+  width: calc(100% - 315px);
+  height: 235px;
+  border-radius: 20px;
+  resize: none;
+  font-size: 14px;
+}
+@media (max-width: 1200px) {
+  .pastDefinition-container > main > textarea {
+    margin-left: auto;
+  }
+}

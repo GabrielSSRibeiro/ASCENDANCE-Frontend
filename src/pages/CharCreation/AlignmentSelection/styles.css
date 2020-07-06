@@ -1,0 +1,59 @@
+.alignmentSelection-container > main {
+  margin-top: 30px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignmentSelection-container > main > span {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.alignmentSelection-container > main > div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 1200px) {
+  .alignmentSelection-container > main > div {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.alignmentSelection-container > main > div > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignmentSelection-container > main > div > section > span {
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+
+.alignmentSelection-container > main > div > section > .alignment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1200px) {
+  .alignmentSelection-container > main > div > section > .alignment {
+    margin-bottom: 70px;
+  }
+}
+
+.alignmentSelection-container > main > div > section > .alignment > div {
+  margin: -5% 2%;
+}

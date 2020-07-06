@@ -1,0 +1,29 @@
+.classSelection-container > main {
+  margin-top: 30px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.classSelection-container > main > span {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.classSelection-container > main > section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.classSelection-container > main > section > div {
+  padding: 0 7px;
+}
+
+.classSelection-container > main > section > div {
+  margin: -5% 2%;
+}

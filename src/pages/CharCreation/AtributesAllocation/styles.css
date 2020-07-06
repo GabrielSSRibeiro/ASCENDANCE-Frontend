@@ -1,0 +1,98 @@
+.atributesAllocation-container > main {
+  margin-top: 30px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.atributesAllocation-container > main > span {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.atributesAllocation-container > main > section {
+  color: #ffffff;
+  margin-top: -10px;
+  width: 1000px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media (max-width: 1200px) {
+  .atributesAllocation-container > main > section {
+    margin-top: 120px;
+    width: 400px;
+    justify-content: center;
+  }
+}
+
+.atributesAllocation-container > main > section > span {
+  font-size: 16px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+@media (max-width: 1200px) {
+  .atributesAllocation-container > main > section > span {
+    top: 7%;
+  }
+}
+
+.atributesAllocation-container > main > section > span > strong {
+  font-size: 24px;
+}
+
+.atributesAllocation-container > main > section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 100px;
+}
+@media (max-width: 1200px) {
+  .atributesAllocation-container > main > section > div {
+    margin-top: 20px;
+  }
+}
+.atributesAllocation-container > main > section > div:nth-child(n + 4) {
+  margin-top: 20px;
+}
+
+.atributesAllocation-container > main > section > div > label {
+  margin-top: 7px;
+}
+
+.atributesAllocation-container > main > section > div > .nodes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.atributesAllocation-container > main > section > div > div > button {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #dedede;
+  background-color: transparent;
+  transition: all 0.2s;
+  margin: 0 3px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.atributesAllocation-container > main > section > div > div > button:hover {
+  transform: scale(1.1);
+}
+.atributesAllocation-container > main > section > div > div > button:active {
+  transform: scale(0.9);
+}
