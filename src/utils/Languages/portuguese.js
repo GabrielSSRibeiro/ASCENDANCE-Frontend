@@ -1,6 +1,6 @@
 const React = require("react");
 
-//components
+// components
 module.exports.naviBar = "ESSENCIA";
 module.exports.membersBar = "Mestre";
 module.exports.returnMenu = "Voltar";
