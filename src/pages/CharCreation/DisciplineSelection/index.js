@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { disciplineSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 
 function DisciplineSelection({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState({
     feel: JSON.parse(localStorage.getItem("character")).feel,
     create: JSON.parse(localStorage.getItem("character")).create,
@@ -16,7 +17,7 @@ function DisciplineSelection({ history }) {
     control: JSON.parse(localStorage.getItem("character")).control,
   });
 
-  const disciplines = Object.entries(disciplineSelection.disciplines).map((discipline) => {
+  const disciplines = Object.entries(content.disciplines).map((discipline) => {
     return { ...discipline };
   });
   const total = Object.values(selected).reduce((acc, cur) => acc + cur, 0);
@@ -44,8 +45,8 @@ function DisciplineSelection({ history }) {
       />
 
       <main>
-        <CharCreationOutline content={disciplineSelection} />
-        <span>{disciplineSelection.title}</span>
+        <CharCreationOutline content={content} />
+        <span>{content.title}</span>
         <section>
           <span>
             <strong>{total}</strong>/{JSON.parse(localStorage.getItem("character")).disciplines}
@@ -89,12 +90,12 @@ function DisciplineSelection({ history }) {
       <InfoBoxLong
         content={[
           {
-            title: disciplineSelection.infoBoxLong.points,
-            texts: disciplineSelection.discipline.points,
+            title: content.infoBoxLong.points,
+            texts: content.discipline.points,
           },
           {
-            title: disciplineSelection.infoBoxLong.discipline,
-            texts: disciplineSelection.discipline.discipline,
+            title: content.infoBoxLong.discipline,
+            texts: content.discipline.discipline,
           },
         ]}
       />

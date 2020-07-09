@@ -1,12 +1,13 @@
 import React, { useState, useMemo } from "react";
-import { profileDefinition } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 
 function ProfileDefinition({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState(null);
 
@@ -34,8 +35,8 @@ function ProfileDefinition({ history }) {
       <CharCreationBar ready={name && avatar ? true : false} next={NextClick} history={history} />
 
       <main>
-        <span>{profileDefinition.title}</span>
-        <label>{profileDefinition.name}</label>
+        <span>{content.title}</span>
+        <label>{content.name}</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <label
           className="avatar"
@@ -43,10 +44,10 @@ function ProfileDefinition({ history }) {
         >
           <input type="file" onChange={(e) => setAvatar(e.target.files[0])} />
           {!avatar ? (
-            <label>{profileDefinition.upload}</label>
+            <label>{content.upload}</label>
           ) : (
             !allowedFiles.includes(avatar.name.split(".")[1].toLowerCase()) && (
-              <label>{profileDefinition.wrong}</label>
+              <label>{content.wrong}</label>
             )
           )}
         </label>

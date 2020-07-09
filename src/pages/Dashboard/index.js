@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { dashboard } from "../../utils/content";
 import NaviBar from "../../components/NaviBar";
 import TextBox from "./components/TextBox";
 
 import "./styles.css";
+import { useLanguage } from "../../contexts/language";
 
 function Dashboard({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
+
   useEffect(() => {
     localStorage.removeItem("game");
     localStorage.removeItem("GM");
@@ -21,17 +23,17 @@ function Dashboard({ history }) {
   return (
     <div className="dashboard-container">
       <NaviBar history={history} />
-      <h1 className="game-title">{dashboard.title}</h1>
+      <h1 className="game-title">{content.title}</h1>
 
       <main>
-        <TextBox content={dashboard.textBox} />
+        <TextBox content={content.textBox} />
         <section>
           <button className="std-button-filled" onClick={PlayerButtonClick}>
-            {dashboard.button.player}
+            {content.button.player}
           </button>
 
           <button className="std-button" onClick={GMButtonClick}>
-            {dashboard.button.GM}
+            {content.button.GM}
           </button>
         </section>
       </main>

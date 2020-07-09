@@ -1,16 +1,18 @@
 import React from "react";
-import { returnMenu } from "../../utils/content";
 
+import { useLanguage } from "../../contexts/language";
 import "./styles.css";
 import returnArrow from "../../assets/arrows/returnArrow.png";
 
 function ReturnMenu({ returnFunction, title }) {
+  const { content } = require(`./content/${useLanguage().language}`);
+
   return (
     <div className="returnMenu-container">
       <div onClick={returnFunction}>
         <img src={returnArrow} alt="Return" />
         <button>
-          <strong>{returnMenu}</strong>
+          <strong>{content}</strong>
         </button>
       </div>
       <p>{title}</p>

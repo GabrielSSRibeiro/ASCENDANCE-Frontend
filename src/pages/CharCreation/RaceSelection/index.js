@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { raceSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
 import "./styles.css";
+import { useLanguage } from "../../../contexts/language";
 
 function RaceSelection({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).race);
 
-  const races = Object.entries(raceSelection.races).map((race) => race);
+  const races = Object.entries(content.races).map((race) => race);
 
   async function NextClick(user, title, GM, level) {
     return await api.put("char-creation", {
@@ -27,7 +28,7 @@ function RaceSelection({ history }) {
       <NaviBar history={history} />
       <CharCreationBar ready={selected ? true : false} next={NextClick} history={history} />
       <main>
-        <span>{raceSelection.title}</span>
+        <span>{content.title}</span>
         <section>
           {races.map((race) => (
             <div key={race[1].name}>
@@ -56,8 +57,8 @@ function RaceSelection({ history }) {
               ]
             : [
                 {
-                  title: raceSelection.race.name,
-                  texts: raceSelection.race.infoBoxLong,
+                  title: content.race.name,
+                  texts: content.race.infoBoxLong,
                 },
               ]
         }

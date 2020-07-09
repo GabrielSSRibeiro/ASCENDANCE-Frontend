@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
-import { membersBar } from "../../utils/content";
 
+import { useLanguage } from "../../contexts/language";
 import "./styles.css";
 import turnArrow from "../../assets/arrows/turnArrow.png";
 import GMd20 from "../../assets/dice/GMd20.png";
 
 function MembersBar() {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [partyMembers, setPartyMembers] = useState([]);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ function MembersBar() {
 
       <aside>
         <img src={GMd20} alt="GMd20" />
-        <label>{membersBar}</label>
+        <label>{content}</label>
       </aside>
     </div>
   );

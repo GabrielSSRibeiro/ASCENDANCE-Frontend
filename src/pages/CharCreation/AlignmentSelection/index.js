@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { alignmentSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
+import { useLanguage } from "../../../contexts/language";
+
 import "./styles.css";
 
 function AlignmentSelection({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState(
     JSON.parse(localStorage.getItem("character")).firstAlignment
   );
@@ -15,10 +17,10 @@ function AlignmentSelection({ history }) {
     JSON.parse(localStorage.getItem("character")).secondAlignment
   );
 
-  const alignments1 = Object.entries(alignmentSelection.firstAlignments).map((alignment) => {
+  const alignments1 = Object.entries(content.firstAlignments).map((alignment) => {
     return { ...alignment };
   });
-  const alignments2 = Object.entries(alignmentSelection.secondAlignments).map((alignment) => {
+  const alignments2 = Object.entries(content.secondAlignments).map((alignment) => {
     return { ...alignment };
   });
 
@@ -43,10 +45,10 @@ function AlignmentSelection({ history }) {
       />
 
       <main>
-        <span>{alignmentSelection.title}</span>
+        <span>{content.title}</span>
         <div>
           <section>
-            <span>{alignmentSelection.firstTitle}</span>
+            <span>{content.firstTitle}</span>
             <div className="alignment">
               {alignments1.map((alignment) => (
                 <div key={alignment[1].name}>
@@ -65,7 +67,7 @@ function AlignmentSelection({ history }) {
             </div>
           </section>
           <section>
-            <span>{alignmentSelection.secondTitle}</span>
+            <span>{content.secondTitle}</span>
             <div className="alignment">
               {alignments2.map((alignment) => (
                 <div key={alignment[1].name}>
@@ -113,8 +115,8 @@ function AlignmentSelection({ history }) {
               ]
             : [
                 {
-                  title: alignmentSelection.alignment.name,
-                  texts: alignmentSelection.alignment.infoBoxLong,
+                  title: content.alignment.name,
+                  texts: content.alignment.infoBoxLong,
                 },
               ]
         }
