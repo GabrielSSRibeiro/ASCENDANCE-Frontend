@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Routes from "./routes";
 import { connect, disconnect } from "../src/services/socket";
 import { AuthProvider } from "./contexts/auth";
+import { LanguageProvider } from "./contexts/language";
 
 import "./styles/App.css";
 
@@ -18,9 +19,11 @@ function App() {
   }, []);
 
   return (
-    <AuthProvider>
-      <Routes />;
-    </AuthProvider>
+    <LanguageProvider>
+      <AuthProvider>
+        <Routes />;
+      </AuthProvider>
+    </LanguageProvider>
   );
 }
 

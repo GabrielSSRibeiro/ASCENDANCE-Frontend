@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { classSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 
 function MyFunction({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).class);
 
   // only classes  related to the chosen origin
-  const classes = Object.values(classSelection.classes).filter((value) => {
+  const classes = Object.values(content.classes).filter((value) => {
     return value.lifeDie === JSON.parse(localStorage.getItem("character")).lifeDie;
   });
 
@@ -32,8 +33,8 @@ function MyFunction({ history }) {
       <CharCreationBar ready={selected ? true : false} next={NextClick} history={history} />
 
       <main>
-        <CharCreationOutline content={classSelection} />
-        <span>{classSelection.title}</span>
+        <CharCreationOutline content={content} />
+        <span>{content.title}</span>
         <section>
           {classes.map((element) => (
             <div key={element.name}>
@@ -56,18 +57,18 @@ function MyFunction({ history }) {
           selected !== ""
             ? [
                 {
-                  title: classSelection.infoBoxLong.theme,
+                  title: content.infoBoxLong.theme,
                   texts: classes.find((value) => value.name === selected).theme,
                 },
                 {
-                  title: classSelection.infoBoxLong.mechanic,
+                  title: content.infoBoxLong.mechanic,
                   texts: classes.find((value) => value.name === selected).mechanic,
                 },
               ]
             : [
                 {
-                  title: classSelection.class.name,
-                  texts: classSelection.class.infoBoxLong,
+                  title: content.class.name,
+                  texts: content.class.infoBoxLong,
                 },
               ]
         }

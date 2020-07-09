@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { progressBar } from "../../utils/content";
 
+import { useLanguage } from "../../contexts/language";
 import "./styles.css";
 
 function CharCreationBar({ ready, next, history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const player = JSON.parse(localStorage.getItem("character"));
   const current = parseInt(
     window.location.pathname.slice(window.location.pathname.lastIndexOf("-") + 1)
@@ -52,13 +53,13 @@ function CharCreationBar({ ready, next, history }) {
 
   return (
     <div className="CharCreationBar-container">
-      <button onClick={HandlePrevious}>{progressBar[current].previous}</button>
+      <button onClick={HandlePrevious}>{content[current].previous}</button>
       <main>
-        {progressBar.map((item, index) => (
+        {content.map((item, index) => (
           // char creation buttons
           <button
             key={index}
-            style={{ width: `calc(100% / ${progressBar.length})` }}
+            style={{ width: `calc(100% / ${content.length})` }}
             onClick={() => HandleClick(index)}
             disabled={index <= player.level + 1 ? false : true}
           >
@@ -81,7 +82,7 @@ function CharCreationBar({ ready, next, history }) {
         disabled={ready ? false : true}
         onClick={HandleNext}
       >
-        {progressBar[current].next}
+        {content[current].next}
       </button>
     </div>
   );

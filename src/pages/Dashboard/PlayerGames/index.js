@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
 import { subscribeToUser, unSubscribeToUser } from "../../../services/socket";
-import { playerGames } from "../../../utils/content";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 import deleteIcon from "../../../assets/edition/delete.png";
 import checkIcon from "../../../assets/edition/check.png";
 
 function PlayerGames({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [playerGamesList, setPlayerGamesList] = useState();
 
   function ReturnDashboard() {
@@ -58,7 +59,7 @@ function PlayerGames({ history }) {
   return (
     <div className="player-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnDashboard} title={playerGames.returnMenu} />
+      <ReturnMenu returnFunction={ReturnDashboard} title={content.returnMenu} />
       {playerGamesList && (
         <main>
           {playerGamesList.length > 0 && (
@@ -93,15 +94,15 @@ function PlayerGames({ history }) {
                             {player.name
                               ? player.name
                               : player.race //checks if started creating
-                              ? playerGames.inProgress
-                              : playerGames.noCharacter}
+                              ? content.inProgress
+                              : content.noCharacter}
                           </strong>
                         </span>
                         <span>
                           {/* only shows level if completely created */}
                           {player.name && (
                             <strong>
-                              {playerGames.level} {player.level}
+                              {content.level} {player.level}
                             </strong>
                           )}
                         </span>
@@ -118,7 +119,7 @@ function PlayerGames({ history }) {
             </>
           )}
           {/* no games found */}
-          {playerGamesList.length === 0 && <h1>{playerGames.noGames}</h1>}
+          {playerGamesList.length === 0 && <h1>{content.noGames}</h1>}
         </main>
       )}
     </div>

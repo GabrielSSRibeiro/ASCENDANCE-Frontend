@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { atributesAllocation } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 
 function AtributesAllocation({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState({
     intelligence: JSON.parse(localStorage.getItem("character")).intelligence,
     strength: JSON.parse(localStorage.getItem("character")).strength,
@@ -17,7 +18,7 @@ function AtributesAllocation({ history }) {
     wisdom: JSON.parse(localStorage.getItem("character")).wisdom,
   });
 
-  const disciplines = Object.entries(atributesAllocation.disciplines).map((discipline) => {
+  const disciplines = Object.entries(content.disciplines).map((discipline) => {
     return { ...discipline };
   });
   const total = Object.values(selected).reduce((acc, cur) => acc + cur, 0);
@@ -44,7 +45,7 @@ function AtributesAllocation({ history }) {
       <CharCreationBar ready={total === max ? true : false} next={NextClick} history={history} />
 
       <main>
-        <span>{atributesAllocation.title}</span>
+        <span>{content.title}</span>
         <section>
           <span>
             <strong>{total}</strong>/{max}
@@ -94,8 +95,8 @@ function AtributesAllocation({ history }) {
               }))
             : [
                 {
-                  title: atributesAllocation.discipline.name,
-                  texts: atributesAllocation.discipline.points,
+                  title: content.discipline.name,
+                  texts: content.discipline.points,
                 },
               ]
         }
