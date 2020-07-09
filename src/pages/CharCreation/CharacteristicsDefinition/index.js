@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { characteristicsDefinition } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 
 function CharacteristicsDefinition({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState({
     personality: JSON.parse(localStorage.getItem("character")).personality,
     occupation: JSON.parse(localStorage.getItem("character")).occupation,
@@ -15,11 +16,9 @@ function CharacteristicsDefinition({ history }) {
     flaw: JSON.parse(localStorage.getItem("character")).flaw,
   });
 
-  const characteristics = Object.entries(characteristicsDefinition.characteristics).map(
-    (characteristic) => {
-      return { ...characteristic };
-    }
-  );
+  const characteristics = Object.entries(content.characteristics).map((characteristic) => {
+    return { ...characteristic };
+  });
 
   async function NextClick(user, title, GM, level) {
     return await api.put("char-creation", {
@@ -48,7 +47,7 @@ function CharacteristicsDefinition({ history }) {
       />
 
       <main>
-        <span>{characteristicsDefinition.title}</span>
+        <span>{content.title}</span>
         <section>
           {characteristics.map((characteristic) => (
             <div key={characteristic[1].title}>
@@ -66,8 +65,8 @@ function CharacteristicsDefinition({ history }) {
       <InfoBoxLong
         content={[
           {
-            title: characteristicsDefinition.infoBoxLong.title,
-            texts: characteristicsDefinition.infoBoxLong.texts,
+            title: content.infoBoxLong.title,
+            texts: content.infoBoxLong.texts,
           },
         ]}
       />

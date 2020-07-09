@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 import { useAuth } from "../../contexts/auth";
+// import { useLanguage } from "../../contexts/language";
 
-import { naviBar } from "../../utils/content";
-
+import { useLanguage } from "../../contexts/language";
 import "./styles.css";
 
 function NaviBar({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [userName, setUserName] = useState();
+  // const [language, setLanguage] = useState();
 
   const { signOut } = useAuth();
+  // const { HandleLanguage } = useLanguage();
 
   useEffect(() => {
     async function userCheck() {
@@ -37,7 +40,7 @@ function NaviBar({ history }) {
 
   return (
     <div className="naviBar-container">
-      <button onClick={RedirectDashboard}>{naviBar}</button>
+      <button onClick={RedirectDashboard}>{content}</button>
       <button onClick={RedirectLogin}>{userName}</button>
     </div>
   );

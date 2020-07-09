@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { originSelection } from "../../../utils/content";
 import api from "../../../services/api";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
 import InfoBoxLong from "../../../components/InfoBoxLong";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 
 function OriginSelection({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).origin);
 
-  const origins = Object.entries(originSelection.origins).map((origin, index) => {
+  const origins = Object.entries(content.origins).map((origin, index) => {
     return { ...origin, index };
   });
 
@@ -38,8 +39,8 @@ function OriginSelection({ history }) {
       <CharCreationBar ready={selected ? true : false} next={NextClick} history={history} />
 
       <main>
-        <CharCreationOutline content={originSelection} />
-        <span>{originSelection.title}</span>
+        <CharCreationOutline content={content} />
+        <span>{content.title}</span>
         <section>
           {origins.map((origin) => (
             <div key={origin[1].name}>
@@ -68,8 +69,8 @@ function OriginSelection({ history }) {
               ]
             : [
                 {
-                  title: originSelection.origin.name,
-                  texts: originSelection.origin.infoBoxLong,
+                  title: content.origin.name,
+                  texts: content.origin.infoBoxLong,
                 },
               ]
         }

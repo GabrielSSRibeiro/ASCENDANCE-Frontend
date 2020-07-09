@@ -1,12 +1,11 @@
 import React from "react";
-import { gmPanel } from "../../../../utils/content";
 
 import "./styles.css";
 
-function GMMenu({ history }) {
-  const tabs = Object.keys(gmPanel.button).map((item) => {
+function GMMenu({ content, history }) {
+  const tabs = Object.keys(content.button).map((item) => {
     return {
-      name: gmPanel.button[item],
+      name: content.button[item],
       img: require(`../../../../assets/GMMenu/${item}.png`),
       onClick: () => history.push(`/gm-${item}`),
     };

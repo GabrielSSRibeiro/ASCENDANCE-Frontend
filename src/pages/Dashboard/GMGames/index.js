@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
-import { gmGames } from "../../../utils/content";
-import { dashboard } from "../../../utils/content";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
 import GameList from "./components/GameList";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 
 function GMGames({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [gamesList, setGamesList] = useState();
 
   function ReturnDashboard() {
@@ -33,7 +33,7 @@ function GMGames({ history }) {
   return (
     <div className="GMGames-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnDashboard} title={gmGames.returnMenu} />
+      <ReturnMenu returnFunction={ReturnDashboard} title={content.returnMenu} />
       {gamesList && (
         <main>
           {gamesList.length > 0 && (
@@ -42,9 +42,9 @@ function GMGames({ history }) {
             </section>
           )}
           {/* no games found */}
-          {gamesList.length === 0 && <h1>{gmGames.noGames}</h1>}
+          {gamesList.length === 0 && <h1>{content.noGames}</h1>}
           <button className="std-button" onClick={NewGameClick}>
-            {dashboard.button.newGame}
+            {content.newGame}
           </button>
         </main>
       )}

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
-import { management } from "../../../utils/content";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
 
+import { useLanguage } from "../../../contexts/language";
 import "./styles.css";
 import deleteIcon from "../../../assets/edition/delete.png";
 
 function Management({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [partyMembers, setPartyMembers] = useState([]);
 
   function ReturnGMPanel() {
@@ -43,7 +44,7 @@ function Management({ history }) {
   return (
     <div className="management-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnGMPanel} title={management.returnMenu} />
+      <ReturnMenu returnFunction={ReturnGMPanel} title={content.returnMenu} />
       <main>
         {partyMembers.map((member) => (
           <section key={member._id}>
@@ -54,22 +55,22 @@ function Management({ history }) {
                 backgroundSize: "100%",
               }}
             >
-              {!member.avatar && <label>{management.avatar}</label>}
+              {!member.avatar && <label>{content.avatar}</label>}
             </div>
             <label>{member.name ? member.name : member.user}</label>
-            <button className="sl-button">{management.button.manage}</button>
+            <button className="sl-button">{content.button.manage}</button>
           </section>
         ))}
         {partyMembers.length < 5 && (
           <button className="sl-button" onClick={NewPlayerClick}>
-            {management.button.add}
+            {content.button.add}
           </button>
         )}
       </main>
 
       <section>
-        <label>{management.label}</label>
-        <textarea placeholder={management.textArea}></textarea>
+        <label>{content.label}</label>
+        <textarea placeholder={content.textArea}></textarea>
       </section>
     </div>
   );

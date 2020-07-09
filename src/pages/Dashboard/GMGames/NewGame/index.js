@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import api from "../../../../services/api";
-import { newGame } from "../../../../utils/content";
 
 import NaviBar from "../../../../components/NaviBar";
 import ReturnMenu from "../../../../components/ReturnMenu";
 
+import { useLanguage } from "../../../../contexts/language";
 import "./styles.css";
 
 function NewGame({ history }) {
+  const { content } = require(`./content/${useLanguage().language}`);
   const [title, setTitle] = useState();
 
   function ReturnGMGamesList() {
@@ -28,20 +29,20 @@ function NewGame({ history }) {
       localStorage.setItem("GM", GM);
       history.push("/gm-panel");
     } else {
-      alert(newGame.takenName);
+      alert(content.takenName);
     }
   }
 
   return (
     <div className="newGame-container">
       <NaviBar history={history} />
-      <ReturnMenu returnFunction={ReturnGMGamesList} title={newGame.returnMenu} />
+      <ReturnMenu returnFunction={ReturnGMGamesList} title={content.returnMenu} />
       <main>
         <form onSubmit={HandleSubmit}>
-          <label>{newGame.label}</label>
+          <label>{content.label}</label>
           <input onChange={(e) => setTitle(e.target.value)}></input>
 
-          <button className="std-button">{newGame.button}</button>
+          <button className="std-button">{content.button}</button>
         </form>
       </main>
     </div>
