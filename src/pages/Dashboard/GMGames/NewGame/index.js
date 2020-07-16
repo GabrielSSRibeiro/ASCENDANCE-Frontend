@@ -20,7 +20,6 @@ function NewGame({ history }) {
 
     const GM = localStorage.getItem("user");
     const response = await api.post("gm-games", {
-      GM,
       title,
     });
 

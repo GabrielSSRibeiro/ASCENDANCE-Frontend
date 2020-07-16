@@ -12,8 +12,7 @@ function GameList({ gamesList, setGamesList, history }) {
   }
 
   async function DeleteGame(title) {
-    const GM = localStorage.getItem("user");
-    const response = await api.delete("gm-games", { params: { GM, title } });
+    const response = await api.delete("gm-games", { params: { title } });
 
     setGamesList(response.data);
   }

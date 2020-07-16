@@ -18,10 +18,8 @@ function NewPlayer({ history }) {
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const GM = localStorage.getItem("GM");
     const title = localStorage.getItem("game");
     const response = await api.put("gm-management", {
-      GM,
       title,
       playerUser,
     });

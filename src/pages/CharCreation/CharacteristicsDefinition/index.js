@@ -20,9 +20,8 @@ function CharacteristicsDefinition({ history }) {
     return { ...characteristic };
   });
 
-  async function NextClick(user, title, GM, level) {
+  async function NextClick(title, GM, level) {
     return await api.put("char-creation", {
-      user,
       title,
       GM,
       personality: selected.personality,

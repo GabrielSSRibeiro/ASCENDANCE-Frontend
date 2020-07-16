@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../services/api";
 import { subscribeToUser, unSubscribeToUser } from "../../../services/socket";
+// import { useAuth } from "../../../contexts/auth";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
@@ -14,6 +15,8 @@ function PlayerGames({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [playerGamesList, setPlayerGamesList] = useState();
 
+  // const { signOut } = useAuth();
+
   function ReturnDashboard() {
     history.push("/dashboard");
   }
@@ -21,7 +24,9 @@ function PlayerGames({ history }) {
     localStorage.setItem("game", title);
     localStorage.setItem("GM", GM);
 
-    const response = await api.get("gm-panel", { params: { GM, title } });
+    const response = await api.get("gm-panel", {
+      params: { GM, title },
+    });
     const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
 
     if (player.name) {
@@ -35,7 +40,7 @@ function PlayerGames({ history }) {
 
   async function DeleteGame(title, GM) {
     const playerUser = localStorage.getItem("user");
-    await api.delete("player-games", { params: { title, GM, playerUser } });
+    await api.delete("player-games", { params: { title, GM } });
 
     const response = await api.get("player-games", { params: { user: playerUser } });
     setPlayerGamesList(response.data);
@@ -43,8 +48,18 @@ function PlayerGames({ history }) {
 
   useEffect(() => {
     async function PlayerGamesList() {
-      const user = localStorage.getItem("user");
-      const response = await api.get("player-games", { params: { user } });
+      // await api
+      //   .get("player-games")
+      //   .then((response) => {
+      //     setPlayerGamesList(response.data);
+      //   })
+      //   .catch((error) => {
+      //     if (error.response.status === 401) {
+      //       signOut();
+      //     }
+      //   });
+
+      const response = await api.get("player-games");
 
       setPlayerGamesList(response.data);
     }
@@ -54,7 +69,7 @@ function PlayerGames({ history }) {
     subscribeToUser(PlayerGamesList);
     // socket off
     return () => unSubscribeToUser();
-  }, []);
+  });
 
   return (
     <div className="player-container">

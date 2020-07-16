@@ -22,9 +22,8 @@ function DisciplineSelection({ history }) {
   });
   const total = Object.values(selected).reduce((acc, cur) => acc + cur, 0);
 
-  async function NextClick(user, title, GM, level) {
+  async function NextClick(title, GM, level) {
     return await api.put("char-creation", {
-      user,
       title,
       GM,
       feel: selected.feel,

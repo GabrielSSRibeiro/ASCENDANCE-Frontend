@@ -24,9 +24,8 @@ function AlignmentSelection({ history }) {
     return { ...alignment };
   });
 
-  async function NextClick(user, title, GM, level) {
+  async function NextClick(title, GM, level) {
     return await api.put("char-creation", {
-      user,
       title,
       GM,
       firstAlignment: selected,

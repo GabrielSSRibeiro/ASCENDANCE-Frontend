@@ -14,8 +14,8 @@ export const AuthProvider = ({ children }) => {
       password,
     });
 
-    if (!(response.data === "")) {
-      const { nickName } = response.data;
+    if (!(response.data.user === "")) {
+      const { nickName } = response.data.user;
       localStorage.setItem("user", nickName);
       localStorage.setItem("password", password);
 
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         alert(incorrectPassword);
       } else {
         localStorage.setItem("user", nickName);
-        localStorage.setItem("password", password);
+        localStorage.setItem("ESSENCIA:token", response.data.token);
 
         //update socket connection
         socket.emit("login", nickName);

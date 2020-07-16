@@ -18,9 +18,8 @@ function DefensiveSpecialty({ history }) {
     return { ...specialty };
   });
 
-  async function NextClick(user, title, GM, level) {
+  async function NextClick(title, GM, level) {
     return await api.put("char-creation", {
-      user,
       title,
       GM,
       defensiveSpecialty: selected,

@@ -12,9 +12,8 @@ function PastDefinition({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [past, setPast] = useState(JSON.parse(localStorage.getItem("character")).past);
 
-  async function NextClick(user, title, GM, level) {
+  async function NextClick(title, GM, level) {
     return await api.put("char-creation", {
-      user,
       title,
       GM,
       past,

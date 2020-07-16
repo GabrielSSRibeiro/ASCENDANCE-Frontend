@@ -19,8 +19,7 @@ function Management({ history }) {
   async function RemovePlayer(user) {
     const playerUser = user;
     const title = localStorage.getItem("game");
-    const GM = localStorage.getItem("GM");
-    const response = await api.delete("player-games", { params: { title, GM, playerUser } });
+    const response = await api.delete("player-games", { params: { title, playerUser } });
 
     setPartyMembers(response.data.party);
   }
@@ -31,9 +30,8 @@ function Management({ history }) {
 
   useEffect(() => {
     async function LoadPartyMembers() {
-      const GM = localStorage.getItem("GM");
       const title = localStorage.getItem("game");
-      const response = await api.get("gm-panel", { params: { GM, title } });
+      const response = await api.get("gm-panel", { params: { title } });
 
       setPartyMembers(response.data.party);
     }

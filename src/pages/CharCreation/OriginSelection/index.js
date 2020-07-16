@@ -16,12 +16,11 @@ function OriginSelection({ history }) {
     return { ...origin, index };
   });
 
-  async function NextClick(user, title, GM, level) {
+  async function NextClick(title, GM, level) {
     let lifeDie = 4 + origins.find((value) => value[1].name === selected).index * 2;
     let disciplines = 4 - origins.find((value) => value[1].name === selected).index;
 
     return await api.put("char-creation", {
-      user,
       title,
       GM,
       origin: selected,

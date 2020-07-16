@@ -22,8 +22,7 @@ function GMGames({ history }) {
 
   useEffect(() => {
     async function GMGamesList() {
-      const GM = localStorage.getItem("user");
-      const response = await api.get("gm-games", { params: { GM } });
+      const response = await api.get("gm-games");
       setGamesList(response.data);
     }
 

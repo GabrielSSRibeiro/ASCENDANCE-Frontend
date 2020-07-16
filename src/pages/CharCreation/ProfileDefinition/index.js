@@ -13,12 +13,13 @@ function ProfileDefinition({ history }) {
 
   const allowedFiles = ["jpeg", "jpg", "png"];
 
-  async function NextClick(user, title, GM, level) {
+  async function NextClick(title, GM, level) {
+    level = 1;
+
     const data = new FormData();
-    data.append("user", user);
     data.append("title", title);
     data.append("GM", GM);
-    data.append("level", 1);
+    data.append("level", level);
     data.append("name", name);
     data.append("avatar", avatar);
 

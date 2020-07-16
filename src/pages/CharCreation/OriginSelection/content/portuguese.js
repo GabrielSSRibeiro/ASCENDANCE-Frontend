@@ -10,7 +10,7 @@ module.exports.content = {
     infoBoxLong: [
       <>
         Poucas pessoas se destacam com a capacidade de manipular sua <strong>Essência</strong> por
-        mais que a tenham
+        mais que a tenham. Ela é representada pelo domínio mágico, a força de vontade ou adrenalina
       </>,
       "Você fala o idioma de sua raça e comum",
     ],

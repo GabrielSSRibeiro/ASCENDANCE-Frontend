@@ -17,13 +17,12 @@ function CharCreationBar({ ready, next, history }) {
   }, [history]);
 
   async function HandleNext() {
-    const user = localStorage.getItem("user");
     const title = localStorage.getItem("game");
     const GM = localStorage.getItem("GM");
 
     const level = current;
 
-    const response = await next(user, title, GM, level);
+    const response = await next(title, GM, level);
 
     if (current === 10) {
       history.push("/player-panel");
@@ -31,7 +30,6 @@ function CharCreationBar({ ready, next, history }) {
       const player = response.data.party.find(
         (value) => value.user === localStorage.getItem("user")
       );
-
       // updates local storage
       localStorage.setItem("character", JSON.stringify(player));
 
