@@ -24,6 +24,13 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media (max-width: 1200px) {
+  .disciplineSelection-container > main > section {
+    margin-top: 20px;
+    width: 300px;
+    justify-content: center;
+  }
+}
 
 .disciplineSelection-container > main > section > span {
   font-size: 16px;
@@ -31,6 +38,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
+}
+@media (max-width: 1200px) {
+  .disciplineSelection-container > main > section > span {
+    top: 7%;
+  }
 }
 
 .disciplineSelection-container > main > section > span > strong {
@@ -42,6 +54,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+@media (max-width: 1200px) {
+  .disciplineSelection-container > main > section > div {
+    margin-top: 20px;
+  }
 }
 .disciplineSelection-container > main > section > div:nth-child(n + 4) {
   margin-top: 20px;

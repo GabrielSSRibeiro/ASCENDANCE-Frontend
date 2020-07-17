@@ -4,11 +4,16 @@
   right: 10px;
   color: #ffffff;
 }
+@media (max-width: 1200px) {
+  .login-container span {
+    display: none;
+  }
+}
 
 .login-container main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -24,6 +29,11 @@
   flex-direction: column;
   align-items: baseline;
   justify-content: center;
+}
+@media (max-width: 1200px) {
+  .login-container main aside {
+    display: none;
+  }
 }
 
 .login-container main aside p:nth-child(2) {

@@ -20,11 +20,27 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+@media (max-width: 500px) {
+  .raceSelection-container > main > section {
+    flex-direction: column;
+  }
+}
 
 .raceSelection-container > main > section > div {
   margin: -5% 2%;
 }
+@media (max-width: 500px) {
+  .raceSelection-container > main > section > div {
+    margin-bottom: 25px;
+  }
+}
+
 .raceSelection-container > main > section > div:last-child {
   margin: 0;
   margin-top: 6%;
+}
+@media (max-width: 500px) {
+  .raceSelection-container > main > section > div:last-child {
+    margin: -5% 2%;
+  }
 }

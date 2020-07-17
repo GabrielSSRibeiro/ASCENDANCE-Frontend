@@ -13,7 +13,12 @@ function GMPanel({ history }) {
     <div className="GMPanel-container">
       <NaviBar history={history} />
       <GMMenu content={content} history={history} />
-      <MembersBar />
+      <main>
+        <section></section>
+        <footer>
+          <MembersBar />
+        </footer>
+      </main>
     </div>
   );
 }

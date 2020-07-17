@@ -16,7 +16,7 @@
 .returnMenu-container div {
   position: absolute;
   left: 0;
-  width: 10%;
+  width: 120px;
   height: 100%;
   padding: 0;
   cursor: pointer;
@@ -32,6 +32,9 @@
 }
 .returnMenu-container div:active {
   transform: scale(0.9);
+}
+
+@media (max-width: 1200px) {
 }
 
 .returnMenu-container div button {

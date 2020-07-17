@@ -1,1 +1,18 @@
+.GMPanel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.GMPanel-container > main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.GMPanel-container > main > footer {
+    width: 100%;
+}

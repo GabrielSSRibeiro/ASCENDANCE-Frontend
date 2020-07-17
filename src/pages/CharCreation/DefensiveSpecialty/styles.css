@@ -20,7 +20,17 @@
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 500px) {
+  .defensiveSpecialty-container > main > section {
+    flex-direction: column;
+  }
+}
 
 .defensiveSpecialty-container > main > section > div {
   margin: -5% 2%;
+}
+@media (max-width: 500px) {
+  .defensiveSpecialty-container > main > section > div {
+    margin-bottom: 20px;
+  }
 }
