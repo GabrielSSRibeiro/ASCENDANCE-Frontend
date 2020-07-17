@@ -28,6 +28,12 @@ body {
   text-align: center;
 }
 
+@media (max-width: 500px) {
+  .game-title {
+    padding-bottom: 150px;
+  }
+}
+
 button:focus,
 input:focus {
   outline: 0;
