@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
@@ -16,12 +16,14 @@ function CharacteristicsDefinition({ history }) {
     flaw: JSON.parse(localStorage.getItem("character")).flaw,
   });
 
+  const { signedApiCall } = useAuth();
+
   const characteristics = Object.entries(content.characteristics).map((characteristic) => {
     return { ...characteristic };
   });
 
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       personality: selected.personality,

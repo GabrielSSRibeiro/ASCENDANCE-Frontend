@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
@@ -11,10 +11,12 @@ function RaceSelection({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).race);
 
+  const { signedApiCall } = useAuth();
+
   const races = Object.entries(content.races).map((race) => race);
 
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       race: selected,

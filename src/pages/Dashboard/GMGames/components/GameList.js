@@ -1,10 +1,12 @@
 import React from "react";
-import api from "../../../../services/api";
+import { useAuth } from "../../../../contexts/auth";
 
 import deleteIcon from "../../../../assets/edition/delete.png";
 import checkIcon from "../../../../assets/edition/check.png";
 
 function GameList({ gamesList, setGamesList, history }) {
+  const { signedApiCall } = useAuth();
+
   function StartGame(title, GM) {
     localStorage.setItem("game", title);
     localStorage.setItem("GM", GM);
@@ -12,7 +14,7 @@ function GameList({ gamesList, setGamesList, history }) {
   }
 
   async function DeleteGame(title) {
-    const response = await api.delete("gm-games", { params: { title } });
+    const response = await signedApiCall("delete", "gm-games", { params: { title } });
 
     setGamesList(response.data);
   }

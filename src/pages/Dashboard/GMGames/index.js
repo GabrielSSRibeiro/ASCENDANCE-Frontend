@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
@@ -12,6 +12,8 @@ function GMGames({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [gamesList, setGamesList] = useState();
 
+  const { signedApiCall } = useAuth();
+
   function ReturnDashboard() {
     history.push("/dashboard");
   }
@@ -22,12 +24,12 @@ function GMGames({ history }) {
 
   useEffect(() => {
     async function GMGamesList() {
-      const response = await api.get("gm-games");
+      const response = await signedApiCall("get", "gm-games");
       setGamesList(response.data);
     }
 
     GMGamesList();
-  }, []);
+  }, [signedApiCall]);
 
   return (
     <div className="GMGames-container">

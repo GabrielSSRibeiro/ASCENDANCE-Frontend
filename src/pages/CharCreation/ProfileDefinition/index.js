@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 
@@ -10,6 +10,8 @@ function ProfileDefinition({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState(null);
+
+  const { signedApiCall } = useAuth();
 
   const allowedFiles = ["jpeg", "jpg", "png"];
 
@@ -23,7 +25,7 @@ function ProfileDefinition({ history }) {
     data.append("name", name);
     data.append("avatar", avatar);
 
-    return await api.put("char-creation", data);
+    return await signedApiCall("put", "char-creation", data);
   }
 
   const preview = useMemo(() => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 
 import NaviBar from "../../../components/NaviBar";
 import ReturnMenu from "../../../components/ReturnMenu";
@@ -12,6 +12,8 @@ function Management({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [partyMembers, setPartyMembers] = useState([]);
 
+  const { signedApiCall } = useAuth();
+
   function ReturnGMPanel() {
     history.push("/gm-panel");
   }
@@ -19,7 +21,9 @@ function Management({ history }) {
   async function RemovePlayer(user) {
     const playerUser = user;
     const title = localStorage.getItem("game");
-    const response = await api.delete("player-games", { params: { title, playerUser } });
+    const response = await signedApiCall("delete", "player-games", {
+      params: { title, playerUser },
+    });
 
     setPartyMembers(response.data.party);
   }
@@ -31,13 +35,13 @@ function Management({ history }) {
   useEffect(() => {
     async function LoadPartyMembers() {
       const title = localStorage.getItem("game");
-      const response = await api.get("gm-panel", { params: { title } });
+      const response = await signedApiCall("get", "gm-panel", { params: { title } });
 
       setPartyMembers(response.data.party);
     }
 
     LoadPartyMembers();
-  }, []);
+  }, [signedApiCall]);
 
   return (
     <div className="management-container">

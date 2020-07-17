@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../../services/api";
+import { useAuth } from "../../../../contexts/auth";
 
 import NaviBar from "../../../../components/NaviBar";
 import ReturnMenu from "../../../../components/ReturnMenu";
@@ -11,6 +11,8 @@ function NewPlayer({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [playerUser, setPlayerUser] = useState();
 
+  const { signedApiCall } = useAuth();
+
   function ReturnManagement() {
     history.push("/gm-management");
   }
@@ -19,7 +21,7 @@ function NewPlayer({ history }) {
     e.preventDefault();
 
     const title = localStorage.getItem("game");
-    const response = await api.put("gm-management", {
+    const response = await signedApiCall("put", "gm-management", {
       title,
       playerUser,
     });

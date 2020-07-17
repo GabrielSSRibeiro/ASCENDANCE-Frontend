@@ -57,9 +57,9 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   }
 
-  async function signedGet(url, params) {
+  async function signedApiCall(method, url, params) {
     try {
-      const response = await api.get(url, params);
+      const response = await api[method](url, params);
 
       return response;
     } catch (error) {
@@ -68,7 +68,15 @@ export const AuthProvider = ({ children }) => {
       }
     }
   }
-  const values = { signed: !!user, user, signUp, signIn, signOut, signedGet };
+
+  const values = {
+    signed: !!user,
+    user,
+    signUp,
+    signIn,
+    signOut,
+    signedApiCall,
+  };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

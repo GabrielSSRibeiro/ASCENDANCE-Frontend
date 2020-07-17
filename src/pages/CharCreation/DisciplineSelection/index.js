@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
@@ -17,13 +17,15 @@ function DisciplineSelection({ history }) {
     control: JSON.parse(localStorage.getItem("character")).control,
   });
 
+  const { signedApiCall } = useAuth();
+
   const disciplines = Object.entries(content.disciplines).map((discipline) => {
     return { ...discipline };
   });
   const total = Object.values(selected).reduce((acc, cur) => acc + cur, 0);
 
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       feel: selected.feel,

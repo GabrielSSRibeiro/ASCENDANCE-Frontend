@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
@@ -12,13 +12,15 @@ function MyFunction({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).class);
 
+  const { signedApiCall } = useAuth();
+
   // only classes  related to the chosen origin
   const classes = Object.values(content.classes).filter((value) => {
     return value.lifeDie === JSON.parse(localStorage.getItem("character")).lifeDie;
   });
 
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       class: selected,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
@@ -14,12 +14,14 @@ function DefensiveSpecialty({ history }) {
     JSON.parse(localStorage.getItem("character")).defensiveSpecialty
   );
 
+  const { signedApiCall } = useAuth();
+
   const specialties = Object.entries(content.specialties).map((specialty) => {
     return { ...specialty };
   });
 
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       defensiveSpecialty: selected,

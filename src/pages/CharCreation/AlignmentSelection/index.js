@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
@@ -17,6 +17,8 @@ function AlignmentSelection({ history }) {
     JSON.parse(localStorage.getItem("character")).secondAlignment
   );
 
+  const { signedApiCall } = useAuth();
+
   const alignments1 = Object.entries(content.firstAlignments).map((alignment) => {
     return { ...alignment };
   });
@@ -25,7 +27,7 @@ function AlignmentSelection({ history }) {
   });
 
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       firstAlignment: selected,

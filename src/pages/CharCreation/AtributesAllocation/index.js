@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import InfoBoxLong from "../../../components/InfoBoxLong";
@@ -18,6 +18,8 @@ function AtributesAllocation({ history }) {
     wisdom: JSON.parse(localStorage.getItem("character")).wisdom,
   });
 
+  const { signedApiCall } = useAuth();
+
   const disciplines = Object.entries(content.disciplines).map((discipline) => {
     return { ...discipline };
   });
@@ -25,7 +27,7 @@ function AtributesAllocation({ history }) {
   const max = 10;
 
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       intelligence: selected.intelligence,

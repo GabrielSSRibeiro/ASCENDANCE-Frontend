@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
@@ -12,6 +12,8 @@ function OriginSelection({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [selected, setSelected] = useState(JSON.parse(localStorage.getItem("character")).origin);
 
+  const { signedApiCall } = useAuth();
+
   const origins = Object.entries(content.origins).map((origin, index) => {
     return { ...origin, index };
   });
@@ -20,7 +22,7 @@ function OriginSelection({ history }) {
     let lifeDie = 4 + origins.find((value) => value[1].name === selected).index * 2;
     let disciplines = 4 - origins.find((value) => value[1].name === selected).index;
 
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       origin: selected,

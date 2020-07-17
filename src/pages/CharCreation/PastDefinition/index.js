@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../services/api";
+import { useAuth } from "../../../contexts/auth";
 import NaviBar from "../../../components/NaviBar";
 import CharCreationBar from "../../../components/CharCreationBar";
 import CharCreationOutline from "../../../components/CharCreationOutline";
@@ -12,8 +12,10 @@ function PastDefinition({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [past, setPast] = useState(JSON.parse(localStorage.getItem("character")).past);
 
+  const { signedApiCall } = useAuth();
+
   async function NextClick(title, GM, level) {
-    return await api.put("char-creation", {
+    return await signedApiCall("put", "char-creation", {
       title,
       GM,
       past,

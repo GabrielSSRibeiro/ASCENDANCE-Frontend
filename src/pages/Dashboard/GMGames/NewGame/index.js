@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../../../../services/api";
+import { useAuth } from "../../../../contexts/auth";
 
 import NaviBar from "../../../../components/NaviBar";
 import ReturnMenu from "../../../../components/ReturnMenu";
@@ -11,6 +11,8 @@ function NewGame({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [title, setTitle] = useState();
 
+  const { signedApiCall } = useAuth();
+
   function ReturnGMGamesList() {
     history.push("/dashboard-gm-list");
   }
@@ -19,7 +21,7 @@ function NewGame({ history }) {
     e.preventDefault();
 
     const GM = localStorage.getItem("user");
-    const response = await api.post("gm-games", {
+    const response = await signedApiCall("post", "gm-games", {
       title,
     });
 

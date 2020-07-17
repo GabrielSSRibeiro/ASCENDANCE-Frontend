@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import api from "../../../services/api";
 import { subscribeToUser, unSubscribeToUser } from "../../../services/socket";
 import { useAuth } from "../../../contexts/auth";
 
@@ -15,7 +14,7 @@ function PlayerGames({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [playerGamesList, setPlayerGamesList] = useState();
 
-  const { signedGet } = useAuth();
+  const { signedApiCall } = useAuth();
 
   function ReturnDashboard() {
     history.push("/dashboard");
@@ -25,7 +24,7 @@ function PlayerGames({ history }) {
     localStorage.setItem("game", title);
     localStorage.setItem("GM", GM);
 
-    const response = await signedGet("gm-panel", {
+    const response = await signedApiCall("get", "gm-panel", {
       params: { GM, title },
     });
     const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
@@ -41,15 +40,15 @@ function PlayerGames({ history }) {
 
   async function DeleteGame(title, GM) {
     const playerUser = localStorage.getItem("user");
-    await api.delete("player-games", { params: { title, GM } });
+    await signedApiCall("delete", "player-games", { params: { title, GM } });
 
-    const response = await api.get("player-games", { params: { user: playerUser } });
+    const response = await signedApiCall("get", "player-games", { params: { user: playerUser } });
     setPlayerGamesList(response.data);
   }
 
   useEffect(() => {
     async function PlayerGamesList() {
-      const response = await signedGet("player-games");
+      const response = await signedApiCall("get", "player-games");
 
       setPlayerGamesList(response.data);
     }

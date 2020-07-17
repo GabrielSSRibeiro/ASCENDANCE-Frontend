@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../../services/api";
+import { useAuth } from "../../contexts/auth";
 
 import { useLanguage } from "../../contexts/language";
 import "./styles.css";
@@ -10,17 +10,19 @@ function MembersBar() {
   const { content } = require(`./content/${useLanguage().language}`);
   const [partyMembers, setPartyMembers] = useState([]);
 
+  const { signedApiCall } = useAuth();
+
   useEffect(() => {
     async function LoadPartyMembers() {
       const GM = localStorage.getItem("user");
       const title = localStorage.getItem("game");
-      const response = await api.get("gm-panel", { params: { GM, title } });
+      const response = await signedApiCall("get", "gm-panel", { params: { GM, title } });
 
       setPartyMembers(response.data.party);
     }
 
     LoadPartyMembers();
-  }, []);
+  }, [signedApiCall]);
 
   return (
     <div className="membersBar-container">
