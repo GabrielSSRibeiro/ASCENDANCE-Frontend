@@ -57,11 +57,20 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   }
 
-  return (
-    <AuthContext.Provider value={{ signed: !!user, user, signUp, signIn, signOut }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  async function signedGet(url, params) {
+    try {
+      const response = await api.get(url, params);
+
+      return response;
+    } catch (error) {
+      if (error.response.status === 401) {
+        signOut();
+      }
+    }
+  }
+  const values = { signed: !!user, user, signUp, signIn, signOut, signedGet };
+
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 
 export function useAuth() {
