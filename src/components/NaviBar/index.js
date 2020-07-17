@@ -15,6 +15,7 @@ function NaviBar({ history }) {
   function RedirectLogin() {
     signOut();
   }
+
   function RedirectDashboard() {
     history.push("/dashboard");
   }

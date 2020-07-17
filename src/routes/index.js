@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { useAuth } from "../contexts/auth";
 import api from "../services/api";
+import PrivateRoute from "./privateRoutes";
 
 import Login from "../pages/Login";
 
@@ -11,7 +12,17 @@ import GMGames from "../pages/Dashboard/GMGames";
 import NewGame from "../pages/Dashboard/GMGames/NewGame";
 
 //  CharCreation
-import CharCreation from "./charCreation";
+import RaceSelection from "../pages/CharCreation/RaceSelection";
+import OriginSelection from "../pages/CharCreation/OriginSelection";
+import ClassSelection from "../pages/CharCreation/ClassSelection";
+import DisciplineSelection from "../pages/CharCreation/DisciplineSelection";
+import DefensiveSpecialty from "../pages/CharCreation/DefensiveSpecialty";
+import OfensiveSpecialty from "../pages/CharCreation/OfensiveSpecialty";
+import PastDefinition from "../pages/CharCreation/PastDefinition";
+import CharacteristicsDefinition from "../pages/CharCreation/CharacteristicsDefinition";
+import AlignmentSelection from "../pages/CharCreation/AlignmentSelection";
+import AtributesAllocation from "../pages/CharCreation/AtributesAllocation";
+import ProfileDefinition from "../pages/CharCreation/ProfileDefinition";
 
 // GM
 import GMPanel from "../pages/GMPanel";
@@ -28,52 +39,39 @@ export default function Routes() {
     api.defaults.headers.authorization = `Bearer ${localStorage.getItem("ESSENCIA:token")}`;
   }, [signed]);
 
-  // const PrivateRoute = ({ component: Component, ...rest }) => (
-  //   <Route
-  //     {...rest}
-  //     render={(props) =>
-  //       signed ? (
-  //         <Component {...props} />
-  //       ) : (
-  //         <Redirect to={{ pathname: "/", state: { from: props.location } }} />
-  //       )
-  //     }
-  //   />
-  // );
-
   return (
     <BrowserRouter>
-      {!signed ? (
-        <Switch>
-          <Route path="/" exact component={Login} />
+      <Switch>
+        <Route path="/" exact component={Login} />
 
-          <Route>
-            <Redirect to="/" />
-          </Route>
-        </Switch>
-      ) : (
-        <>
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/dashboard-player-list" exact component={PlayerGames} />
-          <Route path="/dashboard-gm-list" exact component={GMGames} />
-          <Route path="/dashboard-gm-list-new-game" exact component={NewGame} />
+        <PrivateRoute path="/dashboard" exact component={Dashboard} />
+        <PrivateRoute path="/dashboard-player-list" exact component={PlayerGames} />
+        <PrivateRoute path="/dashboard-gm-list" exact component={GMGames} />
+        <PrivateRoute path="/dashboard-gm-list-new-game" exact component={NewGame} />
 
-          {/* CharCreation */}
-          <CharCreation />
+        {/* CharCreation */}
+        <PrivateRoute path="/char-creation-0" exact component={RaceSelection} />
+        <PrivateRoute path="/char-creation-1" exact component={OriginSelection} />
+        <PrivateRoute path="/char-creation-2" exact component={ClassSelection} />
+        <PrivateRoute path="/char-creation-3" exact component={DisciplineSelection} />
+        <PrivateRoute path="/char-creation-4" exact component={DefensiveSpecialty} />
+        <PrivateRoute path="/char-creation-5" exact component={OfensiveSpecialty} />
+        <PrivateRoute path="/char-creation-6" exact component={PastDefinition} />
+        <PrivateRoute path="/char-creation-7" exact component={CharacteristicsDefinition} />
+        <PrivateRoute path="/char-creation-8" exact component={AlignmentSelection} />
+        <PrivateRoute path="/char-creation-9" exact component={AtributesAllocation} />
+        <PrivateRoute path="/char-creation-10" exact component={ProfileDefinition} />
 
-          {/* GM */}
-          <Route path="/gm-panel" exact component={GMPanel} />
-          <Route path="/gm-management" exact component={Management} />
-          <Route path="/gm-new-player" exact component={NewPlayer} />
+        {/* GM */}
+        <PrivateRoute path="/gm-panel" exact component={GMPanel} />
+        <PrivateRoute path="/gm-management" exact component={Management} />
+        <PrivateRoute path="/gm-new-player" exact component={NewPlayer} />
 
-          {/* Player */}
-          <Route path="/player-panel" exact component={PlayerPanel} />
+        {/* Player */}
+        <PrivateRoute path="/player-panel" exact component={PlayerPanel} />
 
-          <Route>
-            <Redirect to="/dashboard" />
-          </Route>
-        </>
-      )}
+        <Route render={() => <Redirect to="/" />} />
+      </Switch>
     </BrowserRouter>
   );
 }
