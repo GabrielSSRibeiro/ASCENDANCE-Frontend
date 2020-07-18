@@ -36,7 +36,7 @@ export default function Routes() {
   const { signed } = useAuth();
 
   useEffect(() => {
-    api.defaults.headers.authorization = `Bearer ${localStorage.getItem("ESSENCIA:token")}`;
+    // api.defaults.headers.authorization = `Bearer ${localStorage.getItem("ESSENCIA:token")}`;
   }, [signed]);
 
   return (

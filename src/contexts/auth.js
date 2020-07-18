@@ -59,12 +59,16 @@ export const AuthProvider = ({ children }) => {
 
   async function signedApiCall(method, url, params) {
     try {
-      const response = await api[method](url, params);
+      const response = await api[method](url, {
+        params,
+        headers: { authorization: `Bearer ${localStorage.getItem("ESSENCIA:token")}` },
+      });
 
       return response;
     } catch (error) {
       if (error.response.status === 401) {
         signOut();
+        Promise.reject(error);
       }
     }
   }
