@@ -57,20 +57,20 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   }
 
-  async function signedApiCall(method, url, params) {
-    try {
-      const response = await api[method](url, {
-        params,
-        headers: { authorization: `Bearer ${localStorage.getItem("ESSENCIA:token")}` },
-      });
+  function signedApiCall(method, url, params) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const response = await api[method](url, params);
 
-      return response;
-    } catch (error) {
-      if (error.response.status === 401) {
-        signOut();
-        Promise.reject(error);
+        resolve(response);
+      } catch (error) {
+        if (error.response.status === 401) {
+          signOut();
+        }
+
+        reject();
       }
-    }
+    });
   }
 
   const values = {

@@ -47,10 +47,10 @@ function PlayerGames({ history }) {
   }
 
   useEffect(() => {
-    async function PlayerGamesList() {
-      const response = await signedApiCall("get", "player-games");
-
-      setPlayerGamesList(response.data);
+    function PlayerGamesList() {
+      signedApiCall("get", "player-games").then((response) => {
+        setPlayerGamesList(response.data);
+      });
     }
 
     PlayerGamesList();
