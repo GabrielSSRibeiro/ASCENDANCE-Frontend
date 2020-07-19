@@ -17,21 +17,21 @@ function NewGame({ history }) {
     history.push("/dashboard-gm-list");
   }
 
-  async function HandleSubmit(e) {
+  function HandleSubmit(e) {
     e.preventDefault();
 
     const GM = localStorage.getItem("user");
-    const response = await signedApiCall("post", "gm-games", {
+    signedApiCall("post", "gm-games", {
       title,
+    }).then((response) => {
+      if (!(response.data === "")) {
+        localStorage.setItem("game", title);
+        localStorage.setItem("GM", GM);
+        history.push("/gm-panel");
+      } else {
+        alert(content.takenName);
+      }
     });
-
-    if (!(response.data === "")) {
-      localStorage.setItem("game", title);
-      localStorage.setItem("GM", GM);
-      history.push("/gm-panel");
-    } else {
-      alert(content.takenName);
-    }
   }
 
   return (

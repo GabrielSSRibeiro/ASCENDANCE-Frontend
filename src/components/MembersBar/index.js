@@ -13,12 +13,12 @@ function MembersBar() {
   const { signedApiCall } = useAuth();
 
   useEffect(() => {
-    async function LoadPartyMembers() {
+    function LoadPartyMembers() {
       const GM = localStorage.getItem("user");
       const title = localStorage.getItem("game");
-      const response = await signedApiCall("get", "gm-panel", { params: { GM, title } });
-
-      setPartyMembers(response.data.party);
+      signedApiCall("get", "gm-panel", { params: { GM, title } }).then((response) => {
+        setPartyMembers(response.data.party);
+      });
     }
 
     LoadPartyMembers();

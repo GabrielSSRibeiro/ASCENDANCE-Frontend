@@ -18,14 +18,15 @@ function Management({ history }) {
     history.push("/gm-panel");
   }
 
-  async function RemovePlayer(user) {
+  function RemovePlayer(user) {
     const playerUser = user;
     const title = localStorage.getItem("game");
-    const response = await signedApiCall("delete", "player-games", {
-      params: { title, playerUser },
-    });
 
-    setPartyMembers(response.data.party);
+    signedApiCall("delete", "player-games", {
+      params: { title, playerUser },
+    }).then((response) => {
+      setPartyMembers(response.data.party);
+    });
   }
 
   async function NewPlayerClick() {
@@ -33,11 +34,11 @@ function Management({ history }) {
   }
 
   useEffect(() => {
-    async function LoadPartyMembers() {
+    function LoadPartyMembers() {
       const title = localStorage.getItem("game");
-      const response = await signedApiCall("get", "gm-panel", { params: { title } });
-
-      setPartyMembers(response.data.party);
+      signedApiCall("get", "gm-panel", { params: { title } }).then((response) => {
+        setPartyMembers(response.data.party);
+      });
     }
 
     LoadPartyMembers();

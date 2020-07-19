@@ -13,10 +13,10 @@ function GameList({ gamesList, setGamesList, history }) {
     history.push("/gm-panel");
   }
 
-  async function DeleteGame(title) {
-    const response = await signedApiCall("delete", "gm-games", { params: { title } });
-
-    setGamesList(response.data);
+  function DeleteGame(title) {
+    signedApiCall("delete", "gm-games", { params: { title } }).then((response) => {
+      setGamesList(response.data);
+    });
   }
 
   return (

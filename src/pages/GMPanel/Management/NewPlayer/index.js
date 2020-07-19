@@ -17,25 +17,25 @@ function NewPlayer({ history }) {
     history.push("/gm-management");
   }
 
-  async function HandleSubmit(e) {
+  function HandleSubmit(e) {
     e.preventDefault();
 
     const title = localStorage.getItem("game");
-    const response = await signedApiCall("put", "gm-management", {
+    signedApiCall("put", "gm-management", {
       title,
       playerUser,
-    });
-
-    if (response.data !== "") {
-      if (response.data !== "member") {
-        localStorage.setItem("game", title);
-        history.push("/gm-management");
+    }).then((response) => {
+      if (response.data !== "") {
+        if (response.data !== "member") {
+          localStorage.setItem("game", title);
+          history.push("/gm-management");
+        } else {
+          alert(content.alreadyIn);
+        }
       } else {
-        alert(content.alreadyIn);
+        alert(content.notFound);
       }
-    } else {
-      alert(content.notFound);
-    }
+    });
   }
 
   return (

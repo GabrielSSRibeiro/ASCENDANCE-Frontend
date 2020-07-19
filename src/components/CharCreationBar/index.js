@@ -16,25 +16,25 @@ function CharCreationBar({ ready, next, history }) {
     }
   }, [history]);
 
-  async function HandleNext() {
+  function HandleNext() {
     const title = localStorage.getItem("game");
     const GM = localStorage.getItem("GM");
 
     const level = current;
 
-    const response = await next(title, GM, level);
+    next(title, GM, level).then((response) => {
+      if (current === 10) {
+        history.push("/player-panel");
+      } else {
+        const player = response.data.party.find(
+          (value) => value.user === localStorage.getItem("user")
+        );
+        // updates local storage
+        localStorage.setItem("character", JSON.stringify(player));
 
-    if (current === 10) {
-      history.push("/player-panel");
-    } else {
-      const player = response.data.party.find(
-        (value) => value.user === localStorage.getItem("user")
-      );
-      // updates local storage
-      localStorage.setItem("character", JSON.stringify(player));
-
-      history.push(`/char-creation-${current + 1}`);
-    }
+        history.push(`/char-creation-${current + 1}`);
+      }
+    });
   }
 
   function HandlePrevious() {

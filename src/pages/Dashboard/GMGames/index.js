@@ -23,9 +23,10 @@ function GMGames({ history }) {
   }
 
   useEffect(() => {
-    async function GMGamesList() {
-      const response = await signedApiCall("get", "gm-games");
-      setGamesList(response.data);
+    function GMGamesList() {
+      signedApiCall("get", "gm-games").then((response) => {
+        setGamesList(response.data);
+      });
     }
 
     GMGamesList();
