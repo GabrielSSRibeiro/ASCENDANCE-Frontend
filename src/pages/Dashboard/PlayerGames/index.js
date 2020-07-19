@@ -20,30 +20,34 @@ function PlayerGames({ history }) {
     history.push("/dashboard");
   }
 
-  async function StartGame(title, GM) {
+  function StartGame(title, GM) {
     localStorage.setItem("game", title);
     localStorage.setItem("GM", GM);
 
-    const response = await signedApiCall("get", "gm-panel", {
+    signedApiCall("get", "gm-panel", {
       params: { GM, title },
+    }).then((response) => {
+      const player = response.data.party.find(
+        (value) => value.user === localStorage.getItem("user")
+      );
+
+      if (player.name) {
+        history.push("/player-panel");
+      } else {
+        localStorage.setItem("character", JSON.stringify(player));
+
+        history.push(`/char-creation-${player.level + 1}`);
+      }
     });
-    const player = response.data.party.find((value) => value.user === localStorage.getItem("user"));
-
-    if (player.name) {
-      history.push("/player-panel");
-    } else {
-      localStorage.setItem("character", JSON.stringify(player));
-
-      history.push(`/char-creation-${player.level + 1}`);
-    }
   }
 
-  async function DeleteGame(title, GM) {
+  function DeleteGame(title, GM) {
     const playerUser = localStorage.getItem("user");
-    await signedApiCall("delete", "player-games", { params: { title, GM } });
-
-    const response = await signedApiCall("get", "player-games", { params: { user: playerUser } });
-    setPlayerGamesList(response.data);
+    signedApiCall("delete", "player-games", { params: { title, GM } }).then(() => {
+      signedApiCall("get", "player-games", { params: { user: playerUser } }).then((response) => {
+        setPlayerGamesList(response.data);
+      });
+    });
   }
 
   useEffect(() => {
@@ -58,9 +62,7 @@ function PlayerGames({ history }) {
     subscribeToUser(PlayerGamesList);
     // socket off
     return () => unSubscribeToUser();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [signedApiCall]);
 
   return (
     <div className="player-container">
