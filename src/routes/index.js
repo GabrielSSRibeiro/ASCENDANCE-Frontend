@@ -28,9 +28,18 @@ import ProfileDefinition from "../pages/CharCreation/ProfileDefinition";
 import GMPanel from "../pages/GMPanel";
 import Management from "../pages/GMPanel/Management";
 import NewPlayer from "../pages/GMPanel/Management/NewPlayer";
+import Encounter from "../pages/GMPanel/Encounter";
+import GMRules from "../pages/GMPanel/GMRules";
+import Tools from "../pages/GMPanel/GMTools";
+import Tests from "../pages/GMPanel/GMTests";
 
 // Player
 import PlayerPanel from "../pages/PlayerPanel";
+import Progress from "../pages/PlayerPanel/Progress";
+import Rest from "../pages/PlayerPanel/Rest";
+import Rules from "../pages/PlayerPanel/PlayerRules";
+import Equipment from "../pages/PlayerPanel/Equipment";
+import Traits from "../pages/PlayerPanel/Traits";
 
 export default function Routes() {
   const { signed } = useAuth();
@@ -66,9 +75,18 @@ export default function Routes() {
         <PrivateRoute path="/gm-panel" exact component={GMPanel} />
         <PrivateRoute path="/gm-management" exact component={Management} />
         <PrivateRoute path="/gm-new-player" exact component={NewPlayer} />
+        <PrivateRoute path="/gm-encounter" exact component={Encounter} />
+        <PrivateRoute path="/gm-rules" exact component={GMRules} />
+        <PrivateRoute path="/gm-tools" exact component={Tools} />
+        <PrivateRoute path="/gm-tests" exact component={Tests} />
 
         {/* Player */}
         <PrivateRoute path="/player-panel" exact component={PlayerPanel} />
+        <PrivateRoute path="/player-progress" exact component={Progress} />
+        <PrivateRoute path="/player-rest" exact component={Rest} />
+        <PrivateRoute path="/player-rules" exact component={Rules} />
+        <PrivateRoute path="/player-equipment" exact component={Equipment} />
+        <PrivateRoute path="/player-traits" exact component={Traits} />
 
         <Route render={() => <Redirect to="/" />} />
       </Switch>

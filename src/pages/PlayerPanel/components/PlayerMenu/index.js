@@ -2,17 +2,17 @@ import React from "react";
 
 import "./styles.css";
 
-function GMMenu({ content, history }) {
+function PlayerMenu({ content, history }) {
   const tabs = Object.keys(content.button).map((item) => {
     return {
       name: content.button[item],
-      img: require(`../../../../assets/GMMenu/${item}.png`),
-      onClick: () => history.push(`/gm-${item}`),
+      img: require(`../../../../assets/playerMenu/${item}.png`),
+      onClick: () => history.push(`/player-${item}`),
     };
   });
 
   return (
-    <div className="GMMenu-container">
+    <div className="PlayerMenu-container">
       {tabs.map((item) => (
         <div key={item.name} onClick={item.onClick}>
           <img src={item.img} alt={item.name} />
@@ -23,4 +23,4 @@ function GMMenu({ content, history }) {
   );
 }
 
-export default GMMenu;
+export default PlayerMenu;
