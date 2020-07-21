@@ -20,6 +20,7 @@ function Dashboard({ history }) {
   function GMButtonClick() {
     history.push("/dashboard-gm-list");
   }
+
   return (
     <div className="dashboard-container">
       <NaviBar history={history} />

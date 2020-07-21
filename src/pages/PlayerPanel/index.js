@@ -16,7 +16,7 @@ function PlayerPanel({ history }) {
       <main>
         <section></section>
         <footer>
-          <MembersBar />
+          <MembersBar history={history} />
         </footer>
       </main>
     </div>

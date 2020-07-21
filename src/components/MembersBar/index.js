@@ -6,23 +6,28 @@ import "./styles.css";
 import turnArrow from "../../assets/arrows/turnArrow.png";
 import GMd20 from "../../assets/dice/GMd20.png";
 
-function MembersBar() {
+function MembersBar({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [partyMembers, setPartyMembers] = useState([]);
 
   const { signedApiCall } = useAuth();
 
   useEffect(() => {
+    const GM = localStorage.getItem("user");
+    const title = localStorage.getItem("game");
+
     function LoadPartyMembers() {
-      const GM = localStorage.getItem("user");
-      const title = localStorage.getItem("game");
       signedApiCall("get", "gm-panel", { params: { GM, title } }).then((response) => {
         setPartyMembers(response.data.party);
       });
     }
 
-    LoadPartyMembers();
-  }, [signedApiCall]);
+    if (title && GM) {
+      LoadPartyMembers();
+    } else {
+      history.push("/dashboard");
+    }
+  }, [signedApiCall, history]);
 
   return (
     <div className="membersBar-container">
