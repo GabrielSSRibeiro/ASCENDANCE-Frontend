@@ -1,0 +1,38 @@
+.PlayerPanel-container > main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.PlayerPanel-container > main > span {
+    margin-top: 15px;
+    color: #dedede;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.267rem;
+}
+
+.PlayerPanel-container > main > .profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.PlayerPanel-container > main > .details {
+    width: 420px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.PlayerPanel-container > main > .action {
+    width: 420px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

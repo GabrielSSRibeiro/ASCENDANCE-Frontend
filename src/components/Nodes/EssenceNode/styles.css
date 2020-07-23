@@ -1,0 +1,30 @@
+.EssenceNode-container {
+    width: calc(80px * 1.4142);
+    height: calc(80px * 1.4142);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.EssenceNode-container > div {
+    position: absolute;
+    background: linear-gradient(187.04deg, #62e0df -80.69%, #374fa5 98.7%);
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    box-shadow: 0px 0px 11px #340030;
+}
+
+.EssenceNode-container > span {
+    color: #ffffff;
+    font-size: 12px;
+    position: relative;
+}
+
+.EssenceNode-container > span > span {
+    font-size: 16px;
+    font-weight: 600;
+}

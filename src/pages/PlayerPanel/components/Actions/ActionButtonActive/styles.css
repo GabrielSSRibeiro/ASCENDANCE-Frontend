@@ -1,0 +1,17 @@
+.ActionButtonActive-container {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ActionButtonActive-container img {
+    position: absolute;
+}
+
+.ActionButtonActive-container img + img {
+    opacity: 0.5;
+}

@@ -1,0 +1,26 @@
+.DetailDisplay-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.DetailDisplay-container div {
+    width: 110px;
+    height: 110px;
+    border: 2px solid #dedede;
+    border-radius: 100%;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.DetailDisplay-container span {
+    color: #dedede;
+    font-size: 12px;
+    margin-top: 10px;
+}

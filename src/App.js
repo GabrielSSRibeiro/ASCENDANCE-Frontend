@@ -21,11 +21,10 @@ function App() {
   return (
     <LanguageProvider>
       <AuthProvider>
-        <Routes />;
+        <Routes />
       </AuthProvider>
     </LanguageProvider>
   );
 }
 
 export default App;
-

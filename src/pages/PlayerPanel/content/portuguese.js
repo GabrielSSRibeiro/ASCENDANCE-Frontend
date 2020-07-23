@@ -6,4 +6,9 @@ module.exports.content = {
     equipment: "Equipamento",
     traits: "Traços",
   },
+  detailDisplay: {
+    skill: "Habilidade",
+    combat: "Combate",
+    magic: "Magia",
+  },
 };
