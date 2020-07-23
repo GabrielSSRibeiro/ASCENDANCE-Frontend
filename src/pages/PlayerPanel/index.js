@@ -38,7 +38,7 @@ function PlayerPanel({ history }) {
 
           <main>
             <LifeNode current={"28"} total={"50"} title={"Vida"} />
-            <EssenceNode current={"8"} total={"10"} title={"Essencia"} />
+            <EssenceNode current={"8"} total={"10"} title={"Essência"} />
           </main>
         </div>
 

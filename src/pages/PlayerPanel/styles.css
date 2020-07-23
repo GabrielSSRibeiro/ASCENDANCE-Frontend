@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -12,25 +12,42 @@
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.267rem;
+    margin-bottom: 10px;
 }
 
 .PlayerPanel-container > main > .profile {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 360px;
+    height: 100%;
+}
+
+.PlayerPanel-container > main > .profile img {
+    width: 250px;
+}
+
+.PlayerPanel-container > main > .profile > main {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .PlayerPanel-container > main > .details {
-    width: 420px;
+    width: 360px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .PlayerPanel-container > main > .action {
-    width: 420px;
+    width: 360px;
     display: flex;
     flex-direction: row;
     align-items: center;
