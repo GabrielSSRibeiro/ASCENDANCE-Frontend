@@ -1,11 +1,19 @@
 .LifeNode-container {
     width: calc(75px * 1.4142);
     height: calc(75px * 1.4142);
+    cursor: pointer;
+    transition: all 0.2s;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.LifeNode-container:hover {
+    transform: scale(1.1);
+}
+.LifeNode-container:active {
+    transform: scale(0.9);
 }
 
 .LifeNode-container > div {

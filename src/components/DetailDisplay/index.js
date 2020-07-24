@@ -2,21 +2,25 @@ import React from "react";
 
 import "./styles.css";
 
-function DetailDisplay({ content }) {
-  const dictionary = Object.keys(content).map((item) => {
-    return {
-      name: content[item],
-      img: require(`../../assets/playerPanel/${item}.png`),
-      onClick: () => {},
-    };
-  });
+function DetailDisplay({ display, setDisplay, content }) {
+  const dictionary = Object.keys(content).map((item) => ({
+    name: content[item],
+    img: require(`../../assets/playerPanel/${
+      item + (content[item] === display ? "Selected" : "")
+    }.png`),
+    divStyle: content[item] === display ? "DetailDisplay-divSelected" : "",
+    textStyle: content[item] === display ? "DetailDisplay-textSelected" : "",
+    onClick: () => {
+      content[item] === display ? setDisplay("") : setDisplay(content[item]);
+    },
+  }));
 
   return (
     <div className="DetailDisplay-container">
       {dictionary.map((item) => (
-        <div key={item.name} onClick={item.onClick}>
+        <div key={item.name} className={item.divStyle} onClick={item.onClick}>
           <img src={item.img} alt={item.name} />
-          <span>{item.name}</span>
+          <span className={item.textStyle}>{item.name}</span>
         </div>
       ))}
     </div>

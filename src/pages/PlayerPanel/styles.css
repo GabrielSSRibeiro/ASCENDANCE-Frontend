@@ -1,12 +1,28 @@
-.PlayerPanel-container > main {
-    position: relative;
+.PlayerPanel-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
-.PlayerPanel-container > main > span {
+.PlayerPanel-container > main {
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.PlayerPanel-container > main > main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.PlayerPanel-container > main > main > span {
     margin-top: 15px;
     color: #dedede;
     font-weight: 600;
@@ -15,7 +31,7 @@
     margin-bottom: 10px;
 }
 
-.PlayerPanel-container > main > .profile {
+.PlayerPanel-container > main > main > .profile {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -25,11 +41,7 @@
     height: 100%;
 }
 
-.PlayerPanel-container > main > .profile img {
-    width: 250px;
-}
-
-.PlayerPanel-container > main > .profile > main {
+.PlayerPanel-container > main > main > .profile > main {
     height: 250px;
     display: flex;
     flex-direction: column;
@@ -37,7 +49,7 @@
     align-items: center;
 }
 
-.PlayerPanel-container > main > .details {
+.PlayerPanel-container > main > main > .details {
     width: 360px;
     display: flex;
     flex-direction: row;
@@ -46,7 +58,7 @@
     margin-bottom: 15px;
 }
 
-.PlayerPanel-container > main > .action {
+.PlayerPanel-container > main > main > .action {
     width: 360px;
     display: flex;
     flex-direction: row;
