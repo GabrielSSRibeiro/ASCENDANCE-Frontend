@@ -2,7 +2,7 @@ const React = require("react");
 
 module.exports.content = {
   title: "Defina os Pontos de Atributo",
-  discipline: {
+  atribute: {
     name: "Atributo",
     points: [
       <>
@@ -18,7 +18,7 @@ module.exports.content = {
       </>,
     ],
   },
-  disciplines: {
+  atributes: {
     intelligence: {
       name: "Inteligência",
       infoBoxLong: [

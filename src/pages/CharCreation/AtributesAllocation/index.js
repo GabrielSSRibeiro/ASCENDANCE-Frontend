@@ -20,9 +20,7 @@ function AtributesAllocation({ history }) {
 
   const { signedApiCall } = useAuth();
 
-  const disciplines = Object.entries(content.disciplines).map((discipline) => {
-    return { ...discipline };
-  });
+  const atributes = Object.entries(content.atributes).map((atribute) => ({ ...atribute }));
   const total = Object.values(selected).reduce((acc, cur) => acc + cur, 0);
   const max = 10;
 
@@ -51,36 +49,36 @@ function AtributesAllocation({ history }) {
           <span>
             <strong>{total}</strong>/{max}
           </span>
-          {disciplines.map((discipline) => (
-            <div key={discipline[1].name}>
+          {atributes.map((atribute) => (
+            <div key={atribute[1].name}>
               <div className="nodes">
                 {Array.from(Array(5)).map((item, index) => (
                   <button
                     key={index}
                     className={`${
-                      selected[discipline[0]] === index && total < max
+                      selected[atribute[0]] === index && total < max
                         ? ""
-                        : selected[discipline[0]] > index
+                        : selected[atribute[0]] > index
                         ? "selected"
                         : "disabled"
                     }`}
                     onClick={() =>
-                      selected[discipline[0]] === index
+                      selected[atribute[0]] === index
                         ? total < max &&
                           setSelected({
                             ...selected,
-                            [discipline[0]]: selected[discipline[0]] + 1,
+                            [atribute[0]]: selected[atribute[0]] + 1,
                           })
                         : setSelected({
                             ...selected,
-                            [discipline[0]]: selected[discipline[0]] - 1,
+                            [atribute[0]]: selected[atribute[0]] - 1,
                           })
                     }
-                    disabled={selected[discipline[0]] < index ? true : false}
+                    disabled={selected[atribute[0]] < index ? true : false}
                   ></button>
                 ))}
               </div>
-              <label>{discipline[1].name}</label>
+              <label>{atribute[1].name}</label>
             </div>
           ))}
         </section>
@@ -90,14 +88,14 @@ function AtributesAllocation({ history }) {
         // if there is no selected, show default
         content={
           total !== 0
-            ? disciplines.map((discipline) => ({
-                title: discipline[1].name,
-                texts: discipline[1].infoBoxLong,
+            ? atributes.map((atribute) => ({
+                title: atribute[1].name,
+                texts: atribute[1].infoBoxLong,
               }))
             : [
                 {
-                  title: content.discipline.name,
-                  texts: content.discipline.points,
+                  title: content.atribute.name,
+                  texts: content.atribute.points,
                 },
               ]
         }

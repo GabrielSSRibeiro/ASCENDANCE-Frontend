@@ -3,9 +3,9 @@ import React from "react";
 import "./styles.css";
 
 function PlayerMenu({ content, history }) {
-  const tabs = Object.keys(content.button).map((item) => {
+  const tabs = Object.keys(content.menu).map((item) => {
     return {
-      name: content.button[item],
+      name: content.menu[item],
       img: require(`../../../../assets/playerMenu/${item}.png`),
       onClick: () => history.push(`/player-${item}`),
     };

@@ -1,5 +1,5 @@
 module.exports.content = {
-  button: {
+  menu: {
     progress: "Progresso",
     rest: "Descansar",
     rules: "Regras",
@@ -10,5 +10,19 @@ module.exports.content = {
     skill: "Habilidade",
     combat: "Combate",
     magic: "Magia",
+  },
+  skills: {
+    history: "",
+    reasoning: "",
+    athletics: "",
+    intimidation: "",
+    improvisation: "",
+    intuition: "",
+    vigor: "",
+    survival: "",
+    stealth: "",
+    lightness: "",
+    nature: "",
+    perception: "",
   },
 };
