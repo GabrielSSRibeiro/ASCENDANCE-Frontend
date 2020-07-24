@@ -1,4 +1,4 @@
-.DetailDisplay-container {
+.StatSection-container {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 
-.DetailDisplay-container div {
+.StatSection-container div {
     width: 100px;
     height: 100px;
     border: 2px solid #dedede;
@@ -19,28 +19,18 @@
     justify-content: center;
     transition: all 0.2s;
 }
-.DetailDisplay-container div:hover {
+.StatSection-container div:hover {
     transform: scale(1.1);
 }
-.DetailDisplay-container div:active {
+.StatSection-container div:active {
     transform: scale(0.9);
 }
 
-.DetailDisplay-divSelected {
-    border: none !important;
-    background: linear-gradient(180deg, #ffffff 0%, #808080 100%);
-}
-
-.DetailDisplay-textSelected {
-    color: #563065 !important;
-    font-weight: 600;
-}
-
-.DetailDisplay-container img {
+.StatSection-container img {
     zoom: 0.8;
 }
 
-.DetailDisplay-container span {
+.StatSection-container span {
     color: #dedede;
     font-size: 10px;
     margin-top: 10px;

@@ -1,4 +1,6 @@
-module.exports.content = {
+import { skills } from "../../../utils/Languages/portuguese";
+
+export const content = {
   menu: {
     progress: "Progresso",
     rest: "Descansar",
@@ -6,23 +8,10 @@ module.exports.content = {
     equipment: "Equipamento",
     traits: "Traços",
   },
-  detailDisplay: {
+  statSection: {
     skill: "Habilidade",
     combat: "Combate",
     magic: "Magia",
   },
-  skills: {
-    history: "",
-    reasoning: "",
-    athletics: "",
-    intimidation: "",
-    improvisation: "",
-    intuition: "",
-    vigor: "",
-    survival: "",
-    stealth: "",
-    lightness: "",
-    nature: "",
-    perception: "",
-  },
+  skills,
 };

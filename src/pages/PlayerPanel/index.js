@@ -11,7 +11,8 @@ import LightNodeActive from "../../components/Nodes/LightNodeActive";
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import ActionButton from "./components/Actions/ActionButton";
 import Status from "./components/Status";
-import DetailDisplay from "../../components/DetailDisplay";
+import StatSection from "../../components/Nodes/StatSection";
+import StatSectionSelected from "../../components/Nodes/StatSectionSelected";
 import PanelPortrait from "../../components/PanelPortrait";
 
 import { useLanguage } from "../../contexts/language";
@@ -52,9 +53,7 @@ function PlayerPanel({ history }) {
           {display === "" && <Status />}
 
           <aside>
-            {display === content.detailDisplay.skill && <h1>skill</h1>}
-            {display === content.detailDisplay.combat && <h1>combat</h1>}
-            {display === content.detailDisplay.magic && <h1>magic</h1>}
+            {Object.values(content.statSection).map((stat) => display === stat && <h1>{stat}</h1>)}
           </aside>
 
           <main>
@@ -74,11 +73,15 @@ function PlayerPanel({ history }) {
             </div>
 
             <div className="details">
-              <DetailDisplay
-                display={display}
-                setDisplay={setDisplay}
-                content={content.detailDisplay}
-              />
+              {Object.entries(content.statSection).map((stat) => (
+                <React.Fragment key={stat[0]}>
+                  {display !== stat[1] ? (
+                    <StatSection stat={stat[0]} content={stat[1]} setDisplay={setDisplay} />
+                  ) : (
+                    <StatSectionSelected stat={stat[0]} content={stat[1]} setDisplay={setDisplay} />
+                  )}
+                </React.Fragment>
+              ))}
             </div>
 
             <div className="action">
@@ -89,9 +92,7 @@ function PlayerPanel({ history }) {
           </main>
 
           <aside>
-            {display === content.detailDisplay.skill && <h1>skill</h1>}
-            {display === content.detailDisplay.combat && <h1>combat</h1>}
-            {display === content.detailDisplay.magic && <h1>magic</h1>}
+            {Object.values(content.statSection).map((stat) => display === stat && <h1>{stat}</h1>)}
           </aside>
         </main>
       )}

@@ -1,4 +1,4 @@
-module.exports.content = {
+export const content = {
   title: "Escolha a Raça",
   race: {
     name: "Raça",
