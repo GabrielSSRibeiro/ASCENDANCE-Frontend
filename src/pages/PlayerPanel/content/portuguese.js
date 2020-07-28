@@ -1,4 +1,4 @@
-import { skills } from "../../../utils/Languages/portuguese";
+import { skills, combat, disciplines } from "../../../utils/Languages/portuguese";
 
 export const content = {
   menu: {
@@ -14,10 +14,14 @@ export const content = {
     exaustion: "Exaustão",
     inspiration: "Inspiração",
   },
-  statSection: {
+  statDisplay: {
     skill: "Habilidade",
     combat: "Combate",
     magic: "Magia",
   },
-  skills,
+  statSection: {
+    skill: skills,
+    combat,
+    magic: disciplines,
+  },
 };

@@ -8,6 +8,7 @@ import MainNode from "../../components/Nodes/MainNode";
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import ActionButton from "./components/Actions/ActionButton";
 import Status from "./components/Status";
+import StatDisplay from "../../components/Nodes/StatDisplay";
 import StatSection from "../../components/Nodes/StatSection";
 import PanelPortrait from "../../components/PanelPortrait";
 
@@ -16,11 +17,19 @@ import "./styles.css";
 
 function PlayerPanel({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
-  const [display, setDisplay] = useState("");
+  const [display, setDisplay] = useState("default");
   const [action, setAction] = useState(false);
   const [player, setPlayer] = useState();
 
   const { signedApiCall } = useAuth();
+
+  // const playerClass = require(`./components/${player.class}`)
+
+  const stats = {
+    skill: <StatSection />,
+    combat: <StatSection />,
+    magic: <StatSection />,
+  };
 
   useEffect(() => {
     const GM = localStorage.getItem("GM");
@@ -46,11 +55,9 @@ function PlayerPanel({ history }) {
       <PlayerMenu content={content} history={history} />
       {player && (
         <main>
-          {display === "" && <Status />}
+          {display === "default" && <Status />}
 
-          <aside>
-            {Object.values(content.statSection).map((stat) => display === stat && <h1>{stat}</h1>)}
-          </aside>
+          <aside>{stats[display]}</aside>
 
           <main>
             <span>{player.name}</span>
@@ -73,10 +80,10 @@ function PlayerPanel({ history }) {
             </div>
 
             <div className="details">
-              <StatSection
+              <StatDisplay
                 display={display}
                 setDisplay={setDisplay}
-                content={content.statSection}
+                content={content.statDisplay}
               />
             </div>
 
@@ -96,9 +103,7 @@ function PlayerPanel({ history }) {
             </div>
           </main>
 
-          <aside>
-            {Object.values(content.statSection).map((stat) => display === stat && <h1>{stat}</h1>)}
-          </aside>
+          <aside>{stats[display]}</aside>
         </main>
       )}
       <MembersBar history={history} />

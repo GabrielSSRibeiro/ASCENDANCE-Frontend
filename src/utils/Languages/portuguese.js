@@ -27,3 +27,11 @@ module.exports.skills = {
   nature: "Natureza",
   perception: "Percepção",
 };
+module.exports.combat = {
+  movement: "Movimento",
+  dodge: "Esquiva",
+  defense: "Defesa",
+  initiative: "Iniciativa",
+  attack: "Ataque",
+  damage: "Dano",
+};

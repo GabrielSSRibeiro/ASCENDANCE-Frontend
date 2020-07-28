@@ -1,4 +1,4 @@
-.LifeNode-container {
+.MainNode-container {
     width: calc(75px * 1.4142);
     height: calc(75px * 1.4142);
     cursor: pointer;
@@ -9,14 +9,14 @@
     align-items: center;
     justify-content: center;
 }
-.LifeNode-container:hover {
+.MainNode-container:hover {
     transform: scale(1.1);
 }
-.LifeNode-container:active {
+.MainNode-container:active {
     transform: scale(0.9);
 }
 
-.LifeNode-container > div {
+.MainNode-container > div {
     position: absolute;
     width: 75px;
     height: 75px;
@@ -38,13 +38,13 @@
     background-color: #602876;
 }
 
-.LifeNode-container > span {
+.MainNode-container > span {
     color: #ffffff;
     font-size: 10px;
     position: relative;
 }
 
-.LifeNode-container > span > span {
+.MainNode-container > span > span {
     font-size: 16px;
     font-weight: 600;
 }
