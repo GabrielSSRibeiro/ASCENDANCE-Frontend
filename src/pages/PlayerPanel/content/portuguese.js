@@ -8,6 +8,12 @@ export const content = {
     equipment: "Equipamento",
     traits: "Traços",
   },
+  mainNode: {
+    life: "Vida",
+    essence: "Essência",
+    exaustion: "Exaustão",
+    inspiration: "Inspiração",
+  },
   statSection: {
     skill: "Habilidade",
     combat: "Combate",

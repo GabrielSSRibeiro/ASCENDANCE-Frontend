@@ -4,15 +4,11 @@ import { useAuth } from "../../contexts/auth";
 import NaviBar from "../../components/NaviBar";
 import MembersBar from "../../components/MembersBar";
 import PlayerMenu from "./components/PlayerMenu";
-import LifeNode from "../../components/Nodes/LifeNode";
-import EssenceNode from "../../components/Nodes/EssenceNode";
-import DarkNodeActive from "../../components/Nodes/DarkNodeActive";
-import LightNodeActive from "../../components/Nodes/LightNodeActive";
+import MainNode from "../../components/Nodes/MainNode";
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import ActionButton from "./components/Actions/ActionButton";
 import Status from "./components/Status";
 import StatSection from "../../components/Nodes/StatSection";
-import StatSectionSelected from "../../components/Nodes/StatSectionSelected";
 import PanelPortrait from "../../components/PanelPortrait";
 
 import { useLanguage } from "../../contexts/language";
@@ -63,31 +59,40 @@ function PlayerPanel({ history }) {
               <PanelPortrait image={player.avatar} />
 
               <main>
-                <LifeNode current={player.currentLife} total={player.totalLife} title={"Vida"} />
-                <EssenceNode
+                <MainNode
+                  current={player.currentLife}
+                  total={player.totalLife}
+                  life={content.mainNode.life}
+                />
+                <MainNode
                   current={player.currentEssence}
                   total={player.totalEssence}
-                  title={"Essência"}
+                  essence={content.mainNode.essence}
                 />
               </main>
             </div>
 
             <div className="details">
-              {Object.entries(content.statSection).map((stat) => (
-                <React.Fragment key={stat[0]}>
-                  {display !== stat[1] ? (
-                    <StatSection stat={stat[0]} content={stat[1]} setDisplay={setDisplay} />
-                  ) : (
-                    <StatSectionSelected stat={stat[0]} content={stat[1]} setDisplay={setDisplay} />
-                  )}
-                </React.Fragment>
-              ))}
+              <StatSection
+                display={display}
+                setDisplay={setDisplay}
+                content={content.statSection}
+              />
             </div>
 
             <div className="action">
-              <DarkNodeActive current={player.exaustion} total={"x"} title={"Exaustão"} />
+              <MainNode
+                current={player.exaustion}
+                total={"x"}
+                exaustion={content.mainNode.exaustion}
+              />
+
               {action ? <ActionButtonActive /> : <ActionButton />}
-              <LightNodeActive current={player.inspiration} total={"x"} title={"Inspiração"} />
+              <MainNode
+                current={player.inspiration}
+                total={"x"}
+                inspiration={content.mainNode.inspiration}
+              />
             </div>
           </main>
 
