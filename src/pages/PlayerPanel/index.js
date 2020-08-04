@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/auth";
 
-import NaviBar from "../../components/NaviBar";
+import NaviBar from "@components/NaviBar";
 import MembersBar from "../../components/MembersBar";
 import PlayerMenu from "./components/PlayerMenu";
 import MainNode from "../../components/Nodes/MainNode";
@@ -25,10 +25,39 @@ function PlayerPanel({ history }) {
 
   // const playerClass = require(`./components/${player.class}`)
 
-  const stats = {
-    skill: <StatSection />,
-    combat: <StatSection />,
-    magic: <StatSection />,
+  function firstHalf(array) {
+    return array.filter((value, index) => index < array.length / 2);
+  }
+
+  function secondHalf(array) {
+    return array.filter((value, index) => index >= array.length / 2);
+  }
+
+  const statsLeft = {
+    skill: (
+      <StatSection player={player} content={firstHalf(Object.values(content.statSection.skill))} />
+    ),
+    combat: (
+      <StatSection player={player} content={firstHalf(Object.values(content.statSection.combat))} />
+    ),
+    magic: (
+      <StatSection player={player} content={firstHalf(Object.values(content.statSection.magic))} />
+    ),
+  };
+
+  const statsRight = {
+    skill: (
+      <StatSection player={player} content={secondHalf(Object.values(content.statSection.skill))} />
+    ),
+    combat: (
+      <StatSection
+        player={player}
+        content={secondHalf(Object.values(content.statSection.combat))}
+      />
+    ),
+    magic: (
+      <StatSection player={player} content={secondHalf(Object.values(content.statSection.magic))} />
+    ),
   };
 
   useEffect(() => {
@@ -57,7 +86,7 @@ function PlayerPanel({ history }) {
         <main>
           {display === "default" && <Status />}
 
-          <aside>{stats[display]}</aside>
+          <aside>{statsLeft[display]}</aside>
 
           <main>
             <span>{player.name}</span>
@@ -103,7 +132,7 @@ function PlayerPanel({ history }) {
             </div>
           </main>
 
-          <aside>{stats[display]}</aside>
+          <aside>{statsRight[display]}</aside>
         </main>
       )}
       <MembersBar history={history} />
