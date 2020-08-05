@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/auth";
 
-import NaviBar from "@components/NaviBar";
+import NaviBar from "~/components/NaviBar";
 import MembersBar from "../../components/MembersBar";
 import PlayerMenu from "./components/PlayerMenu";
 import MainNode from "../../components/Nodes/MainNode";
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import ActionButton from "./components/Actions/ActionButton";
 import Status from "./components/Status";
-import StatDisplay from "../../components/Nodes/StatDisplay";
+import StatDisplay from "~molecules/StatDisplay";
 import StatSection from "../../components/Nodes/StatSection";
 import PanelPortrait from "../../components/PanelPortrait";
 

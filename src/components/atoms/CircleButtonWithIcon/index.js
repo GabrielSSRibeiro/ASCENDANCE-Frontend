@@ -1,11 +1,11 @@
 import React from "react";
-import ButtonWithIcon from "../../particles/ButtonWithIcon";
+import ButtonWithIcon from "~particles/ButtonWithIcon";
 
 function CircleButtonWithIcon({ isActive, stat, name, setDisplay, ...props }) {
   const buttonProps = isActive
     ? {
         name,
-        icon: require(`../../assets/playerPanel/${stat}Selected.png`),
+        icon: require(`~/assets/playerPanel/${stat}Selected.png`),
         styles: {
           div: "StatDisplay-divSelected",
           text: "StatDisplay-textSelected",
@@ -14,7 +14,7 @@ function CircleButtonWithIcon({ isActive, stat, name, setDisplay, ...props }) {
       }
     : {
         name,
-        icon: require(`../../assets/playerPanel/${stat}.png`),
+        icon: require(`~/assets/playerPanel/${stat}.png`),
         styles: {
           div: "",
           text: "",

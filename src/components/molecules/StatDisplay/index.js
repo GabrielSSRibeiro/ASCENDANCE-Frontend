@@ -1,5 +1,5 @@
 import React from "react";
-import CircleButtonWithIcon from "../../../Atoms/CircleButtonWithIcon";
+import CircleButtonWithIcon from "~/components/atoms/CircleButtonWithIcon";
 
 import "./styles.css";
 
