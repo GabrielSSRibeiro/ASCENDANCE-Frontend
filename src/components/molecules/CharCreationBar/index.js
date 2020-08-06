@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { useLanguage } from "../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
 
 function CharCreationBar({ ready, next, history }) {

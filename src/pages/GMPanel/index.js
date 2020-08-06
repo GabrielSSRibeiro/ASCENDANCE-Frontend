@@ -1,9 +1,9 @@
 import React from "react";
-import NaviBar from "../../components/NaviBar";
-import MembersBar from "../../components/MembersBar";
+import NaviBar from "~molecules/NaviBar";
+import MembersBar from "~molecules/MembersBar";
 import GMMenu from "./components/GMMenu";
 
-import { useLanguage } from "../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
 
 function GMPanel({ history }) {

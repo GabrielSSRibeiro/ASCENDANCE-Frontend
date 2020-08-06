@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useAuth } from "../../../contexts/auth";
-import NaviBar from "../../../components/NaviBar";
-import CharCreationBar from "../../../components/CharCreationBar";
-import CharCreationOutline from "../../../components/CharCreationOutline";
-import InfoBoxLong from "../../../components/InfoBoxLong";
+import { useAuth } from "~/contexts/auth";
+import NaviBar from "~molecules/NaviBar";
+import CharCreationBar from "~molecules/CharCreationBar";
+import CharCreationOutline from "~molecules/CharCreationOutline";
+import InfoBoxLong from "~molecules/InfoBoxLong";
 
-import { useLanguage } from "../../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
 
 function DisciplineSelection({ history }) {

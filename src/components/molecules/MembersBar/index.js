@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../../contexts/auth";
+import { useAuth } from "~/contexts/auth";
 
-import { useLanguage } from "../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
-import turnArrow from "../../assets/arrows/turnArrow.png";
-import GMd20 from "../../assets/dice/GMd20.png";
+import turnArrow from "~/assets/arrows/turnArrow.png";
+import GMd20 from "~/assets/dice/GMd20.png";
 
 function MembersBar({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);

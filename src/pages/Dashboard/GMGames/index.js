@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../../../contexts/auth";
+import { useAuth } from "~/contexts/auth";
 
-import NaviBar from "../../../components/NaviBar";
-import ReturnMenu from "../../../components/ReturnMenu";
+import NaviBar from "~molecules/NaviBar";
+import ReturnMenu from "~molecules/ReturnMenu";
 import GameList from "./components/GameList";
 
-import { useLanguage } from "../../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
 
 function GMGames({ history }) {

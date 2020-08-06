@@ -1,8 +1,8 @@
 import React from "react";
 
-import { useLanguage } from "../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
-import returnArrow from "../../assets/arrows/returnArrow.png";
+import returnArrow from "~/assets/arrows/returnArrow.png";
 
 function ReturnMenu({ returnFunction, title }) {
   const { content } = require(`./content/${useLanguage().language}`);

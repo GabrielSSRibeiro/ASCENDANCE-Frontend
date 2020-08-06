@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import NaviBar from "../../components/NaviBar";
+import NaviBar from "~molecules/NaviBar";
 import TextBox from "./components/TextBox";
 
 import "./styles.css";
-import { useLanguage } from "../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 
 function Dashboard({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { subscribeToUser, unSubscribeToUser } from "../../../services/socket";
-import { useAuth } from "../../../contexts/auth";
+import { subscribeToUser, unSubscribeToUser } from "~/services/socket";
+import { useAuth } from "~/contexts/auth";
 
-import NaviBar from "../../../components/NaviBar";
-import ReturnMenu from "../../../components/ReturnMenu";
+import NaviBar from "~molecules/NaviBar";
+import ReturnMenu from "~molecules/ReturnMenu";
 
-import { useLanguage } from "../../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
-import deleteIcon from "../../../assets/edition/delete.png";
-import checkIcon from "../../../assets/edition/check.png";
+import deleteIcon from "~/assets/edition/delete.png";
+import checkIcon from "~/assets/edition/check.png";
 
 function PlayerGames({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);

@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
-import { useAuth } from "../../../contexts/auth";
-import NaviBar from "../../../components/NaviBar";
-import CharCreationBar from "../../../components/CharCreationBar";
+import { useAuth } from "~/contexts/auth";
+import NaviBar from "~molecules/NaviBar";
+import CharCreationBar from "~molecules/CharCreationBar";
 
-import { useLanguage } from "../../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
 
 function ProfileDefinition({ history }) {

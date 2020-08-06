@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../../contexts/auth";
+import { useAuth } from "~/contexts/auth";
 
-import NaviBar from "~/components/NaviBar";
-import MembersBar from "../../components/MembersBar";
-import PlayerMenu from "./components/PlayerMenu";
-import MainNode from "../../components/Nodes/MainNode";
+import NaviBar from "~molecules/NaviBar";
+import MembersBar from "~molecules/MembersBar";
+import MainNode from "~molecules/Nodes/MainNode";
+import StatDisplay from "~molecules/StatDisplay";
+import StatSection from "~molecules/Nodes/StatSection";
+import PanelPortrait from "~molecules/PanelPortrait";
+
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
+import PlayerMenu from "./components/PlayerMenu";
 import ActionButton from "./components/Actions/ActionButton";
 import Status from "./components/Status";
-import StatDisplay from "~molecules/StatDisplay";
-import StatSection from "../../components/Nodes/StatSection";
-import PanelPortrait from "../../components/PanelPortrait";
 
-import { useLanguage } from "../../contexts/language";
+import { useLanguage } from "~/contexts/language";
 import "./styles.css";
 
 function PlayerPanel({ history }) {

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./styles.css";
-import frame from "../../assets/playerPanel/frame.png";
+import frame from "~/assets/playerPanel/frame.png";
 
 function PanelPortrait({ image }) {
   return (
