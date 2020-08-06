@@ -1,10 +1,10 @@
 import React from "react";
 
-function ButtonIconSpan({ name, icon, styles, onClick, key }) {
+function ButtonIconSpan({ name, icon, classes, onClick, key }) {
   return (
-    <div key={key} className={styles.div} onClick={onClick}>
+    <div key={key} className={classes.div} onClick={onClick}>
       <img src={icon} alt={name} />
-      <span className={styles.text}>{name}</span>
+      <span className={classes.span}>{name}</span>
     </div>
   );
 }

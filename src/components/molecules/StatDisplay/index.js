@@ -1,17 +1,15 @@
 import React from "react";
-import CircleButtonWithIcon from "~/components/atoms/CircleButtonWithIcon";
+import StatDisplayButton from "~/components/atoms/StatDisplayButton";
 
 import "./styles.css";
 
 function StatDisplay({ display, setDisplay, content }) {
-  const isActive = (selected, current) => selected === current;
-
   return (
     <div className="StatDisplay-container">
       {Object.entries(content).map(([stat, name]) => (
-        <CircleButtonWithIcon
+        <StatDisplayButton
           key={stat}
-          isActive={isActive(display, stat)}
+          isActive={display === stat}
           name={name}
           stat={stat}
           setDisplay={setDisplay}
