@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonWithIcon from "~particles/ButtonWithIcon";
+import ButtonIconSpan from "~/components/particles/ButtonIconSpan";
 
 function CircleButtonWithIcon({ isActive, stat, name, setDisplay, ...props }) {
   const buttonProps = isActive
@@ -22,7 +22,7 @@ function CircleButtonWithIcon({ isActive, stat, name, setDisplay, ...props }) {
         onClick: () => setDisplay(stat),
       };
 
-  return <ButtonWithIcon {...buttonProps} {...props} />;
+  return <ButtonIconSpan {...buttonProps} {...props} />;
 }
 
 export default CircleButtonWithIcon;

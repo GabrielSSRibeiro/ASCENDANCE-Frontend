@@ -1,6 +1,6 @@
 import React from "react";
 
-function ButtonWithIcon({ name, icon, styles, onClick, key }) {
+function ButtonIconSpan({ name, icon, styles, onClick, key }) {
   return (
     <div key={key} className={styles.div} onClick={onClick}>
       <img src={icon} alt={name} />
@@ -9,4 +9,4 @@ function ButtonWithIcon({ name, icon, styles, onClick, key }) {
   );
 }
 
-export default ButtonWithIcon;
+export default ButtonIconSpan;
