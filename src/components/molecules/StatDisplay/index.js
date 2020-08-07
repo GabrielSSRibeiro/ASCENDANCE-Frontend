@@ -1,5 +1,5 @@
 import React from "react";
-import StatDisplayButton from "~/components/atoms/StatDisplayButton";
+import StatDisplayButton from "./atoms/StatDisplayButton";
 
 import "./styles.css";
 

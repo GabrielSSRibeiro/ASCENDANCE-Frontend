@@ -1,5 +1,3 @@
-import { skills, combat, disciplines } from "../../../utils/Languages/portuguese";
-
 export const content = {
   menu: {
     progress: "Progresso",
@@ -20,8 +18,33 @@ export const content = {
     magic: "Magia",
   },
   statSection: {
-    skill: skills,
-    combat,
-    magic: disciplines,
+    skill: {
+      history: "História",
+      reasoning: "Raciocínio",
+      athletics: "Atletismo",
+      intimidation: "Intimidação",
+      improvisation: "Improvisação",
+      intuition: "Intuição",
+      vigor: "Robustez",
+      survival: "Sobrevivência",
+      stealth: "Furtividade",
+      lightness: "Leveza",
+      nature: "Natureza",
+      perception: "Percepção",
+    },
+    combat: {
+      movement: "Movimento",
+      dodge: "Esquiva",
+      defense: "Defesa",
+      initiative: "Iniciativa",
+      attack: "Ataque",
+      damage: "Dano",
+    },
+    magic: {
+      feel: "Sentir",
+      create: "Criar",
+      change: "Alterar",
+      control: "Controlar",
+    },
   },
 };

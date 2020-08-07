@@ -6,9 +6,9 @@ import "./styles.css";
 function StatSection({ player, content }) {
   return (
     <div className="StatSection-container">
-      {Object.entries(content).map((stat) => (
-        <div key={stat[0]}>
-          <UnlimitedCircleButton value={player[stat[0]]} content={content[stat[0]]} />
+      {Object.entries(content).map((stat, name) => (
+        <div key={stat}>
+          <UnlimitedCircleButton value={player[stat]} content={content[name]} />
         </div>
       ))}
     </div>

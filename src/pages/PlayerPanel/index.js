@@ -25,42 +25,13 @@ function PlayerPanel({ history }) {
 
   const { signedApiCall } = useAuth();
 
-  // const playerClass = require(`./components/${player.class}`)
+  // function firstHalf(array) {
+  //   return array.filter((value, index) => index < array.length / 2);
+  // }
 
-  function firstHalf(array) {
-    return array.filter((value, index) => index < array.length / 2);
-  }
-
-  function secondHalf(array) {
-    return array.filter((value, index) => index >= array.length / 2);
-  }
-
-  const statsLeft = {
-    skill: (
-      <StatSection player={player} content={firstHalf(Object.values(content.statSection.skill))} />
-    ),
-    combat: (
-      <StatSection player={player} content={firstHalf(Object.values(content.statSection.combat))} />
-    ),
-    magic: (
-      <StatSection player={player} content={firstHalf(Object.values(content.statSection.magic))} />
-    ),
-  };
-
-  const statsRight = {
-    skill: (
-      <StatSection player={player} content={secondHalf(Object.values(content.statSection.skill))} />
-    ),
-    combat: (
-      <StatSection
-        player={player}
-        content={secondHalf(Object.values(content.statSection.combat))}
-      />
-    ),
-    magic: (
-      <StatSection player={player} content={secondHalf(Object.values(content.statSection.magic))} />
-    ),
-  };
+  // function secondHalf(array) {
+  //   return array.filter((value, index) => index >= array.length / 2);
+  // }
 
   useEffect(() => {
     const GM = localStorage.getItem("GM");
@@ -88,7 +59,11 @@ function PlayerPanel({ history }) {
         <main>
           {display === "" && <Status />}
 
-          <aside>{statsLeft[display]}</aside>
+          {display !== "" && (
+            <aside>
+              <StatSection player={player} content={Object.values(content.statSection.combat)} />
+            </aside>
+          )}
 
           <main>
             <span>{player.name}</span>
@@ -147,7 +122,11 @@ function PlayerPanel({ history }) {
             </div>
           </main>
 
-          <aside>{statsRight[display]}</aside>
+          {display !== "" && (
+            <aside>
+              {/* <StatSection player={player} content={Object.values(content.statSection.combat)} /> */}
+            </aside>
+          )}
         </main>
       )}
       <MembersBar history={history} />

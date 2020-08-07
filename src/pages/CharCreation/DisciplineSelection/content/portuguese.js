@@ -1,5 +1,4 @@
 import React from "react";
-import { disciplines } from "../../../../utils/Languages/portuguese";
 
 export const content = {
   title: "Escolha a(s) Disciplina(s)",
@@ -21,6 +20,11 @@ export const content = {
     ],
     discipline: ["Descrição do que é uma Disciplina e cada uma delas"],
   },
-  disciplines,
+  disciplines: {
+    feel: "Sentir",
+    create: "Criar",
+    change: "Alterar",
+    control: "Controlar",
+  },
   infoBoxLong: { points: "Uso de Pontos", discipline: "Disciplina" },
 };
