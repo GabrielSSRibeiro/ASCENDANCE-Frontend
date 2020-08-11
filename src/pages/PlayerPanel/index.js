@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "~/contexts/auth";
 
-import LimitedDiamondButton from "~atoms/LimitedDiamondButton";
-import NaviBar from "~molecules/NaviBar";
-import MembersBar from "~molecules/MembersBar";
-import StatDisplay from "~molecules/StatDisplay";
-import StatSection from "~molecules/Nodes/StatSection";
-import PanelPortrait from "~molecules/PanelPortrait";
+import LimitedDiamondButton from "~/components/atoms/LimitedDiamondButton";
+import NaviBar from "~/components/molecules/NaviBar";
+import MembersBar from "~/components/molecules/MembersBar";
+import StatDisplay from "~/components/molecules/StatDisplay";
+import StatSection from "~/components/molecules/Nodes/StatSection";
+import PanelPortrait from "~/components/molecules/PanelPortrait";
 
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import PlayerMenu from "./components/PlayerMenu";

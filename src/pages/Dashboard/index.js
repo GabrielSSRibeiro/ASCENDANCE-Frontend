@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import NaviBar from "~molecules/NaviBar";
+import NaviBar from "~/components/molecules/NaviBar";
+
 import TextBox from "./components/TextBox";
 
 import "./styles.css";

@@ -1,6 +1,7 @@
 import React from "react";
-import NaviBar from "~molecules/NaviBar";
-import MembersBar from "~molecules/MembersBar";
+import NaviBar from "~/components/molecules/NaviBar";
+import MembersBar from "~/components/molecules/MembersBar";
+
 import GMMenu from "./components/GMMenu";
 
 import { useLanguage } from "~/contexts/language";

@@ -1,6 +1,6 @@
 import React from "react";
-import NaviBar from "~molecules/NaviBar";
-import ReturnMenu from "~molecules/ReturnMenu";
+import NaviBar from "~/components/molecules/NaviBar";
+import ReturnMenu from "~/components/molecules/ReturnMenu";
 
 import "./styles.css";
 

@@ -1,12 +1,12 @@
 import React from "react";
-import ButtonIconSpan from "~particles/ButtonIconSpan";
+import ButtonIconSpan from "~/components/particles/ButtonIconSpan";
 
 import "./styles.css";
 
 function StatDisplayButton({ isActive, stat, name, setDisplay, ...props }) {
   const variant = isActive
     ? {
-        icon: require(`~/assets/playerPanel/${stat}Selected.png`),
+        icon: require("~/assets/playerPanel/" + stat + "Selected.png"),
         classes: {
           div: "StatDisplayButton-container divSelected",
           span: "textSelected",
@@ -14,7 +14,7 @@ function StatDisplayButton({ isActive, stat, name, setDisplay, ...props }) {
         onClick: () => setDisplay(""),
       }
     : {
-        icon: require(`~/assets/playerPanel/${stat}.png`),
+        icon: require("~/assets/playerPanel/" + stat + ".png"),
         classes: {
           div: "StatDisplayButton-container",
           span: "",

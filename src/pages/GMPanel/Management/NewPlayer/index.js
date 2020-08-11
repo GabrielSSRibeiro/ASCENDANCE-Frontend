@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useAuth } from "~/contexts/auth";
 
-import NaviBar from "~molecules/NaviBar";
-import ReturnMenu from "~molecules/ReturnMenu";
+import NaviBar from "~/components/molecules/NaviBar";
+import ReturnMenu from "~/components/molecules/ReturnMenu";
 
 import { useLanguage } from "~/contexts/language";
 import "./styles.css";

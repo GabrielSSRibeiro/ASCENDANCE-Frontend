@@ -1,5 +1,5 @@
 import React from "react";
-import UnlimitedCircleButton from "~atoms/UnlimitedCircleButton";
+import UnlimitedCircleButton from "~/components/atoms/UnlimitedCircleButton";
 
 import "./styles.css";
 

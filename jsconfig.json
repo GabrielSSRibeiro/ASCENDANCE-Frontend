@@ -5,11 +5,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "~/*": ["./src/*"],
-      "~components/*": ["./src/components/*"],
-      "~particles/*": ["./src/components/particles/*"],
-      "~atoms/*": ["src/components/atoms/*"],
-      "~molecules/*": ["./src/components/molecules/*"]
+      "~/*": ["./src/*"]
     }
   },
   "exclude": ["node_modules", "build"]
