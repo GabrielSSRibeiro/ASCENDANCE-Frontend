@@ -1,5 +1,5 @@
 module.exports.content = {
-  title: "ESSENCIA",
+  title: "ASCENDANCE",
   button: {
     player: "Jogador",
     GM: "Mestre",

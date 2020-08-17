@@ -41,8 +41,8 @@ module.exports.content = {
         <>
           Em momentos de necessidade, você pode pedir por uma intervenção e, se você tem sido um bom
           súdito, seu deus pode lhe ajudar com cura de 1 <strong>Dado de Vida</strong>, acalmar
-          emoções, efeitos mágicos simples e outros. Entretanto, quando isso acontece você recebe{" "}
-          <strong>Exaustão</strong>
+          emoções, efeitos mágicos simples e outros. Entretanto, quando isso acontece você perde{" "}
+          <strong>Aptidão</strong>
         </>,
       ],
     },
@@ -62,8 +62,8 @@ module.exports.content = {
       ],
       mechanic: [
         <>
-          Dependendo da força do juramento, recebe um valor de <strong>Exaustão</strong> que não
-          pode ser removido e concede esse valor em uma estatística para todos seus aliados não
+          Dependendo da força do juramento, recebe uma redução de <strong>Aptidão</strong> que não
+          pode ser removida e concede esse valor em uma estatística para todos seus aliados não
           paladinos próximos como uma aura. Quebrar um juramento desfaz a aura e reduz a sua{" "}
           <strong>Vida</strong> máxima em um <strong>Dado de Vida</strong>
           permanentemente
@@ -102,8 +102,8 @@ module.exports.content = {
       mechanic: [
         <>
           Uma vez por <strong>Turno</strong>, aposta no resultado de suas{" "}
-          <strong>Habilidades</strong>. A depender do resultado, receba <strong>Exaustão</strong> ou{" "}
-          <strong>Inspiração</strong>. O valor é de acordo com o risco e dura até o final do seu
+          <strong>Habilidades</strong>. A depender do resultado, aumenta ou diminui{" "}
+          <strong>Aptidão</strong>. O valor é de acordo com o risco e dura até o final do seu
           próximo <strong>Turno</strong>
         </>,
       ],
@@ -117,8 +117,7 @@ module.exports.content = {
       mechanic: [
         <>
           Com seu grito, inverte <strong>Ataque</strong> e <strong>Esquiva</strong>,{" "}
-          <strong>Dano</strong> e <strong>Defesa</strong>, <strong>Exaustão</strong> e{" "}
-          <strong>Inspiração</strong>
+          <strong>Dano</strong> e <strong>Defesa</strong>
         </>,
       ],
     },

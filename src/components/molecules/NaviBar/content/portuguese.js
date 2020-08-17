@@ -1,1 +1,1 @@
-module.exports.content = "ESSENCIA";
+module.exports.content = "ASCENDANCE";

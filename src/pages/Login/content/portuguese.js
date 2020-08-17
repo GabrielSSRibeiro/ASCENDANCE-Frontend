@@ -1,14 +1,14 @@
 module.exports.content = {
-  title: "ESSENCIA",
+  title: "ASCENDANCE",
   version: "Versão 0.0 - Alfa Fechado",
   button: {
     signIn: "Entrar",
     signUp: "Cadastrar",
   },
   textBox: [
-    "Bem Vindo à ESSENCIA!",
+    "Bem Vindo à ASCENDANCE!",
     "Um sistema de RPG moderno, simples e tático",
-    '"Domine o combate, use as habilidades e crie suas próprias magias. O limite é a suacriatividade nesse jogo de interpretação"',
+    '"Domine o combate, use as habilidades e crie suas próprias magias. O limite é a sua criatividade nesse jogo de interpretação"',
   ],
   label: {
     nickName: "Usuário",
