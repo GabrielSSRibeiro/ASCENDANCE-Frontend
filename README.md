@@ -1,4 +1,4 @@
 ASCENDANCE-Frontend
 
-![Capturar](https://user-images.githubusercontent.com/49738156/86387224-d97dbd00-bc60-11ea-8650-65e283d0e0c5.PNG)
+![Capturar](https://user-images.githubusercontent.com/49738156/90415966-d8bdb080-e07f-11ea-9333-7c677a764be7.PNG)
 
