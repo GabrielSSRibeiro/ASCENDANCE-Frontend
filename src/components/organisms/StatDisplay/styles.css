@@ -5,3 +5,8 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.StatDisplay-container div:first-child,
+.StatDisplay-container div:last-child {
+    margin-top: -100px;
+}

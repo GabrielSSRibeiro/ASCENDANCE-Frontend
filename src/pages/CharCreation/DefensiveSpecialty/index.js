@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useAuth } from "~/contexts/auth";
-import NaviBar from "~/components/molecules/NaviBar";
-import CharCreationBar from "~/components/molecules/CharCreationBar";
-import CharCreationOutline from "~/components/molecules/CharCreationOutline";
-import InfoBoxLong from "~/components/molecules/InfoBoxLong";
+import NaviBar from "~/components/organisms/NaviBar";
+import CharCreationBar from "~/components/organisms/CharCreationBar";
+import CharCreationOutline from "~/components/organisms/CharCreationOutline";
+import InfoBoxLong from "~/components/organisms/InfoBoxLong";
 
 import { useLanguage } from "~/contexts/language";
 import "./styles.css";

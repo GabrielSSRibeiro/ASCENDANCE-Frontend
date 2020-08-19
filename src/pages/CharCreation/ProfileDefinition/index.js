@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { useAuth } from "~/contexts/auth";
-import NaviBar from "~/components/molecules/NaviBar";
-import CharCreationBar from "~/components/molecules/CharCreationBar";
+import NaviBar from "~/components/organisms/NaviBar";
+import CharCreationBar from "~/components/organisms/CharCreationBar";
 
 import { useLanguage } from "~/contexts/language";
 import "./styles.css";

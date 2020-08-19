@@ -46,18 +46,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 360px;
     height: 100%;
-}
-
-.PlayerPanel-container > main > main > .profile > main {
-    width: calc(75px * 1.4142);
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .PlayerPanel-container > main > main > .details {

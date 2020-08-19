@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "~/contexts/auth";
 
-import NaviBar from "~/components/molecules/NaviBar";
-import ReturnMenu from "~/components/molecules/ReturnMenu";
+import NaviBar from "~/components/organisms/NaviBar";
+import ReturnMenu from "~/components/organisms/ReturnMenu";
 
 import GameList from "./components/GameList";
 

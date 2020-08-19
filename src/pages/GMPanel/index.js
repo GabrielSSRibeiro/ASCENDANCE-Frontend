@@ -1,6 +1,6 @@
 import React from "react";
-import NaviBar from "~/components/molecules/NaviBar";
-import MembersBar from "~/components/molecules/MembersBar";
+import NaviBar from "~/components/organisms/NaviBar";
+import MembersBar from "~/components/organisms/MembersBar";
 
 import GMMenu from "./components/GMMenu";
 

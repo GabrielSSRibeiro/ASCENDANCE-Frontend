@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import NaviBar from "~/components/molecules/NaviBar";
+import NaviBar from "~/components/organisms/NaviBar";
 
 import TextBox from "./components/TextBox";
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "~/contexts/auth";
 
-import LimitedDiamondButton from "~/components/atoms/LimitedDiamondButton";
-import NaviBar from "~/components/molecules/NaviBar";
-import MembersBar from "~/components/molecules/MembersBar";
-import StatDisplay from "~/components/molecules/StatDisplay";
-import StatSection from "~/components/molecules/Nodes/StatSection";
-import PanelPortrait from "~/components/molecules/PanelPortrait";
+import DiamondButton from "~/components/atoms/DiamondButton";
+import NaviBar from "~/components/organisms/NaviBar";
+import MembersBar from "~/components/organisms/MembersBar";
+import StatDisplay from "~/components/organisms/StatDisplay";
+import StatSection from "~/components/organisms/StatSection";
+import PanelPortrait from "~/components/organisms/PanelPortrait";
 
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import PlayerMenu from "./components/PlayerMenu";
@@ -70,23 +70,6 @@ function PlayerPanel({ history }) {
 
             <div className="profile">
               <PanelPortrait image={player.avatar} />
-
-              <main>
-                <LimitedDiamondButton
-                  stat={"life"}
-                  current={player.currentLife}
-                  total={player.totalLife}
-                  name={content.mainNode.life}
-                  setBoxDisplay={setBoxDisplay}
-                />
-                <LimitedDiamondButton
-                  stat={"essence"}
-                  current={player.currentEssense}
-                  total={player.totalEssence}
-                  name={content.mainNode.essence}
-                  setBoxDisplay={setBoxDisplay}
-                />
-              </main>
             </div>
 
             <div className="details">
@@ -99,10 +82,9 @@ function PlayerPanel({ history }) {
 
             <div className="action">
               <div>
-                <LimitedDiamondButton
+                <DiamondButton
                   stat={"exaustion"}
-                  current={player.exaustion}
-                  total={player.totalExaustion}
+                  value={player.exaustion}
                   name={content.mainNode.exaustion}
                   setBoxDisplay={setBoxDisplay}
                 />
@@ -111,11 +93,10 @@ function PlayerPanel({ history }) {
               {action ? <ActionButtonActive /> : <ActionButton />}
 
               <div>
-                <LimitedDiamondButton
+                <DiamondButton
                   stat={"inspiration"}
-                  current={player.inspiration}
-                  total={player.totalInspiration}
-                  name={content.mainNode.inspiration}
+                  value={player.exaustion}
+                  name={content.mainNode.exaustion}
                   setBoxDisplay={setBoxDisplay}
                 />
               </div>

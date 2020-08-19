@@ -1,22 +1,21 @@
 import React from "react";
-import ButtonIconSpan from "~/components/particles/ButtonIconSpan";
 
 import "./styles.css";
 
 function StatDisplayButton({ isActive, stat, name, setDisplay, ...props }) {
   const variant = isActive
     ? {
-        icon: require("~/assets/playerPanel/" + stat + "Selected.png"),
-        classes: {
+        img: require("~/assets/playerPanel/" + stat + "Selected.png"),
+        styles: {
           div: "StatDisplayButton-container divSelected",
           span: "textSelected",
         },
         onClick: () => setDisplay(""),
       }
     : {
-        icon: require("~/assets/playerPanel/" + stat + ".png"),
-        classes: {
-          div: "StatDisplayButton-container",
+        img: require("~/assets/playerPanel/" + stat + ".png"),
+        styles: {
+          div: "StatDisplayButton-container StatDisplayButton-container",
           span: "",
         },
         onClick: () => setDisplay(stat),
@@ -27,7 +26,12 @@ function StatDisplayButton({ isActive, stat, name, setDisplay, ...props }) {
     ...variant,
   };
 
-  return <ButtonIconSpan {...buttonProps} {...props} />;
+  return (
+    <div key={props.key} className={buttonProps.styles.div} onClick={buttonProps.onClick}>
+      <img src={buttonProps.img} alt={name} />
+      <span className={buttonProps.styles.span}>{name}</span>
+    </div>
+  );
 }
 
 export default StatDisplayButton;
