@@ -17,8 +17,8 @@ module.exports.content = {
       theme: ["Você é mestre da magia de sangue"],
       mechanic: [
         <>
-          Pode fundir os quatro <strong>Elementos</strong> básicos e manipular vida, mas gasta{" "}
-          <strong>Vida</strong> ao investir em fazê-lo
+          Pode gastar pontos de <strong>Vida</strong> para aumentar o poder mínimo de suas{" "}
+          <strong>Magias</strong>
         </>,
       ],
     },
