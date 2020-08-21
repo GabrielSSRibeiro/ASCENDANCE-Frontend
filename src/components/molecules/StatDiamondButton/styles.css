@@ -1,0 +1,26 @@
+.StatDiamondButton-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.StatDiamondButton-container:hover {
+  transform: scale(1.1);
+}
+.StatDiamondButton-container:active {
+  transform: scale(0.9);
+}
+
+.StatDiamondButton-container > div:last-child {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.StatDiamondButton-container > div:last-child > div:first-child {
+  margin-bottom: 7px;
+}

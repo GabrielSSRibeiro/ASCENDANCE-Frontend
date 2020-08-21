@@ -1,1 +1,1 @@
-// stat+pequeno diamante d6
+// atom circleButton + spans + molecula diamante d6

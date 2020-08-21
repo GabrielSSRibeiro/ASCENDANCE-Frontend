@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "~/contexts/auth";
 
-import DiamondButton from "~/components/atoms/DiamondButton";
+import StatDiamondButton from "~/components/molecules/StatDiamondButton";
 import NaviBar from "~/components/organisms/NaviBar";
 import MembersBar from "~/components/organisms/MembersBar";
 import StatDisplay from "~/components/organisms/StatDisplay";
@@ -10,7 +10,6 @@ import PanelPortrait from "~/components/organisms/PanelPortrait";
 
 import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import PlayerMenu from "./components/PlayerMenu";
-import ActionButton from "./components/Actions/ActionButton";
 import Status from "./components/Status";
 
 import { useLanguage } from "~/contexts/language";
@@ -19,8 +18,8 @@ import "./styles.css";
 function PlayerPanel({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [display, setDisplay] = useState("");
-  const [boxDisplay, setBoxDisplay] = useState("");
-  const [action, setAction] = useState(false);
+  // const [boxDisplay, setBoxDisplay] = useState("");
+  // const [action, setAction] = useState(false);
   const [player, setPlayer] = useState();
 
   const { signedApiCall } = useAuth();
@@ -48,7 +47,7 @@ function PlayerPanel({ history }) {
 
   useEffect(() => {
     //get GM signal por action time
-    setAction(true);
+    // setAction(true);
   }, []);
 
   return (
@@ -82,22 +81,22 @@ function PlayerPanel({ history }) {
 
             <div className="action">
               <div>
-                <DiamondButton
+                <StatDiamondButton
                   stat={"exaustion"}
                   value={player.exaustion}
                   name={content.mainNode.exaustion}
-                  setBoxDisplay={setBoxDisplay}
+                  onClick={() => {}}
                 />
               </div>
 
-              {action ? <ActionButtonActive /> : <ActionButton />}
+              <ActionButtonActive />
 
               <div>
-                <DiamondButton
+                <StatDiamondButton
                   stat={"inspiration"}
                   value={player.exaustion}
                   name={content.mainNode.exaustion}
-                  setBoxDisplay={setBoxDisplay}
+                  onClick={() => {}}
                 />
               </div>
             </div>

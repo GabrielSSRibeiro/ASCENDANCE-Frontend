@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
+import { ThemeProvider } from "styled-components";
+import standard from "~/styles/themes/standard";
 import Routes from "./routes";
 import { connect, disconnect } from "../src/services/socket";
 import { AuthProvider } from "./contexts/auth";
 import { LanguageProvider } from "./contexts/language";
 
-import "./styles/App.css";
+import "./styles/general.css";
+import "./styles/buttons.css";
 
 function App() {
   useEffect(() => {
@@ -19,11 +22,13 @@ function App() {
   }, []);
 
   return (
-    <LanguageProvider>
-      <AuthProvider>
-        <Routes />
-      </AuthProvider>
-    </LanguageProvider>
+    <ThemeProvider theme={standard}>
+      <LanguageProvider>
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 
