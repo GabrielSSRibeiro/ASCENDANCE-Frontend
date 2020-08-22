@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "~/contexts/auth";
 
-import StatDiamondButton from "~/components/molecules/StatDiamondButton";
+import ActiveResourceStat from "~/components/molecules/ActiveResourceStat";
 import NaviBar from "~/components/organisms/NaviBar";
 import MembersBar from "~/components/organisms/MembersBar";
 import StatDisplay from "~/components/organisms/StatDisplay";
@@ -81,10 +81,11 @@ function PlayerPanel({ history }) {
 
             <div className="action">
               <div>
-                <StatDiamondButton
-                  stat={"exaustion"}
-                  value={player.exaustion}
-                  name={content.mainNode.exaustion}
+                <ActiveResourceStat
+                  resource={"life"}
+                  currentValue={player.currentLife}
+                  totalValue={player.totalLife}
+                  name={content.mainNode.life}
                   onClick={() => {}}
                 />
               </div>
@@ -92,10 +93,11 @@ function PlayerPanel({ history }) {
               <ActionButtonActive />
 
               <div>
-                <StatDiamondButton
-                  stat={"inspiration"}
-                  value={player.exaustion}
-                  name={content.mainNode.exaustion}
+                <ActiveResourceStat
+                  resource={"essence"}
+                  currentValue={player.currentEssence}
+                  totalValue={player.totalEssence}
+                  name={content.mainNode.essence}
                   onClick={() => {}}
                 />
               </div>

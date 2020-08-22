@@ -1,5 +1,5 @@
 import React from "react";
-import UnlimitedCircleButton from "~/components/atoms/UnlimitedCircleButton";
+import CircleDiv from "~/components/atoms/CircleDiv";
 
 import "./styles.css";
 
@@ -8,7 +8,7 @@ function StatSection({ player, content }) {
     <div className="StatSection-container">
       {Object.entries(content).map((stat, name) => (
         <div key={stat}>
-          <UnlimitedCircleButton value={player[stat]} content={content[name]} />
+          <CircleDiv value={player[stat]} content={content[name]} />
         </div>
       ))}
     </div>

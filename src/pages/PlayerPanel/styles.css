@@ -1,79 +1,80 @@
 .PlayerPanel-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .PlayerPanel-container > main {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 @media (max-width: 1200px) {
-    .PlayerPanel-container > main {
-        flex-direction: column;
-    }
+  .PlayerPanel-container > main {
+    flex-direction: column;
+  }
 
-    .PlayerPanel-container > main > aside {
-        order: 2;
-        margin: 20px;
-    }
+  .PlayerPanel-container > main > aside {
+    order: 2;
+    margin: 20px;
+  }
 }
 
 .PlayerPanel-container > main > main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .PlayerPanel-container > main > main > span {
-    margin-top: 15px;
-    color: #dedede;
-    font-weight: 600;
-    font-size: 18px;
-    letter-spacing: 0.267rem;
-    margin-bottom: 10px;
+  margin-top: 15px;
+  color: #dedede;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.267rem;
+  margin-bottom: 10px;
 }
 
 .PlayerPanel-container > main > main > .profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-    width: 360px;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 360px;
+  height: 100%;
 }
 
 .PlayerPanel-container > main > main > .details {
-    width: 360px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
+  width: 360px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .PlayerPanel-container > main > main > .action {
-    width: 360px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  width: 360px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .PlayerPanel-container > main > main > .action > div {
-    width: calc(75px * 1.4142);
-    height: calc(75px * 1.4142);
+  width: calc(75px * 1.4142);
+  height: calc(75px * 1.4142);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin: 0 -5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

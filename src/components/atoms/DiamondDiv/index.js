@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./styles.css";
+import { Container } from "./styles.js";
 
 function DiamondDiv({ ...props }) {
-  return <div key={props.key} className="DiamondDiv-container" />;
+  return <Container key={props.key} />;
 }
 
 export default DiamondDiv;

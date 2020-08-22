@@ -9,8 +9,6 @@ export const content = {
   mainNode: {
     life: "Vida",
     essence: "Essência",
-    exaustion: "Exaustão",
-    inspiration: "Inspiração",
   },
   statDisplay: {
     skill: "Habilidade",
