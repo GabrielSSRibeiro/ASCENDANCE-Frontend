@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "~/contexts/auth";
+import { useLanguage } from "~/contexts/language";
 
 import ActiveResourceStat from "~/components/molecules/ActiveResourceStat";
 import NaviBar from "~/components/organisms/NaviBar";
@@ -12,7 +13,7 @@ import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import PlayerMenu from "./components/PlayerMenu";
 import Status from "./components/Status";
 
-import { useLanguage } from "~/contexts/language";
+import { firstHalf, secondHalf } from "~/utils/functions";
 import "./styles.css";
 
 function PlayerPanel({ history }) {
@@ -23,14 +24,6 @@ function PlayerPanel({ history }) {
   const [player, setPlayer] = useState();
 
   const { signedApiCall } = useAuth();
-
-  // function firstHalf(array) {
-  //   return array.filter((value, index) => index < array.length / 2);
-  // }
-
-  // function secondHalf(array) {
-  //   return array.filter((value, index) => index >= array.length / 2);
-  // }
 
   useEffect(() => {
     const GM = localStorage.getItem("GM");
@@ -60,7 +53,11 @@ function PlayerPanel({ history }) {
 
           {display !== "" && (
             <aside>
-              <StatSection player={player} content={Object.values(content.statSection.combat)} />
+              <StatSection
+                section={display}
+                player={player}
+                content={firstHalf(Object.values(content.statSection))}
+              />
             </aside>
           )}
 
@@ -106,7 +103,11 @@ function PlayerPanel({ history }) {
 
           {display !== "" && (
             <aside>
-              {/* <StatSection player={player} content={Object.values(content.statSection.combat)} /> */}
+              <StatSection
+                section={display}
+                player={player}
+                content={secondHalf(Object.values(content.statSection))}
+              />
             </aside>
           )}
         </main>

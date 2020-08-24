@@ -1,16 +1,19 @@
 import React from "react";
 
-import SingleStat from "~/components/organisms/SingleStat";
+import StatSkill from "./organisms/StatSkill";
+import StatCombat from "./organisms/StatCombat";
+import StatMagic from "./organisms/StatMagic";
+
 import "./styles.css";
 
-function StatSection({ player, content }) {
-  return (
-    <div className="StatSection-container">
-      {content.map((stat) => (
-        <SingleStat isEnhancebled={player.currentLife > 10} value={0} name={stat} />
-      ))}
-    </div>
-  );
+function StatSection({ section, ...props }) {
+  const factory = {
+    skill: <StatSkill {...props} />,
+    combat: <StatCombat {...props} />,
+    magic: <StatMagic {...props} />,
+  };
+
+  return factory[section];
 }
 
 export default StatSection;
