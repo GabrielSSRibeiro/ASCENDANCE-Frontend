@@ -1,6 +1,6 @@
 import React from "react";
 
-import DiamondDiv from "~/components/atoms/DiamondDiv";
+import DiamondDiv from "./atoms/DiamondDiv";
 import TextSpan from "~/components/atoms/TextSpan";
 
 import "./styles.css";

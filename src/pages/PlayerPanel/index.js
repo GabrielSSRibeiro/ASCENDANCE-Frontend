@@ -82,7 +82,7 @@ function PlayerPanel({ history }) {
             <div className="action">
               <div>
                 <ActiveResourceStat
-                  resource={"life"}
+                  resource="life"
                   currentValue={player.currentLife}
                   totalValue={player.totalLife}
                   name={content.mainNode.life}
@@ -94,7 +94,7 @@ function PlayerPanel({ history }) {
 
               <div>
                 <ActiveResourceStat
-                  resource={"essence"}
+                  resource="essence"
                   currentValue={player.currentEssence}
                   totalValue={player.totalEssence}
                   name={content.mainNode.essence}

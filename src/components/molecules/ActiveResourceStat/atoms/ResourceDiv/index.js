@@ -16,14 +16,7 @@ function ResourceDiv({ isEmpty, type, ...props }) {
 
   const divProps = variant[type];
 
-  return (
-    <Container
-      isEmpty={isEmpty}
-      background={divProps.background}
-      border={divProps.border}
-      key={props.key}
-    />
-  );
+  return <Container key={props.key} isEmpty={isEmpty} {...divProps} />;
 }
 
 export default ResourceDiv;

@@ -26,4 +26,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  .ActiveResourceStat-texts:first-child {
+    font-weight: ${(props) => props.theme.fontWeight.bold};
+  }
 `;

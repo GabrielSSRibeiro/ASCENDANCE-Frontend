@@ -1,15 +1,13 @@
 import React from "react";
-import CircleDiv from "~/components/atoms/CircleDiv";
 
+import SingleStat from "~/components/organisms/SingleStat";
 import "./styles.css";
 
 function StatSection({ player, content }) {
   return (
     <div className="StatSection-container">
-      {Object.entries(content).map((stat, name) => (
-        <div key={stat}>
-          <CircleDiv value={player[stat]} content={content[name]} />
-        </div>
+      {content.map((stat) => (
+        <SingleStat isEnhancebled={player.currentLife > 10} value={0} name={stat} />
       ))}
     </div>
   );
