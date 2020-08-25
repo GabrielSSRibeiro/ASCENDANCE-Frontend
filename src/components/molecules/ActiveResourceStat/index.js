@@ -12,7 +12,7 @@ function ActiveResourceStat({ resource, currentValue, totalValue, name, onClick,
       <ResourceDiv isEmpty={currentValue === 0} type={resources[resource]} />
       <div className="ActiveResourceStat-texts">
         <span>{currentValue}</span>
-        <span>{`${totalValue}/ ${name}`}</span>
+        <span>{`/${totalValue} ${name}`}</span>
       </div>
     </Container>
   );

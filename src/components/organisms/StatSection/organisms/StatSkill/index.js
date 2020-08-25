@@ -42,7 +42,7 @@ function StatSkill({ side, content, player }) {
           return (
             <SingleStat
               key={stat}
-              isEnhancebled={player.totalEssence > 0}
+              isEnhancebled={player.fitness > 0}
               value={player[stat]}
               name={name}
             />
