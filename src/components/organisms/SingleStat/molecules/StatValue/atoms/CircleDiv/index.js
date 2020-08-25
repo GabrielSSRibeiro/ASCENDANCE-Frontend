@@ -8,8 +8,9 @@ function CircleDiv({ isEnhancebled, type, ...props }) {
       background: "disabledDarkPurple",
     },
     active: {
-      background: "orangeGradient",
+      gradient: "orangeGradient",
       shadow: "lightPurple",
+      clickable: true,
     },
     success: {
       background: "regularGreen",

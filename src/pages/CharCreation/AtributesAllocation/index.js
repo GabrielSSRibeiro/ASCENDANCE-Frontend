@@ -29,11 +29,28 @@ function AtributesAllocation({ history }) {
       title,
       GM,
       intelligence: selected.intelligence,
+      history: selected.intelligence,
+      reasoning: selected.intelligence,
+
       strength: selected.strength,
+      athletics: selected.strength,
+      intimidation: selected.strength,
+
       charisma: selected.charisma,
+      improvisation: selected.charisma,
+      intuition: selected.charisma,
+
       constitution: selected.constitution,
+      vigor: selected.constitution,
+      survival: selected.constitution,
+
       dexterity: selected.dexterity,
+      stealth: selected.dexterity,
+      lightness: selected.dexterity,
+
       wisdom: selected.wisdom,
+      nature: selected.wisdom,
+      perception: selected.wisdom,
       level,
     });
   }

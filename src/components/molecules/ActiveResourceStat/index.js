@@ -1,7 +1,6 @@
 import React from "react";
 
 import ResourceDiv from "./atoms/ResourceDiv";
-import TextSpan from "~/components/atoms/TextSpan";
 
 import { Container } from "./styles.js";
 
@@ -12,8 +11,8 @@ function ActiveResourceStat({ resource, currentValue, totalValue, name, onClick,
     <Container key={props.key} onClick={() => onClick}>
       <ResourceDiv isEmpty={currentValue === 0} type={resources[resource]} />
       <div className="ActiveResourceStat-texts">
-        <TextSpan text={currentValue} size="large" color="white" />
-        <TextSpan text={`${totalValue}/ ${name}`} size="small" color="white" />
+        <span>{currentValue}</span>
+        <span>{`${totalValue}/ ${name}`}</span>
       </div>
     </Container>
   );

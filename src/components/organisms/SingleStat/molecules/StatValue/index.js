@@ -1,7 +1,6 @@
 import React from "react";
 
 import CircleDiv from "./atoms/CircleDiv";
-import TextSpan from "~/components/atoms/TextSpan";
 
 import { Container } from "./styles.js";
 
@@ -10,8 +9,8 @@ function StatValue({ isEnhancebled, value, name, onClick, ...props }) {
     <Container key={props.key} onClick={() => onClick}>
       <CircleDiv type="default" isEnhancebled={isEnhancebled} />
       <div>
-        <TextSpan text={value} size="large" color="white" />
-        <TextSpan text={name} size="small" color="white" />
+        <span>{value}</span>
+        <span>{name}</span>
       </div>
     </Container>
   );

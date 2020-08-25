@@ -25,9 +25,17 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  }
 
-  .ActiveResourceStat-texts:first-child {
-    font-weight: ${(props) => props.theme.fontWeight.bold};
+    > span {
+      color: ${(props) => props.theme.colors.white};
+    }
+    > span:first-child {
+      font-size: ${(props) => props.theme.fontSizes.extra};
+      font-weight: ${(props) => props.theme.fontWeight.bold};
+    }
+    > span:last-child {
+      margin-top: 5px;
+      font-size: ${(props) => props.theme.fontSizes.small};
+    }
   }
 `;

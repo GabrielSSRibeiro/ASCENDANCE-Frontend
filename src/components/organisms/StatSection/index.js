@@ -6,14 +6,16 @@ import StatMagic from "./organisms/StatMagic";
 
 import "./styles.css";
 
-function StatSection({ section, ...props }) {
-  const factory = {
+function StatSection({ section, content, ...props }) {
+  props.content = content[section];
+
+  const variant = {
     skill: <StatSkill {...props} />,
     combat: <StatCombat {...props} />,
     magic: <StatMagic {...props} />,
   };
 
-  return factory[section];
+  return variant[section];
 }
 
 export default StatSection;

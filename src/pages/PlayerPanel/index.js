@@ -13,12 +13,12 @@ import ActionButtonActive from "./components/Actions/ActionButtonActive";
 import PlayerMenu from "./components/PlayerMenu";
 import Status from "./components/Status";
 
-import { firstHalf, secondHalf } from "~/utils/functions";
 import "./styles.css";
 
 function PlayerPanel({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [display, setDisplay] = useState("");
+  // const [actionDisplay, setActionDisplay] = useState(false);
   // const [boxDisplay, setBoxDisplay] = useState("");
   // const [action, setAction] = useState(false);
   const [player, setPlayer] = useState();
@@ -54,9 +54,10 @@ function PlayerPanel({ history }) {
           {display !== "" && (
             <aside>
               <StatSection
+                side="left"
                 section={display}
                 player={player}
-                content={firstHalf(Object.values(content.statSection))}
+                content={content.statSection}
               />
             </aside>
           )}
@@ -104,9 +105,10 @@ function PlayerPanel({ history }) {
           {display !== "" && (
             <aside>
               <StatSection
+                side="right"
                 section={display}
                 player={player}
-                content={secondHalf(Object.values(content.statSection))}
+                content={content.statSection}
               />
             </aside>
           )}

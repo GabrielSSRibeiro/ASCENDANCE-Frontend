@@ -21,6 +21,13 @@
   justify-content: space-between;
 }
 
-.StatDiamondButton-container > div:last-child > div:first-child {
+.StatDiamondButton-container > div:last-child > span {
+  color: #ffffff;
+}
+.StatDiamondButton-container > div:last-child > span:first-child {
+  font-size: 20px;
+}
+.StatDiamondButton-container > div:last-child > span:last-child {
   margin-bottom: 7px;
+  font-size: 10px;
 }

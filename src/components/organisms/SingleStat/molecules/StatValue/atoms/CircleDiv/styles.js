@@ -5,10 +5,26 @@ export const Container = styled.div`
   width: 75px;
   height: 75px;
   border-radius: 100%;
-  cursor: pointer;
   transition: all 0.2s;
-  background-color: ${(props) => props.theme.colors[props.background]};
+  background-color: ${(props) => props.background && props.theme.colors[props.background]};
+  background: ${(props) => props.gradient && props.theme.colors[props.gradient]};
   border: ${(props) =>
     props.isEnhancebled ? `2px solid ${props.theme.colors.lightGrey}` : "none"};
   box-shadow: ${(props) => props.shadow && props.theme.shadows[props.shadow]};
+
+  ${(props) => {
+    return (
+      props.clickable &&
+      `
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+  `
+    );
+  }}
 `;

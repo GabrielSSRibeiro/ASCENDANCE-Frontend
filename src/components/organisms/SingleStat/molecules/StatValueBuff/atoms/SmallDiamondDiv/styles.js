@@ -8,5 +8,4 @@ export const Container = styled.div`
   background-color: ${(props) => props.background && props.theme.colors[props.background]};
   background: ${(props) => props.gradient && props.theme.colors[props.gradient]};
   box-shadow: ${(props) => props.shadow && props.theme.shadows[props.shadow]};
-  cursor: pointer;
 `;
