@@ -27,6 +27,8 @@ function OriginSelection({ history }) {
       GM,
       origin: selected,
       lifeDie,
+      currentLife: lifeDie,
+      totalLife: lifeDie,
       class: "",
       class2: "",
       disciplines,

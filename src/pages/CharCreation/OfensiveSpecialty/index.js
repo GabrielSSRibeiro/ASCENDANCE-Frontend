@@ -25,6 +25,7 @@ function OfensiveSpecialty({ history }) {
       title,
       GM,
       ofensiveSpecialty: selected,
+      equipWeapon1: { name: content.initialWeapon, specialty: true, rarity: 0 },
       level,
     });
   }

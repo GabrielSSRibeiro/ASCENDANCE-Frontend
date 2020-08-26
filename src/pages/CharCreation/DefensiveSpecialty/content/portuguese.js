@@ -2,6 +2,7 @@ const React = require("react");
 
 module.exports.content = {
   title: "Escolha a Especialidade Defensiva",
+  initialProtection: "Proteção Inicial",
   outline: {
     race: "Raça",
     origin: "Origem Mágica",

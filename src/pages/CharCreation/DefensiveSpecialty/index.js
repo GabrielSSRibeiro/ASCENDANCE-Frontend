@@ -25,6 +25,7 @@ function DefensiveSpecialty({ history }) {
       title,
       GM,
       defensiveSpecialty: selected,
+      equipArmor1: { name: content.initialProtection, specialty: true, rarity: 0 },
       level,
     });
   }

@@ -2,6 +2,7 @@ const React = require("react");
 
 module.exports.content = {
   title: "Escolha a Especialidade Ofensiva",
+  initialWeapon: "Arma Inicial",
   outline: {
     race: "Raça",
     origin: "Origem Mágica",
