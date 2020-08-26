@@ -18,12 +18,17 @@ import "./styles.css";
 function PlayerPanel({ history }) {
   const { content } = require(`./content/${useLanguage().language}`);
   const [display, setDisplay] = useState("");
-  // const [actionDisplay, setActionDisplay] = useState(false);
+  const [actionDisplay, setActionDisplay] = useState(false);
   // const [boxDisplay, setBoxDisplay] = useState("");
   // const [action, setAction] = useState(false);
   const [player, setPlayer] = useState();
 
   const { signedApiCall } = useAuth();
+
+  const variant = actionDisplay
+    ? player && { profile: "" }
+    : player && { profile: <PanelPortrait image={player.avatar} /> };
+  const pageProps = { ...variant };
 
   useEffect(() => {
     const GM = localStorage.getItem("GM");
@@ -39,8 +44,8 @@ function PlayerPanel({ history }) {
   }, [signedApiCall]);
 
   useEffect(() => {
-    //get GM signal por action time
-    // setAction(true);
+    //get GM signal if action time
+    setActionDisplay(false);
   }, []);
 
   return (
@@ -65,9 +70,7 @@ function PlayerPanel({ history }) {
           <main>
             <span>{player.name}</span>
 
-            <div className="profile">
-              <PanelPortrait image={player.avatar} />
-            </div>
+            <div className="profile">{pageProps.profile}</div>
 
             <div className="details">
               <StatDisplay
