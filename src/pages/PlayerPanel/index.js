@@ -25,9 +25,9 @@ function PlayerPanel({ history }) {
 
   const { signedApiCall } = useAuth();
 
-  const variant = actionDisplay
-    ? player && { profile: "" }
-    : player && { profile: <PanelPortrait image={player.avatar} /> };
+  const variant =
+    player &&
+    (actionDisplay ? { profile: "" } : { profile: <PanelPortrait image={player.avatar} /> });
   const pageProps = { ...variant };
 
   useEffect(() => {
